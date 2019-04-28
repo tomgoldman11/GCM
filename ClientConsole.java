@@ -43,6 +43,7 @@ public class ClientConsole implements ChatIF
    */
   public ClientConsole(String loginID, String host, int port) 
   {
+	  System.out.println("ClientConsole");
     try 
     {
       client= new ChatClient(loginID, host, port, this);
@@ -64,14 +65,18 @@ public class ClientConsole implements ChatIF
    */
   public void accept() 
   {
+	  System.out.println("accept");
     try
     {
       BufferedReader fromConsole = 
         new BufferedReader(new InputStreamReader(System.in));
       String message;
-
       while (true) 
       {
+    	System.out.println("Please choose your Action: "
+    			+ "1 : See Your Current Details \n "
+    			+ "2 : Make A Purchase \n");
+    	
         message = fromConsole.readLine();
         client.handleMessageFromClientUI(message);
       }
@@ -91,6 +96,7 @@ public class ClientConsole implements ChatIF
    */
   public void display(String message) 
   {
+	 System.out.println("display");
     System.out.println(message);
   }
 

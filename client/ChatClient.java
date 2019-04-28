@@ -50,7 +50,7 @@ public class ChatClient extends AbstractClient
     this.clientUI = clientUI;
     openConnection();
     this.loginID = "ANONYMOUS";
-    sendToServer("#login ANONYMOUS");
+    sendToServer("#login: ANONYMOUS");
   }
 
   /**
@@ -69,7 +69,8 @@ public class ChatClient extends AbstractClient
     this.clientUI = clientUI;
     this.loginID = loginID;
     openConnection();
-    sendToServer("#login " + loginID);
+    String msg = "Select * From Users  WHERE userID =" + this.loginID ;
+	sendToServer(msg);
   }
 
   
@@ -82,6 +83,7 @@ public class ChatClient extends AbstractClient
    */
   public void handleMessageFromServer(Object msg) 
   {
+	  System.out.println("handleMessageFromServer");
     clientUI.display(msg.toString());
   }
 
@@ -92,10 +94,17 @@ public class ChatClient extends AbstractClient
    */
   public void handleMessageFromClientUI(String message)
   {
+	  System.out.println("handleMessageFromClientUI");
+	  
+	  
     // detect commands
     if (message.charAt(0) == '#')
     {
       runCommand(message);
+    }
+    if (message.charAt(0) == '1')
+    {
+    	
     }
     else
     {
@@ -121,7 +130,7 @@ public class ChatClient extends AbstractClient
   private void runCommand(String message)
   {
     // a bunch of ifs
-
+	  System.out.println("runCommand");
     if (message.equalsIgnoreCase("#quit"))
     {
       quit();
