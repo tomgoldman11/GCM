@@ -96,7 +96,7 @@ public class ClientConsole implements ChatIF
    */
   public void display(String message) 
   {
-	 System.out.println("display");
+	 System.out.println("displayClient");
     System.out.println(message);
   }
 
