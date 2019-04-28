@@ -5,7 +5,6 @@
 import java.io.*;
 import client.*;
 import common.*;
-
 /**
  * This class constructs the UI for a chat client.  It implements the
  * chat interface in order to activate the display() method.
@@ -18,14 +17,14 @@ import common.*;
  */
 public class ClientConsole implements ChatIF 
 {
-  //Class variables *************************************************
+  //Class variables *****************
   
   /**
    * The default port to connect on.
    */
   final public static int DEFAULT_PORT = 5555;
   
-  //Instance variables **********************************************
+  //Instance variables ****************
   
   /**
    * The instance of the client that created this ConsoleChat.
@@ -33,7 +32,7 @@ public class ClientConsole implements ChatIF
   ChatClient client;
 
   
-  //Constructors ****************************************************
+  //Constructors ******************
 
   /**
    * Constructs an instance of the ClientConsole UI.
@@ -57,7 +56,7 @@ public class ClientConsole implements ChatIF
   }
 
   
-  //Instance methods ************************************************
+  //Instance methods ****************
   
   /**
    * This method waits for input from the console.  Once it is 
@@ -65,9 +64,7 @@ public class ClientConsole implements ChatIF
    */
   public void accept() 
   {
-	  
-	  String details="LastName: Goldman \n ID: 204380836 \n Address: Carmelia, Haifa";
-	  try
+    try
     {
       BufferedReader fromConsole = 
         new BufferedReader(new InputStreamReader(System.in));
@@ -76,16 +73,13 @@ public class ClientConsole implements ChatIF
       while (true) 
       {
         message = fromConsole.readLine();
-        if ( message.equals("send") )
-        {
-        	client.handleMessageFromClientUI(details);            
-        }
-        else client.handleMessageFromClientUI(message);
+        client.handleMessageFromClientUI(message);
       }
     } 
     catch (Exception ex) 
     {
-      System.out.println("Unexpected error while reading from console!");
+      System.out.println
+        ("Unexpected error while reading from console!");
     }
   }
 
@@ -101,7 +95,7 @@ public class ClientConsole implements ChatIF
   }
 
   
-  //Class methods ***************************************************
+  //Class methods *****************
   
   /**
    * This method is responsible for the creation of the Client UI.
