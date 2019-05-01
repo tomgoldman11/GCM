@@ -4,8 +4,10 @@
 
 package client;
 import common.*;
+import java.sql.Date;
 import models.Customer;
 import models.User;
+import models.CustomerCard;
 import ocsf.client.AbstractClient;
 import java.io.*;
 import java.sql.ClientInfoStatus;
@@ -36,7 +38,8 @@ public class ChatClient extends AbstractClient
    */
   String loginID;
   User usr = new User("","");
-  Customer customer = new Customer("","",0,0);
+  CustomerCard customercard = new CustomerCard(-1,"x",0,"x","x");
+  Customer customer = new Customer("","",0,0,customercard);
   
   //Constructors ****************************************************
   
@@ -88,24 +91,39 @@ public class ChatClient extends AbstractClient
   {
 	  if (msg.toString().charAt(0) == '@') {
 		  String[] splited = msg.toString().split("\\s+");
-		  System.out.println(splited[1]);
 		  this.usr.setUserID(splited[1]);
 		  this.usr.setPassword(splited[2]);
+		  this.usr.setRegisterDate(splited[3]);
 		  handleMessageFromClientUI("@"+ splited[1]);
 		  
 	  }
 	  if (msg.toString().charAt(0) == '%') {
 		  String[] splited = msg.toString().split("\\s+");
-		  this.customer.setUserID(splited[1]);
 		  this.customer.setCusID(Integer.parseInt(splited[2]));
 		  this.customer.setPurchases(Integer.parseInt(splited[3]));
 		  this.customer.setPassword(this.usr.getPassword());
+		  this.customer.setUserID(this.usr.getUserID());
+		  String sql = "!SELECT * FROM CustomersCard WHERE cusID=" + this.customer.getCusID();
+		  try {
+			sendToServer(sql);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		  
-		  Loggin();
 		  
 	  }
+	  if (msg.toString().charAt(0) == '!') {
+		  String[] splited = msg.toString().split("\\s+");
+		  this.customercard.setCusID(Integer.parseInt(splited[1]));
+		  this.customercard.setCustomerName(splited[2] + " " + splited[3]);
+		  this.customercard.setAge(Integer.parseInt(splited[4]));
+		  this.customercard.setPhone(splited[5]);
+		  this.customercard.setEmail(splited[6]);
+		  handleMessageFromClientUI("@"+ splited[1]);
+	  }
 	  if (msg.toString().charAt(0) == '1') {
-		  clientUI.display("You made the purchase");
+		  clientUI.display("Your Purchase Has Been Made Successfully");
 		  Loggin();}
 //	  clientUI.display(msg.toString());
 	  
@@ -121,7 +139,6 @@ public class ChatClient extends AbstractClient
 	  
 	  
     // detect commands
-	  clientUI.display(message);
     if (message.charAt(0) == '#')
     {
       runCommand(message);
@@ -129,7 +146,6 @@ public class ChatClient extends AbstractClient
     if (message.charAt(0) == '!')
     {
     	this.loginID = message.substring(1);
-    	System.out.println(this.loginID);
     	String msg = "@Select * From Users  WHERE userID =" + this.loginID ;
     	try {
 			sendToServer(msg);
@@ -146,7 +162,7 @@ public class ChatClient extends AbstractClient
 	if (message.charAt(0) == '$') {
 		message = message.replace("$", "");
 		if (message.equals(this.usr.getPassword())) {
-			clientUI.display("loggin!");
+			clientUI.display("login successful");
 			message = "%Select * From Customers  WHERE userID =" + this.usr.getUserID();
 			try {
 				sendToServer(message);
@@ -154,12 +170,18 @@ public class ChatClient extends AbstractClient
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}		  
+		}
+		Loggin();
     }
 	if (message.equals("1")) {
-    	String msg = "Cstomer ID: " + this.customer.getCusID() + "\n"
-    			+  "Purchases: " + Integer.toString(this.customer.getPurchases())  ;
+    	String msg = "\nCstomer ID: " + this.customer.getCusID() + "\n"
+    			+ "Customer Name: " + this.customercard.getCustomerName() + "\n"
+    			+ "Purchases: " + Integer.toString(this.customer.getPurchases())  + "\n"
+    			+ "Age: " + Integer.toString(this.customercard.getAge()) + "\n"
+    			+ "Phone: " + this.customercard.getPhone() + "\n"
+    			+ "Email: " + this.customercard.getEmail();
     	clientUI.display(msg);
+    	Loggin();
 	}
     if (message.equals("2")) {
     	int newAmountOfPurchases = this.customer.getPurchases() + 1;
@@ -171,19 +193,7 @@ public class ChatClient extends AbstractClient
 			e.printStackTrace();
 		}
 	}
-//    else
-//    {
-//      try
-//      {
-//        sendToServer(message);
-//      }
-//      catch(IOException e)
-//      {
-//        clientUI.display
-//          ("Could not send message to server.  Terminating client.");
-//        quit();
-//      }s
-//    }
+
   }
 
   /**
@@ -289,9 +299,10 @@ public class ChatClient extends AbstractClient
   }
   public void Loggin() {
 	  
-	  clientUI.display("choose your action: \n"
+	  clientUI.display("\n      choose your action: \n" + "------------------------------ \n"
 	  		+ "1) see your detalis\n"
-	  		+ "2) purchase map");
+	  		+ "2) purchase map"
+	  		+ "\n ------------------------------ \n");
 	  
   }
 }

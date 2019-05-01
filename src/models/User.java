@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class User {
 	private String userID ;
 	private String password ;
-	private Date registerDate;
+	private String registerDate;
 	
 	
 	public User(String user, String pass) {
@@ -33,11 +33,11 @@ public class User {
 		this.password = password;
 	}
 
-	public Date getRegisterDate() {
+	public String getRegisterDate() {
 		return registerDate;
 	}
 
-	public void setRegisterDate(Date registerDate) {
+	public void setRegisterDate(String registerDate) {
 		this.registerDate = registerDate;
 	}
 	

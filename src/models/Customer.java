@@ -8,11 +8,13 @@ public class Customer extends User{
 	private String userID;
 	private int cusID;
 	private int purchases;
+	private CustomerCard customerCard;
 	
-	public Customer(String user, String pass, int cusID, int purchases) {
+	public Customer(String user, String pass, int cusID, int purchases, CustomerCard card) {
 		super(user, pass);
 		this.cusID = cusID;
 		this.purchases = purchases;
+		this.customerCard = card;
 	}
 	
 	
