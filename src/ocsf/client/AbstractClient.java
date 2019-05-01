@@ -307,6 +307,7 @@ public abstract class AbstractClient implements Runnable
    * messages.
    *
    * @param msg   the message sent.
+ * @return 
    */
   protected abstract void handleMessageFromServer(Object msg);
 

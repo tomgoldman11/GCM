@@ -1,5 +1,4 @@
 package models;
-import db.ConstantQueries;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;

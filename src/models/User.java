@@ -1,5 +1,4 @@
 package models;
-import db.ConstantQueries;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -42,10 +41,5 @@ public class User {
 		this.registerDate = registerDate;
 	}
 	
-	   public User(ResultSet resultSet) throws SQLException {
-	        this(resultSet.getString(ConstantQueries.USERS.COL_ID),
-	               resultSet.getString(ConstantQueries.USERS.COL_PASSWORD));
-	    }
-
 
 }

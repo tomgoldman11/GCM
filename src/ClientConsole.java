@@ -3,8 +3,12 @@
 // license found at www.lloseng.com 
 
 import java.io.*;
+
 import client.*;
 import common.*;
+import models.*;
+
+
 /**
  * This class constructs the UI for a chat client.  It implements the
  * chat interface in order to activate the display() method.
@@ -17,14 +21,14 @@ import common.*;
  */
 public class ClientConsole implements ChatIF 
 {
-  //Class variables *****************
+  //Class variables *************************************************
   
   /**
    * The default port to connect on.
    */
   final public static int DEFAULT_PORT = 5555;
   
-  //Instance variables ****************
+  //Instance variables **********************************************
   
   /**
    * The instance of the client that created this ConsoleChat.
@@ -32,7 +36,7 @@ public class ClientConsole implements ChatIF
   ChatClient client;
 
   
-  //Constructors ******************
+  //Constructors ****************************************************
 
   /**
    * Constructs an instance of the ClientConsole UI.
@@ -43,7 +47,6 @@ public class ClientConsole implements ChatIF
    */
   public ClientConsole(String loginID, String host, int port) 
   {
-	  System.out.println("ClientConsole");
     try 
     {
       client= new ChatClient(loginID, host, port, this);
@@ -57,7 +60,7 @@ public class ClientConsole implements ChatIF
   }
 
   
-  //Instance methods ****************
+  //Instance methods ************************************************
   
   /**
    * This method waits for input from the console.  Once it is 
@@ -65,18 +68,14 @@ public class ClientConsole implements ChatIF
    */
   public void accept() 
   {
-	  System.out.println("accept");
     try
     {
       BufferedReader fromConsole = 
         new BufferedReader(new InputStreamReader(System.in));
       String message;
+
       while (true) 
       {
-    	System.out.println("Please choose your Action: "
-    			+ "1 : See Your Current Details \n "
-    			+ "2 : Make A Purchase \n");
-    	
         message = fromConsole.readLine();
         client.handleMessageFromClientUI(message);
       }
@@ -96,12 +95,11 @@ public class ClientConsole implements ChatIF
    */
   public void display(String message) 
   {
-	 System.out.println("displayClient");
     System.out.println(message);
   }
 
   
-  //Class methods *****************
+  //Class methods ***************************************************
   
   /**
    * This method is responsible for the creation of the Client UI.
@@ -138,6 +136,8 @@ public class ClientConsole implements ChatIF
       port = DEFAULT_PORT;
     }
     ClientConsole chat= new ClientConsole(loginID, host, port);
+    System.out.println("Please enter ! userID:");
+    
     chat.accept();  //Wait for console data
   }
 }
