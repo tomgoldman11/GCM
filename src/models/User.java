@@ -1,22 +1,23 @@
 package models;
+
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 /**
  * @author tomgo
  *
  */
 public class User {
-	private String userID ;
-	private String password ;
+	private String userID;
+	private String password;
 	private String registerDate;
-	
-	
+
 	public User(String user, String pass) {
 		this.userID = user;
 		this.password = pass;
 	}
-	
+
 	public String getUserID() {
 		return userID;
 	}
@@ -40,6 +41,5 @@ public class User {
 	public void setRegisterDate(String registerDate) {
 		this.registerDate = registerDate;
 	}
-	
 
 }
