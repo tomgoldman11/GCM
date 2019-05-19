@@ -4,9 +4,15 @@
 // license found at www.lloseng.com 
 
 import java.io.*;
-
+import java.net.URL;
+import scences.*;
 import client.*;
 import common.*;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import models.*;
 
 /**
@@ -19,7 +25,7 @@ import models.*;
  * @author Dr Robert Lagani&egrave;re
  * @version July 2000
  */
-public class ClientConsole implements ChatIF {
+public class ClientConsole extends Application implements ChatIF {
 	// Class variables *************************************************
 
 	/**
@@ -119,9 +125,22 @@ public class ClientConsole implements ChatIF {
 			port = DEFAULT_PORT;
 		}
 		ClientConsole chat = new ClientConsole(loginID, host, port);
+		
+		launch(args);  // starting the app here >!@?
+		
 		System.out.println("Please enter ! userID:");
 
 		chat.accept(); // Wait for console data
 	}
+
+	@Override
+    public void start(Stage primaryStage) throws IOException {
+        URL url=getClass().getResource("/scences/LogInScene.fxml"); // use the fxml file.
+        AnchorPane pane= FXMLLoader.load(url); // using AnchorPane as layout for calculator
+        Scene LogInScene=new Scene(pane);
+        primaryStage.setScene(LogInScene);
+        primaryStage.setTitle("GCM - LogIn Page");
+        primaryStage.show();
+    }
 }
 // End of ConsoleChat class
