@@ -25,7 +25,8 @@ import models.*;
  * @author Dr Robert Lagani&egrave;re
  * @version July 2000
  */
-public class ClientConsole extends Application implements ChatIF {
+// should this class extends application???
+public class ClientConsole implements ChatIF {
 	// Class variables *************************************************
 
 	/**
@@ -105,42 +106,42 @@ public class ClientConsole extends Application implements ChatIF {
 	 *            The port to connect to.
 	 */
 	public static void main(String[] args) {
-//		String host = "";
-//		int port = 0; // The port number
-//		String loginID = "";
-//		try {
-//			loginID = args[0];
-//		} catch (ArrayIndexOutOfBoundsException e) {
-//			System.out.println("usage: java ClientConsole loginID [host [port]]");
-//			System.exit(1);
-//		}
-//		try {
-//			host = args[1];
-//		} catch (ArrayIndexOutOfBoundsException e) {
-//			host = "localhost";
-//		}
-//		try {
-//			port = Integer.parseInt(args[2]);
-//		} catch (ArrayIndexOutOfBoundsException e) {
-//			port = DEFAULT_PORT;
-//		}
-//		ClientConsole chat = new ClientConsole(loginID, host, port);
-//		
-		Application.launch(ClientConsole.class,args);  // starting the app here >!@?
-		
-//		System.out.println("Please enter ! userID:");
+		String host = "";
+		int port = 0; // The port number
+		String loginID = "";
+		try {
+			loginID = args[0];
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println("usage: java ClientConsole loginID [host [port]]");
+			System.exit(1);
+		}
+		try {
+			host = args[1];
+		} catch (ArrayIndexOutOfBoundsException e) {
+			host = "localhost";
+		}
+		try {
+			port = Integer.parseInt(args[2]);
+		} catch (ArrayIndexOutOfBoundsException e) {
+			port = DEFAULT_PORT;
+		}
+		ClientConsole chat = new ClientConsole(loginID, host, port);
 
-//		chat.accept(); // Wait for console data
+ // starting the app here >!@?
+		
+		System.out.println("Please enter ! userID:");
+
+		chat.accept(); // Wait for console data
 	}
 
-	@Override
-    public void start(Stage primaryStage) throws IOException {
-        URL url=getClass().getResource("/scences/LogInScene.fxml"); // use the fxml file.
-        AnchorPane pane= FXMLLoader.load(url); // using AnchorPane as layout for calculator
-        Scene LogInScene=new Scene(pane);
-        primaryStage.setScene(LogInScene);
-        primaryStage.setTitle("GCM - LogIn Page");
-        primaryStage.show();
-    }
+//	@Override
+//    public void start(Stage primaryStage) throws IOException {
+//        URL url=getClass().getResource("/scences/LogInScene.fxml"); // use the fxml file.
+//        AnchorPane pane= FXMLLoader.load(url); // using AnchorPane as layout for calculator
+//        Scene LogInScene=new Scene(pane);
+//        primaryStage.setScene(LogInScene);
+//        primaryStage.setTitle("GCM - LogIn Page");
+//        primaryStage.show();
+//    }
 }
 // End of ConsoleChat class

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #D4D4D4;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scences.ConnectionScene">
+   <children>
+      <TextField fx:id="hostTF" layoutX="80.0" layoutY="193.0" prefHeight="31.0" prefWidth="369.0" promptText="host" />
+      <TextField fx:id="LoginIDTF" layoutX="80.0" layoutY="106.0" prefHeight="31.0" prefWidth="369.0" promptText="loginID" />
+      <TextField fx:id="portTF" layoutX="80.0" layoutY="285.0" prefHeight="31.0" prefWidth="369.0" promptText="port" />
+      <Text fx:id="EnterLoginIDT" fill="#0615dd" layoutX="80.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter loginID" />
+      <Text fx:id="EnterPortT" fill="#0615dd" layoutX="80.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter port" />
+      <Text fx:id="EnterHostT" fill="#0615dd" layoutX="80.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter host" />
+      <Button fx:id="ConnetBTN" layoutX="175.0" layoutY="358.0" mnemonicParsing="false" onAction="#LogIn" prefHeight="31.0" prefWidth="151.0" style="-fx-border-color: #0F29D1;" text="Connect" />
+      <Label fx:id="ConnectionStatusL" alignment="CENTER" contentDisplay="CENTER" layoutX="121.0" layoutY="429.0" prefHeight="21.0" prefWidth="258.0" text="Status" textAlignment="JUSTIFY" />
+      <Text fx:id="ConnetionT" fill="#0615dd" layoutX="127.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Setup Connetion To Server" textAlignment="CENTER" wrappingWidth="245.5126953125">
+         <font>
+            <Font name="Architects Daughter" size="18.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

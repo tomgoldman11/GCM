@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="LogInAP" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scences.LogInController">
+   <children>
+      <Button fx:id="LogInBTN" layoutX="174.0" layoutY="281.0" mnemonicParsing="false" onAction="#LogIn" prefHeight="31.0" prefWidth="151.0" text="LogIn" />
+      <TextField fx:id="UserNameTF" layoutX="134.0" layoutY="110.0" prefHeight="31.0" prefWidth="232.0" promptText="username" AnchorPane.topAnchor="110.0" />
+      <Text fx:id="UserNameT" fill="#0615dd" layoutX="198.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter username" />
+      <Text fx:id="UserNameTF1" fill="#0615dd" layoutX="200.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter password" />
+      <PasswordField fx:id="PasswordPF" layoutX="135.0" layoutY="212.0" prefHeight="31.0" prefWidth="232.0" promptText="password" />
+      <Button fx:id="LogInGuestBTN" layoutX="134.0" layoutY="339.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="232.0" text="LogIn As Guest" />
+      <Label fx:id="StatusL" alignment="CENTER" contentDisplay="CENTER" layoutX="198.0" layoutY="421.0" prefHeight="21.0" prefWidth="103.0" text="Status" textAlignment="JUSTIFY" />
+   </children>
+</AnchorPane>
