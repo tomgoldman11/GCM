@@ -1,10 +1,12 @@
-
+package client;
 // This file contains material supporting section 3.7 of the textbook:
 // "Object Oriented Software Engineering" and is issued under the open-source
 // license found at www.lloseng.com 
 
 import java.io.*;
 import java.net.URL;
+
+import javafx.scene.Parent;
 import scences.*;
 import client.*;
 import common.*;
@@ -13,7 +15,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+
 import models.*;
+
+import static javafx.application.Application.launch;
 
 /**
  * This class constructs the UI for a chat client. It implements the chat
@@ -25,8 +30,9 @@ import models.*;
  * @author Dr Robert Lagani&egrave;re
  * @version July 2000
  */
-// should this class extends application???
-public class ClientConsole implements ChatIF {
+
+public class ClientConsole extends Application {
+
 	// Class variables *************************************************
 
 	/**
@@ -44,7 +50,7 @@ public class ClientConsole implements ChatIF {
 	// Constructors ****************************************************
 
 	/**
-	 * Constructs an instance of the ClientConsole UI.
+	 * Constructs an instance of the client.ClientConsole UI.
 	 *
 	 * @param host
 	 *            The host to connect to.
@@ -53,14 +59,14 @@ public class ClientConsole implements ChatIF {
 	 * @param loginID
 	 *            The user's ID.
 	 */
-	public ClientConsole(String loginID, String host, int port) {
-		try {
-			client = new ChatClient(loginID, host, port, this);
-		} catch (IOException exception) {
-			System.out.println("Error: Can't setup connection!" + " Terminating client.");
-			System.exit(1);
-		}
-	}
+//	public client.ClientConsole(String loginID, String host, int port) {
+//		try {
+//			client = new ChatClient(loginID, host, port, this);
+//		} catch (IOException exception) {
+//			System.out.println("Error: Can't setup connection!" + " Terminating client.");
+//			System.exit(1);
+//		}
+//	}
 
 	// Instance methods ************************************************
 
@@ -106,42 +112,56 @@ public class ClientConsole implements ChatIF {
 	 *            The port to connect to.
 	 */
 	public static void main(String[] args) {
-		String host = "";
-		int port = 0; // The port number
-		String loginID = "";
-		try {
-			loginID = args[0];
-		} catch (ArrayIndexOutOfBoundsException e) {
-			System.out.println("usage: java ClientConsole loginID [host [port]]");
-			System.exit(1);
-		}
-		try {
-			host = args[1];
-		} catch (ArrayIndexOutOfBoundsException e) {
-			host = "localhost";
-		}
-		try {
-			port = Integer.parseInt(args[2]);
-		} catch (ArrayIndexOutOfBoundsException e) {
-			port = DEFAULT_PORT;
-		}
-		ClientConsole chat = new ClientConsole(loginID, host, port);
+			launch(args);
+
+
+//		String host = "";
+//		int port = 0; // The port number
+//		String loginID = "";
+//		try {
+//			loginID = args[0];
+//		} catch (ArrayIndexOutOfBoundsException e) {
+//			System.out.println("usage: java client.ClientConsole loginID [host [port]]");
+//			System.exit(1);
+//		}
+//		try {
+//			host = args[1];
+//		} catch (ArrayIndexOutOfBoundsException e) {
+//			host = "localhost";
+//		}
+//		try {
+//			port = Integer.parseInt(args[2]);
+//		} catch (ArrayIndexOutOfBoundsException e) {
+//			port = DEFAULT_PORT;
+//		}
+//		client.ClientConsole chat = new client.ClientConsole(loginID, host, port);
 
  // starting the app here >!@?
 		
-		System.out.println("Please enter ! userID:");
-
-		chat.accept(); // Wait for console data
+//		System.out.println("Please enter ! userID:");
+//
+//		chat.accept(); // Wait for console data
 	}
 
-//	@Override
-//    public void start(Stage primaryStage) throws IOException {
-//        URL url=getClass().getResource("/scences/LogInScene.fxml"); // use the fxml file.
-//        AnchorPane pane= FXMLLoader.load(url); // using AnchorPane as layout for calculator
-//        Scene LogInScene=new Scene(pane);
-//        primaryStage.setScene(LogInScene);
-//        primaryStage.setTitle("GCM - LogIn Page");
-//        primaryStage.show();
-//    }
+	private static Stage primaryStage;
+
+	@Override
+    public void start(Stage primaryStage) throws IOException {
+		this.primaryStage = primaryStage;
+        URL url=getClass().getResource("/scences/ConnectionScene.fxml"); // use the fxml file.
+        Parent root= FXMLLoader.load(url); // using AnchorPane as layout for calculator
+        Scene ConnectionScene = new Scene(root);
+        primaryStage.setScene(ConnectionScene);
+        primaryStage.setTitle("GCM - Connection Page");
+        primaryStage.show();
+
+
+
+    }
+    public static void changeScene(String fxml) throws IOException {
+		Parent pane = FXMLLoader.load(ClientConsole.class.getResource(fxml));
+		primaryStage.getScene().setRoot(pane);
+	}
+
+
 }
-// End of ConsoleChat class

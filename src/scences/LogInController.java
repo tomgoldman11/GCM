@@ -1,6 +1,6 @@
 package scences;
 
-import scences.*;
+import client.ChatClient;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -11,6 +11,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+
+import java.io.IOException;
 
 public class LogInController {
 
@@ -37,16 +39,32 @@ public class LogInController {
 
     @FXML
     private Label StatusL;
-    
-    public void LogIn(ActionEvent event) {
-    	if(true) {// login successfull
-    	StatusL.setText("Login Success");
-    	StatusL.setTextFill(Color.BLUE);
-    	}
-    	else {
-        StatusL.setText("Login Success");
-    	StatusL.setTextFill(Color.RED);
-    	}
+
+    public void Login(ActionEvent event) throws IOException {
+        String userName = "!" + UserNameTF.getText();
+        String password = "$" + PasswordPF.getText();
+        boolean SignInFlag = false;
+        ConnectionController.client.handleMessageFromClientUI(userName);
+        SignInFlag = ConnectionController.client.handleMessageFromClientUI(password);
+        if (SignInFlag) {
+            StatusL.setText("Login Success");
+            StatusL.setTextFill(Color.BLUE);
+        }
+        else {
+            StatusL.setText("Login Failed");
+            StatusL.setTextFill(Color.RED);
+        }
     }
 
+    public void Guest(ActionEvent event) throws IOException {
+
+
+
+
+    }
+    public void SignUp(ActionEvent event) throws IOException {
+
+
+
+    }
 }

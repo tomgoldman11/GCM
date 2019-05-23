@@ -69,13 +69,10 @@ public class ChatClient extends AbstractClient {
 	 *            The server to connect to.
 	 * @param port
 	 *            The port number to connect on.
-	 * @param clientUI
-	 *            The interface type variable.
 	 */
 
-	public ChatClient(String loginID, String host, int port, ChatIF clientUI) throws IOException {
+	public ChatClient(String loginID, String host, int port) throws IOException {
 		super(host, port); // Call the superclass constructor
-		this.clientUI = clientUI;
 		this.loginID = loginID;
 		openConnection();
 
@@ -95,7 +92,7 @@ public class ChatClient extends AbstractClient {
 			this.usr.setUserID(splited[1]);
 			this.usr.setPassword(splited[2]);
 			this.usr.setRegisterDate(splited[3]);
-			handleMessageFromClientUI("@" + splited[1]);
+
 
 		}
 		if (msg.toString().charAt(0) == '%') {
@@ -124,7 +121,6 @@ public class ChatClient extends AbstractClient {
 		}
 		if (msg.toString().charAt(0) == '1') {
 			clientUI.display("Your Purchase Has Been Made Successfully");
-			Loggin();
 		}
 		// clientUI.display(msg.toString());
 
@@ -136,8 +132,8 @@ public class ChatClient extends AbstractClient {
 	 * @param message
 	 *            The message from the UI.
 	 */
-	public void handleMessageFromClientUI(String message) {
-
+	public boolean handleMessageFromClientUI(String message) {
+        boolean LogInFlag = false;
 		// detect commands
 		if (message.charAt(0) == '#') {
 			runCommand(message);
@@ -152,15 +148,12 @@ public class ChatClient extends AbstractClient {
 				e.printStackTrace();
 			}
 		}
-		if (message.charAt(0) == '@') {
-			String splited = message.replace("@", "");
-			if (splited.equals(this.usr.getUserID()))
-				clientUI.display("please enter $ password:");
-		}
+
 		if (message.charAt(0) == '$') {
 			message = message.replace("$", "");
 			if (message.equals(this.usr.getPassword())) {
-				clientUI.display("login successful");
+                LogInFlag = true;
+                System.out.println(usr.getUserID() +"---------------qoe-qo---");
 				message = "%Select * From Customers  WHERE userID =" + this.usr.getUserID();
 				try {
 					sendToServer(message);
@@ -169,7 +162,7 @@ public class ChatClient extends AbstractClient {
 					e.printStackTrace();
 				}
 			}
-			Loggin();
+			return LogInFlag;
 		}
 		if (message.equals("1")) {
 			String msg = "\nCstomer ID: " + this.customer.getCusID() + "\n" + "Customer Name: "
@@ -178,7 +171,6 @@ public class ChatClient extends AbstractClient {
 					+ Integer.toString(this.customercard.getAge()) + "\n" + "Phone: " + this.customercard.getPhone()
 					+ "\n" + "Email: " + this.customercard.getEmail();
 			clientUI.display(msg);
-			Loggin();
 		}
 		if (message.equals("2")) {
 			int newAmountOfPurchases = this.customer.getPurchases() + 1;
@@ -191,7 +183,7 @@ public class ChatClient extends AbstractClient {
 				e.printStackTrace();
 			}
 		}
-
+        return LogInFlag;
 	}
 
 	/**
@@ -265,13 +257,6 @@ public class ChatClient extends AbstractClient {
 	 */
 	protected void connectionException(Exception exception) {
 		clientUI.display("The connection to the Server (" + getHost() + ", " + getPort() + ") has been disconnected");
-	}
-
-	public void Loggin() {
-
-		clientUI.display("\n      choose your action: \n" + "------------------------------ \n"
-				+ "1) see your detalis\n" + "2) purchase map" + "\n ------------------------------ \n");
-
 	}
 }
 
