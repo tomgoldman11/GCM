@@ -47,7 +47,9 @@ public class ConnectionController{
 
     @FXML
     private Text EnterPortT;
+
     public static ChatClient client;
+
     public void Connect(ActionEvent event) throws IOException {
         try {
             client = new ChatClient(LoginIDTF.getText(), hostTF.getText(), Integer.parseInt(portTF.getText()));

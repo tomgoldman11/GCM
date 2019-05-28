@@ -8,6 +8,10 @@ public class CustomerCard {
 	private String phone;
 	private String Email;
 
+	public CustomerCard() {
+
+	}
+
 	public CustomerCard(int cusID, String customerName, int age, String phone, String Email) {
 		this.customerName = customerName;
 		this.age = age;

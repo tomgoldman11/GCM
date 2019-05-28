@@ -11,6 +11,9 @@ public class Customer extends User {
 	private int purchases;
 	private CustomerCard customerCard;
 
+	public Customer () {
+	}
+
 	public Customer(String user, String pass, int cusID, int purchases, CustomerCard card) {
 		super(user, pass);
 		this.cusID = cusID;

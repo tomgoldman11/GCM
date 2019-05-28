@@ -13,9 +13,18 @@ public class User {
 	private String password;
 	private String registerDate;
 
+	public User() {
+	}
+
 	public User(String user, String pass) {
 		this.userID = user;
 		this.password = pass;
+	}
+
+	public User(String user, String pass, String registerDate) {
+		this.userID = user;
+		this.password = pass;
+		this.registerDate = registerDate;
 	}
 
 	public String getUserID() {

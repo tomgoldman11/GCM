@@ -1,6 +1,7 @@
 package scences;
 
 import client.ChatClient;
+import client.ClientConsole;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -57,14 +58,13 @@ public class LogInController {
     }
 
     public void Guest(ActionEvent event) throws IOException {
-
-
+//        String RegisterScene = "/scences/RegisterScene.fxml"; // main screen
+//        ClientConsole.changeScene(RegisterScene);
 
 
     }
     public void SignUp(ActionEvent event) throws IOException {
-
-
-
+        String RegisterScene = "/scences/RegisterScene.fxml";
+        ClientConsole.changeScene(RegisterScene);
     }
 }

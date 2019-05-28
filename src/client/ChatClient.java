@@ -22,6 +22,7 @@ import java.sql.ClientInfoStatus;
  * @author Fran&ccedil;ois B&eacute;langer
  * @version July 2000
  */
+
 public class ChatClient extends AbstractClient {
 	// Instance variables **********************************************
 
@@ -35,12 +36,13 @@ public class ChatClient extends AbstractClient {
 	 * The Login ID of the user.
 	 */
 	String loginID;
-	User usr = new User("", "");
-	CustomerCard customercard = new CustomerCard(-1, "x", 0, "x", "x");
-	Customer customer = new Customer("", "", 0, 0, customercard);
 
 	// Constructors ****************************************************
 
+	public static User usr = new User();
+	public static CustomerCard customercard = new CustomerCard();
+	public static Customer customer = new Customer();
+	public static int maxCusID = 0;
 	/**
 	 * Constructs an instance of the chat client.
 	 *
@@ -80,27 +82,40 @@ public class ChatClient extends AbstractClient {
 
 	// Instance methods ************************************************
 
-	/**
-	 * This method handles all data that comes in from the server.
-	 * 
-	 * @param msg
-	 *            The message from the server.
-	 */
+
+
+	public void updateUser(String userName, String password, String registerDate){
+		this.usr.setUserID(userName);
+		this.usr.setPassword(password);
+		this.usr.setRegisterDate(registerDate);
+
+	}
+
+	public void updateCustomer(int CusID, int purchases , String password, String userID){
+		this.customer.setCusID(CusID);
+		this.customer.setPurchases(purchases);
+		this.customer.setPassword(password);
+		this.customer.setUserID(userID);
+	}
+
+	public void updateCustomerCard(int CusID, String CustomerName, int age, String Phone, String Email) {
+		this.customercard.setCusID(CusID);
+		this.customercard.setCustomerName(CustomerName);
+		this.customercard.setAge(age);
+		this.customercard.setPhone(Phone);
+		this.customercard.setEmail(Email);
+	}
+
+
 	public void handleMessageFromServer(Object msg) {
+
 		if (msg.toString().charAt(0) == '@') {
 			String[] splited = msg.toString().split("\\s+");
-			this.usr.setUserID(splited[1]);
-			this.usr.setPassword(splited[2]);
-			this.usr.setRegisterDate(splited[3]);
-
-
+			updateUser(splited[1], splited[2], splited[3]);
 		}
 		if (msg.toString().charAt(0) == '%') {
 			String[] splited = msg.toString().split("\\s+");
-			this.customer.setCusID(Integer.parseInt(splited[2]));
-			this.customer.setPurchases(Integer.parseInt(splited[3]));
-			this.customer.setPassword(this.usr.getPassword());
-			this.customer.setUserID(this.usr.getUserID());
+			updateCustomer(Integer.parseInt(splited[2]), Integer.parseInt(splited[3]), this.usr.getPassword(), this.usr.getUserID() );
 			String sql = "!SELECT * FROM CustomersCard WHERE cusID=" + this.customer.getCusID();
 			try {
 				sendToServer(sql);
@@ -108,17 +123,17 @@ public class ChatClient extends AbstractClient {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
 		}
 		if (msg.toString().charAt(0) == '!') {
 			String[] splited = msg.toString().split("\\s+");
-			this.customercard.setCusID(Integer.parseInt(splited[1]));
-			this.customercard.setCustomerName(splited[2] + " " + splited[3]);
-			this.customercard.setAge(Integer.parseInt(splited[4]));
-			this.customercard.setPhone(splited[5]);
-			this.customercard.setEmail(splited[6]);
+			updateCustomerCard(Integer.parseInt(splited[1]), splited[2] + " " + splited[3], Integer.parseInt(splited[4]), splited[5], splited[6]);
 			handleMessageFromClientUI("@" + splited[1]);
 		}
+
+		if (msg.toString().charAt(0) == '(') {
+			maxCusID = Integer.parseInt(msg.toString().substring(1)) + 1;
+		}
+
 		if (msg.toString().charAt(0) == '1') {
 			clientUI.display("Your Purchase Has Been Made Successfully");
 		}
@@ -135,9 +150,17 @@ public class ChatClient extends AbstractClient {
 	public boolean handleMessageFromClientUI(String message) {
         boolean LogInFlag = false;
 		// detect commands
+		if (message.charAt(0) == '-' || message.charAt(0) == '+' || message.charAt(0) == '(') {
+			try {
+				sendToServer(message);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 		if (message.charAt(0) == '#') {
 			runCommand(message);
 		}
+
 		if (message.charAt(0) == '!') {
 			this.loginID = message.substring(1);
 			String msg = "@Select * From Users  WHERE userID =" + this.loginID;
@@ -153,7 +176,7 @@ public class ChatClient extends AbstractClient {
 			message = message.replace("$", "");
 			if (message.equals(this.usr.getPassword())) {
                 LogInFlag = true;
-                System.out.println(usr.getUserID() +"---------------qoe-qo---");
+                System.out.println(usr.getUserID());
 				message = "%Select * From Customers  WHERE userID =" + this.usr.getUserID();
 				try {
 					sendToServer(message);
