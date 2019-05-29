@@ -2,6 +2,7 @@ package scences;
 
 import client.ClientConsole;
 import client.*;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -62,8 +63,10 @@ public class ConnectionController{
             ConnectionStatusL.setText("Connection To Server Failed");
             ConnectionStatusL.setTextFill(Color.RED);
         }
-        ConnectionStatusL.setText("Connection To Server Succeeded");
+
+        ConnectionStatusL.setText("Connection To Server Succeeded"); // why i cant see the change in the app? ( it does change it properly)
         ConnectionStatusL.setTextFill(Color.GREEN);
+
         try {
             TimeUnit.SECONDS.sleep(1);
         } catch (InterruptedException e) {

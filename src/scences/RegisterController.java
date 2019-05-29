@@ -66,6 +66,9 @@ public class RegisterController {
     private Button CancelBTN;
 
     @FXML
+    private Label RegisterStatusL;
+
+    @FXML
     void Register(ActionEvent event) {
         String fullname = FullNameTF.getText();
         String username = UserNameTF.getText();

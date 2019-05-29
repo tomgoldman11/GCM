@@ -26,14 +26,14 @@
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Text>
-      <Button fx:id="ConnetBTN" layoutX="165.0" layoutY="356.0" mnemonicParsing="false" onAction="#Connect" prefHeight="31.0" prefWidth="151.0" text="Connect" />
+      <Button fx:id="ConnetBTN" layoutX="165.0" layoutY="356.0" mnemonicParsing="false" onAction="#Connect" prefHeight="31.0" prefWidth="151.0" stylesheets="@GreenBtn.css" text="Connect" />
       <Label fx:id="ConnectionStatusL" alignment="CENTER" contentDisplay="CENTER" layoutX="112.0" layoutY="424.0" prefHeight="21.0" prefWidth="258.0" text="Status" textAlignment="JUSTIFY" />
       <Text fx:id="ConnetionT" fill="#0615dd" layoutX="127.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Setup Connetion To Server" textAlignment="CENTER" wrappingWidth="245.5126953125" AnchorPane.bottomAnchor="434.341796875" AnchorPane.leftAnchor="123.5126953125" AnchorPane.rightAnchor="127.4873046875" AnchorPane.topAnchor="0.326171875">
          <font>
             <Font name="Architects Daughter" size="18.0" />
          </font>
       </Text>
-      <ImageView fx:id="gcmIV" fitHeight="76.0" fitWidth="83.0" layoutX="415.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="gcmIV" fitHeight="76.0" fitWidth="83.0" layoutX="436.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../icons/GCM2.png" />
          </image>

@@ -1,0 +1,4 @@
+.button {
+    -fx-background-color: linear-gradient(to bottom, #f3e5f5, #ab47bc);
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 5, 0.0, 0, 1);
+}
