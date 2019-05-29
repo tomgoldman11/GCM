@@ -131,7 +131,7 @@ public class ChatClient extends AbstractClient {
 		}
 
 		if (msg.toString().charAt(0) == '(') {
-			maxCusID = Integer.parseInt(msg.toString().substring(1)) + 1;
+			ChatClient.maxCusID = Integer.parseInt(msg.toString().substring(1)) + 1;
 		}
 
 		if (msg.toString().charAt(0) == '1') {

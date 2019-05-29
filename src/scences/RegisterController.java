@@ -83,7 +83,7 @@ public class RegisterController {
 
 
         String userDetails = "-INSERT INTO Users (userID, password, registerDate) " +
-                "VALUES ("+ username +  "," + password + "," +  formatter.format(currentdate) + ")" ;
+                "VALUES ("+ username +  ",'" + password + "','" +  formatter.format(currentdate) + "')" ;
         ChatClient.usr.setUserID(username);
         ChatClient.usr.setPassword(password);
         ChatClient.usr.setRegisterDate(formatter.format(currentdate));
