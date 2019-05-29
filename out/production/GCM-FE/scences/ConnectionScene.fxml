@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,20 +9,34 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #D4D4D4;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scences.ConnectionController">
+<AnchorPane prefHeight="500.0" prefWidth="500.0" stylesheets="@AppStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scences.ConnectionController">
    <children>
-      <TextField fx:id="hostTF" layoutX="80.0" layoutY="193.0" prefHeight="31.0" prefWidth="369.0" promptText="host" />
-      <TextField fx:id="LoginIDTF" layoutX="80.0" layoutY="106.0" prefHeight="31.0" prefWidth="369.0" promptText="loginID" />
-      <TextField fx:id="portTF" layoutX="80.0" layoutY="285.0" prefHeight="31.0" prefWidth="369.0" promptText="port" />
-      <Text fx:id="EnterLoginIDT" fill="#0615dd" layoutX="78.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter loginID" />
-      <Text fx:id="EnterPortT" fill="#0615dd" layoutX="80.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter port" />
-      <Text fx:id="EnterHostT" fill="#0615dd" layoutX="80.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter host" />
-      <Button fx:id="ConnetBTN" layoutX="165.0" layoutY="360.0" mnemonicParsing="false" onAction="#Connect" prefHeight="31.0" prefWidth="151.0" style="-fx-border-color: #0F29D1;" text="Connect" />
-      <Label fx:id="ConnectionStatusL" alignment="CENTER" contentDisplay="CENTER" layoutX="111.0" layoutY="426.0" prefHeight="21.0" prefWidth="258.0" text="Status" textAlignment="JUSTIFY" />
-      <Text fx:id="ConnetionT" fill="#0615dd" layoutX="127.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Setup Connetion To Server" textAlignment="CENTER" wrappingWidth="245.5126953125">
+      <TextField fx:id="hostTF" layoutX="78.0" layoutY="194.0" prefHeight="31.0" prefWidth="369.0" promptText="host" />
+      <TextField fx:id="LoginIDTF" layoutX="78.0" layoutY="107.0" prefHeight="31.0" prefWidth="369.0" promptText="loginID" />
+      <TextField fx:id="portTF" layoutX="78.0" layoutY="286.0" prefHeight="31.0" prefWidth="369.0" promptText="port" />
+      <Text fx:id="EnterLoginIDT" fill="#0615dd" layoutX="79.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter loginID">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Text>
+      <Text fx:id="EnterPortT" fill="#0615dd" layoutX="81.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter port">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Text>
+      <Text fx:id="EnterHostT" fill="#0615dd" layoutX="78.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter host">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Text>
+      <Button fx:id="ConnetBTN" layoutX="165.0" layoutY="356.0" mnemonicParsing="false" onAction="#Connect" prefHeight="31.0" prefWidth="151.0" text="Connect" />
+      <Label fx:id="ConnectionStatusL" alignment="CENTER" contentDisplay="CENTER" layoutX="112.0" layoutY="424.0" prefHeight="21.0" prefWidth="258.0" text="Status" textAlignment="JUSTIFY" />
+      <Text fx:id="ConnetionT" fill="#0615dd" layoutX="127.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Setup Connetion To Server" textAlignment="CENTER" wrappingWidth="245.5126953125" AnchorPane.bottomAnchor="434.341796875" AnchorPane.leftAnchor="123.5126953125" AnchorPane.rightAnchor="127.4873046875" AnchorPane.topAnchor="0.326171875">
          <font>
             <Font name="Architects Daughter" size="18.0" />
          </font>
       </Text>
+      <ImageView fx:id="gcmIV" fitHeight="76.0" fitWidth="83.0" layoutX="415.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/GCM2.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

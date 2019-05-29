@@ -149,7 +149,9 @@ public class ChatClient extends AbstractClient {
 	 */
 	public boolean handleMessageFromClientUI(String message) {
         boolean LogInFlag = false;
-		// detect commands
+
+		// Commands Detection
+
 		if (message.charAt(0) == '-' || message.charAt(0) == '+' || message.charAt(0) == '(') {
 			try {
 				sendToServer(message);

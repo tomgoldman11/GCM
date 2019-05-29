@@ -11,15 +11,20 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 
 public class ConnectionController{
 
+    @FXML
+    private ImageView gcmIV;
 
     @FXML
     private TextField hostTF;
@@ -58,7 +63,12 @@ public class ConnectionController{
             ConnectionStatusL.setTextFill(Color.RED);
         }
         ConnectionStatusL.setText("Connection To Server Succeeded");
-        ConnectionStatusL.setTextFill(Color.BLUE);
+        ConnectionStatusL.setTextFill(Color.GREEN);
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         String LogInSceneS = "/scences/LogInScene.fxml";
         ClientConsole.changeScene(LogInSceneS);
     }

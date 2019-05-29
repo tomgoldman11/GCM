@@ -7,28 +7,49 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="550.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scences.RegisterController">
+<AnchorPane prefHeight="550.0" prefWidth="630.0" stylesheets="@AppStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scences.RegisterController">
    <children>
       <Text fx:id="SignInT" fill="#0615dd" layoutX="192.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registration" textAlignment="CENTER" wrappingWidth="245.5126953125">
          <font>
-            <Font name="Architects Daughter" size="18.0" />
+            <Font name="Architects Daughter" size="20.0" />
          </font>
       </Text>
-      <Text fx:id="UserNameT" fill="#0615dd" layoutX="172.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="username" />
+      <Text fx:id="UserNameT" fill="#0615dd" layoutX="166.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="username" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Text>
       <TextField fx:id="UserNameTF" layoutX="247.0" layoutY="134.0" prefHeight="31.0" prefWidth="232.0" promptText="ID" />
-      <Text fx:id="PasswordT" fill="#0615dd" layoutX="173.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="password" />
+      <Text fx:id="PasswordT" fill="#0615dd" layoutX="167.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="password">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Text>
       <PasswordField fx:id="PasswordPF" layoutX="247.0" layoutY="182.0" prefHeight="31.0" prefWidth="232.0" />
-      <Text fx:id="PasswordT1" fill="#0615dd" layoutX="122.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="re-enter password" />
+      <Text fx:id="PasswordT1" fill="#0615dd" layoutX="109.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="re-enter password">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Text>
       <PasswordField fx:id="PasswordPF1" layoutX="248.0" layoutY="234.0" prefHeight="31.0" prefWidth="232.0" />
-      <Text fx:id="UserNameT1" fill="#0615dd" layoutX="192.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="age" />
+      <Text fx:id="UserNameT1" fill="#0615dd" layoutX="211.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="age">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Text>
       <TextField fx:id="PhoneTF" layoutX="247.0" layoutY="386.0" prefHeight="31.0" prefWidth="232.0" />
-      <Text fx:id="UserNameT2" fill="#0615dd" layoutX="182.0" layoutY="407.0" strokeType="OUTSIDE" strokeWidth="0.0" text="phone" />
+      <Text fx:id="UserNameT2" fill="#0615dd" layoutX="189.0" layoutY="407.0" strokeType="OUTSIDE" strokeWidth="0.0" text="phone">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Text>
       <TextField fx:id="EmailTF" layoutX="247.0" layoutY="333.0" prefHeight="31.0" prefWidth="232.0" />
-      <Text fx:id="UserNameT3" fill="#0615dd" layoutX="186.0" layoutY="354.0" strokeType="OUTSIDE" strokeWidth="0.0" text="email" />
-      <Button fx:id="RegisterBTN" layoutX="404.0" layoutY="465.0" mnemonicParsing="false" onAction="#Register" prefHeight="42.0" prefWidth="151.0" style="-fx-border-color: #0F29D1;" text="Register" />
-      <Button fx:id="CancelBTN" layoutX="97.0" layoutY="465.0" mnemonicParsing="false" onAction="#Cancel" prefHeight="42.0" prefWidth="151.0" style="-fx-border-color: #0F29D1;" text="Cancel" />
-      <PasswordField fx:id="AgeTF" layoutX="247.0" layoutY="285.0" prefHeight="31.0" prefWidth="232.0" />
-      <Text fx:id="UserNameT21" fill="#0615dd" layoutX="173.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="full name" />
+      <Text fx:id="UserNameT3" fill="#0615dd" layoutX="200.0" layoutY="354.0" strokeType="OUTSIDE" strokeWidth="0.0" text="email">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Text>
+      <Button fx:id="RegisterBTN" layoutX="395.0" layoutY="466.0" mnemonicParsing="false" onAction="#Register" prefHeight="42.0" prefWidth="151.0" text="Register" />
+      <Button fx:id="CancelBTN" layoutX="87.0" layoutY="466.0" mnemonicParsing="false" onAction="#Cancel" prefHeight="42.0" prefWidth="151.0" text="Cancel" />
+      <Text fx:id="UserNameT21" fill="#0615dd" layoutX="166.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="full-name">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Text>
       <TextField fx:id="FullNameTF" layoutX="248.0" layoutY="82.0" prefHeight="31.0" prefWidth="232.0" />
+      <TextField fx:id="AgeTF" layoutX="247.0" layoutY="285.0" prefHeight="31.0" prefWidth="232.0" />
    </children>
 </AnchorPane>

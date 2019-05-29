@@ -8,14 +8,11 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class RegisterController {
-
-
 
     Date currentdate = new Date();
     SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
@@ -77,24 +74,20 @@ public class RegisterController {
         String email = EmailTF.getText();
         String phone = PhoneTF.getText();
 
-
-
-
-
-
         String userDetails = "-INSERT INTO Users (userID, password, registerDate) " +
                 "VALUES ("+ username +  ",'" + password + "','" +  formatter.format(currentdate) + "')" ;
+
         ChatClient.usr.setUserID(username);
         ChatClient.usr.setPassword(password);
         ChatClient.usr.setRegisterDate(formatter.format(currentdate));
         ConnectionController.client.handleMessageFromClientUI(userDetails);
 
         String cusIdQuery = "(SELECT MAX(cusID) FROM Customers ";
+
         ConnectionController.client.handleMessageFromClientUI(cusIdQuery);
 
         String customerDetails = "+INSERT INTO Customers (userID, cusID, purchases) " +
                 "VALUES ("+ username +  "," + ChatClient.maxCusID +  0 + ")" ;
-
 
     }
 

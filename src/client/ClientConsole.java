@@ -101,16 +101,7 @@ public class ClientConsole extends Application {
 
 	// Class methods ***************************************************
 
-	/**
-	 * This method is responsible for the creation of the Client UI.
-	 *
-	 * @param args[0]
-	 *            The user ID.
-	 * @param args[1]
-	 *            The host to connect to.
-	 * @param args[2]
-	 *            The port to connect to.
-	 */
+
 	public static void main(String[] args) {
 			launch(args);
 
@@ -148,9 +139,10 @@ public class ClientConsole extends Application {
 	@Override
     public void start(Stage primaryStage) throws IOException {
 		this.primaryStage = primaryStage;
-        URL url=getClass().getResource("/scences/ConnectionScene.fxml"); // use the fxml file.
-        Parent root= FXMLLoader.load(url); // using AnchorPane as layout for calculator
+        URL url=getClass().getResource("/scences/ConnectionScene.fxml");
+        Parent root= FXMLLoader.load(url);
         Scene ConnectionScene = new Scene(root);
+        ConnectionScene.getStylesheets().add(getClass().getResource("/scences/AppStyle.css").toExternalForm());
         primaryStage.setScene(ConnectionScene);
         primaryStage.setTitle("GCM - Connection Page");
         primaryStage.show();
@@ -160,8 +152,16 @@ public class ClientConsole extends Application {
     }
     public static void changeScene(String fxml) throws IOException {
 		Parent pane = FXMLLoader.load(ClientConsole.class.getResource(fxml));
+		if( fxml == "/scences/RegisterScene.fxml")
+        {
+            primaryStage.setTitle("GCM - Registration");
+        }
+        if( fxml == "/scences/LogInScene.fxml")
+        {
+            primaryStage.setTitle("GCM - LogIn");
+        }
 		primaryStage.getScene().setRoot(pane);
 	}
 
 
-}
+} // end ClientConsole
