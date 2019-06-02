@@ -11,6 +11,7 @@ import javafx.scene.text.Text;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 public class RegisterController {
 
@@ -69,29 +70,47 @@ public class RegisterController {
     private Label RegisterStatusL;
 
     @FXML
-    void Register(ActionEvent event) {
+    void Register(ActionEvent event) throws IOException {
         String fullname = FullNameTF.getText();
         String username = UserNameTF.getText();
         String password = PasswordPF.getText();
         String age = AgeTF.getText();
         String email = EmailTF.getText();
         String phone = PhoneTF.getText();
-
+        boolean flag = false;
         String userDetails = "-INSERT INTO Users (userID, password, registerDate) " +
                 "VALUES ("+ username +  ",'" + password + "','" +  formatter.format(currentdate) + "')" ;
 
         ChatClient.usr.setUserID(username);
         ChatClient.usr.setPassword(password);
         ChatClient.usr.setRegisterDate(formatter.format(currentdate));
+
         ConnectionController.client.handleMessageFromClientUI(userDetails);
 
-        String cusIdQuery = "(SELECT MAX(cusID) FROM Customers ";
+        String cusIdQuery = "(SELECT MAX(cusID) FROM Customers";
 
-        ConnectionController.client.handleMessageFromClientUI(cusIdQuery);
+        flag = ConnectionController.client.handleMessageFromClientUI(cusIdQuery);
+
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         String customerDetails = "+INSERT INTO Customers (userID, cusID, purchases) " +
-                "VALUES ("+ username +  "," + ChatClient.maxCusID +  0 + ")" ;
+                    "VALUES (" + username + "," + ChatClient.maxCusID + "," + 0 + ")";
 
+        flag = ConnectionController.client.handleMessageFromClientUI(customerDetails);
+
+        String customerCardDetails = ")INSERT INTO CustomersCard (cusID, customerName, age, phone, Email) " +
+                "VALUES (" + ChatClient.maxCusID + ",'" + fullname + "'," + age + "," + phone + ",'" + email + "')";
+
+        flag = ConnectionController.client.handleMessageFromClientUI(customerCardDetails);
+
+        RegisterStatusL.setText("Registration Completed Successfully");
+        RegisterStatusL.setTextFill(Color.GREEN);
+        String LogInSceneS = "/scences/LogInScene.fxml";
+        ClientConsole.changeScene(LogInSceneS);
     }
 
     @FXML

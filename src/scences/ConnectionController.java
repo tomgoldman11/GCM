@@ -64,7 +64,7 @@ public class ConnectionController{
             ConnectionStatusL.setTextFill(Color.RED);
         }
 
-        ConnectionStatusL.setText("Connection To Server Succeeded"); // why i cant see the change in the app? ( it does change it properly)
+        ConnectionStatusL.setText("Connection To Server Succeeded");
         ConnectionStatusL.setTextFill(Color.GREEN);
 
         try {

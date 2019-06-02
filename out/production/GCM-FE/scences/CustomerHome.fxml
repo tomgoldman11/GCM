@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="700.0" prefWidth="700.0" stylesheets="@AppStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scences.CustomerHomeController">
+   <children>
+      <AnchorPane layoutY="6.0" prefHeight="700.0" prefWidth="200.0" AnchorPane.bottomAnchor="-6.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="792.0" AnchorPane.topAnchor="6.0">
+         <children>
+            <Button fx:id="LogOutBTN" layoutX="55.0" layoutY="201.0" mnemonicParsing="false" onAction="#LogOut" prefHeight="31.0" prefWidth="129.0" text="Log Out" />
+            <Button fx:id="PersonalInfoBTN" layoutX="55.0" layoutY="147.0" mnemonicParsing="false" onAction="#PersonalInfo" prefHeight="31.0" prefWidth="129.0" text="Personal Info" />
+            <Button fx:id="MyMapsBTN" layoutX="55.0" layoutY="93.0" mnemonicParsing="false" onAction="#MyMaps" prefHeight="31.0" prefWidth="129.0" text="My Maps" />
+            <Button fx:id="SearchBTN" layoutX="55.0" layoutY="39.0" mnemonicParsing="false" onAction="#SearchCatalog" prefHeight="31.0" prefWidth="129.0" text="Search Catalog" />
+            <Label alignment="CENTER" layoutY="4.0" prefHeight="21.0" prefWidth="207.0" text="Customer Panel" textFill="#204ee4">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Separator layoutY="24.0" prefHeight="3.0" prefWidth="207.0" />
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="14.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/search.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="14.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/purchase.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="14.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/PersonalInfo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="14.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/LogOut.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="206.0" prefHeight="700.0" prefWidth="794.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="206.0" AnchorPane.rightAnchor="-8.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane fx:id="SerachCatalogPane" layoutY="-20.0" prefHeight="700.0" prefWidth="794.0" stylesheets="@AppStyle.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="-20.0">
+               <children>
+                  <TreeTableView layoutY="96.0" prefHeight="624.0" prefWidth="793.0">
+                    <columns>
+                      <TreeTableColumn prefWidth="75.0" text="ID" />
+                      <TreeTableColumn prefWidth="75.0" text="Name" />
+                        <TreeTableColumn prefWidth="304.0" text="Description" />
+                        <TreeTableColumn prefWidth="75.0" text="No. Maps" />
+                        <TreeTableColumn prefWidth="75.0" text="Price" />
+                        <TreeTableColumn prefWidth="189.0" text="Action" />
+                    </columns>
+                  </TreeTableView>
+                  <Button fx:id="SearchCatalogBTN" layoutX="467.0" layoutY="43.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="129.0" stylesheets="@GreenBtn.css" text="Search" />
+                  <Button fx:id="AdvancedSearchBTN" layoutX="634.0" layoutY="43.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="110.0" stylesheets="@PurpleBtn.css" text="Advance" />
+                  <TextField fx:id="SearchTF" layoutX="14.0" layoutY="43.0" prefHeight="31.0" prefWidth="427.0" />
+               </children>
+            </Pane>
+         </children></AnchorPane>
+   </children>
+</AnchorPane>

@@ -39,27 +39,29 @@ public class LogInController {
     private TextField UserNameTF;
 
     @FXML
-    private Label StatusL;
+    private Label LoginStatusL;
 
     public void Login(ActionEvent event) throws IOException {
         String userName = "!" + UserNameTF.getText();
         String password = "$" + PasswordPF.getText();
         boolean SignInFlag = false;
-        ConnectionController.client.handleMessageFromClientUI(userName);
+        SignInFlag = ConnectionController.client.handleMessageFromClientUI(userName);
         SignInFlag = ConnectionController.client.handleMessageFromClientUI(password);
         if (SignInFlag) {
-            StatusL.setText("Login Success");
-            StatusL.setTextFill(Color.BLUE);
+            LoginStatusL.setText("Login Success");
+            LoginStatusL.setTextFill(Color.BLUE);
+            String CustomerHomeScene = "/scences/CustomerHome.fxml"; // main screen
+            ClientConsole.changeScene(CustomerHomeScene);
         }
         else {
-            StatusL.setText("Login Failed");
-            StatusL.setTextFill(Color.RED);
+            LoginStatusL.setText("Login Failed");
+            LoginStatusL.setTextFill(Color.RED);
         }
     }
 
     public void Guest(ActionEvent event) throws IOException {
-//        String RegisterScene = "/scences/RegisterScene.fxml"; // main screen
-//        ClientConsole.changeScene(RegisterScene);
+        String CustomerHomeScene = "/scences/CustomerHome.fxml"; // main screen
+        ClientConsole.changeScene(CustomerHomeScene);
 
 
     }

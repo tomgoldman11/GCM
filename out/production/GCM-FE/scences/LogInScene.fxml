@@ -34,5 +34,15 @@
             <Image url="@../icons/GCM2.png" />
          </image>
       </ImageView>
+      <ImageView fitHeight="34.0" fitWidth="42.0" layoutX="94.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/username.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="34.0" fitWidth="42.0" layoutX="94.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/password.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

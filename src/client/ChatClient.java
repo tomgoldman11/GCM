@@ -152,12 +152,14 @@ public class ChatClient extends AbstractClient {
 
 		// Commands Detection
 
-		if (message.charAt(0) == '-' || message.charAt(0) == '+' || message.charAt(0) == '(') {
+		if (message.charAt(0) == '-' || message.charAt(0) == '+' || message.charAt(0) == '(' || message.charAt(0) == ')') {
 			try {
 				sendToServer(message);
-			} catch (IOException e) {
+			}
+			catch (IOException e) {
 				e.printStackTrace();
 			}
+			return LogInFlag;
 		}
 		if (message.charAt(0) == '#') {
 			runCommand(message);
@@ -189,14 +191,7 @@ public class ChatClient extends AbstractClient {
 			}
 			return LogInFlag;
 		}
-		if (message.equals("1")) {
-			String msg = "\nCstomer ID: " + this.customer.getCusID() + "\n" + "Customer Name: "
-					+ this.customercard.getCustomerName() + "\n" + "Purchases: "
-					+ Integer.toString(this.customer.getPurchases()) + "\n" + "Age: "
-					+ Integer.toString(this.customercard.getAge()) + "\n" + "Phone: " + this.customercard.getPhone()
-					+ "\n" + "Email: " + this.customercard.getEmail();
-			clientUI.display(msg);
-		}
+
 		if (message.equals("2")) {
 			int newAmountOfPurchases = this.customer.getPurchases() + 1;
 			this.customer.setPurchases(newAmountOfPurchases);

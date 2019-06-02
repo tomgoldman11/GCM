@@ -158,8 +158,16 @@ public class ClientConsole extends Application {
         }
         if( fxml == "/scences/LogInScene.fxml")
         {
+            primaryStage.setHeight(542);
+            primaryStage.setWidth(525);
             primaryStage.setTitle("GCM - LogIn");
         }
+		if( fxml == "/scences/CustomerHome.fxml")
+		{
+		    primaryStage.setHeight(760);
+            primaryStage.setWidth(1040);
+			primaryStage.setTitle("GCM - CustomerHome");
+		}
 		primaryStage.getScene().setRoot(pane);
 	}
 

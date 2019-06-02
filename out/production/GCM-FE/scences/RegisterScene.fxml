@@ -53,7 +53,7 @@
       <TextField fx:id="FullNameTF" layoutX="203.0" layoutY="74.0" prefHeight="31.0" prefWidth="232.0" />
       <TextField fx:id="AgeTF" layoutX="202.0" layoutY="277.0" prefHeight="31.0" prefWidth="232.0" />
       <Label fx:id="RegisterStatusL" alignment="CENTER" contentDisplay="CENTER" layoutX="186.0" layoutY="455.0" prefHeight="21.0" prefWidth="128.0" text="Status" textAlignment="JUSTIFY" />
-      <ImageView fx:id="gcmIV" fitHeight="76.0" fitWidth="83.0" layoutX="454.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="gcmIV" fitHeight="76.0" fitWidth="83.0" layoutX="447.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
             <Image url="@../icons/GCM2.png" />
          </image>
