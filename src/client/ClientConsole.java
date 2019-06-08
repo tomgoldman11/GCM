@@ -154,6 +154,8 @@ public class ClientConsole extends Application {
 		Parent pane = FXMLLoader.load(ClientConsole.class.getResource(fxml));
 		if( fxml == "/scences/RegisterScene.fxml")
         {
+			primaryStage.setHeight(542);
+			primaryStage.setWidth(525);
             primaryStage.setTitle("GCM - Registration");
         }
         if( fxml == "/scences/LogInScene.fxml")
@@ -167,6 +169,12 @@ public class ClientConsole extends Application {
 		    primaryStage.setHeight(760);
             primaryStage.setWidth(1040);
 			primaryStage.setTitle("GCM - CustomerHome");
+		}
+		if( fxml == "/scences/GuestHome.fxml")
+		{
+			primaryStage.setHeight(760);
+			primaryStage.setWidth(1040);
+			primaryStage.setTitle("GCM - GuestHome");
 		}
 		primaryStage.getScene().setRoot(pane);
 	}

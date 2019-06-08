@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -44,23 +45,179 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="206.0" prefHeight="700.0" prefWidth="794.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="206.0" AnchorPane.rightAnchor="-8.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="ChangePanesAP" layoutX="206.0" prefHeight="700.0" prefWidth="794.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="206.0" AnchorPane.rightAnchor="-8.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Pane fx:id="SerachCatalogPane" layoutY="-20.0" prefHeight="700.0" prefWidth="794.0" stylesheets="@AppStyle.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="-20.0">
+            <Pane fx:id="SerachCatalogPane" layoutY="-5.0" prefHeight="685.0" prefWidth="793.0" stylesheets="@AppStyle.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="-5.0">
                <children>
-                  <TreeTableView layoutY="96.0" prefHeight="624.0" prefWidth="793.0">
+                  <TableView fx:id="SearchTTV" layoutY="96.0" prefHeight="608.0" prefWidth="793.0">
                     <columns>
-                      <TreeTableColumn prefWidth="75.0" text="ID" />
-                      <TreeTableColumn prefWidth="75.0" text="Name" />
-                        <TreeTableColumn prefWidth="304.0" text="Description" />
-                        <TreeTableColumn prefWidth="75.0" text="No. Maps" />
-                        <TreeTableColumn prefWidth="75.0" text="Price" />
-                        <TreeTableColumn prefWidth="189.0" text="Action" />
+                      <TableColumn fx:id="IDCOL" prefWidth="42.0" text="ID" />
+                      <TableColumn fx:id="NameCOL" prefWidth="105.0" text="Name" />
+                        <TableColumn fx:id="DescriptionCOL" prefWidth="295.0" text="Description" />
+                        <TableColumn fx:id="VersionCOL" prefWidth="38.0" text="V." />
+                        <TableColumn fx:id="NoMapsCOL" prefWidth="50.0" text="Maps" />
+                        <TableColumn fx:id="ToursCOL" prefWidth="49.0" text="Tours" />
+                        <TableColumn fx:id="LocationsCOL" prefWidth="57.0" text="Locs" />
+                        <TableColumn fx:id="PriceCOL" minWidth="6.0" prefWidth="58.0" text="Price" />
+                        <TableColumn fx:id="ActionCOL" prefWidth="97.0" text="Action" />
                     </columns>
-                  </TreeTableView>
-                  <Button fx:id="SearchCatalogBTN" layoutX="467.0" layoutY="43.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="129.0" stylesheets="@GreenBtn.css" text="Search" />
+                  </TableView>
+                  <Button fx:id="SearchCatalogBTN" layoutX="467.0" layoutY="43.0" mnemonicParsing="false" onAction="#Search" prefHeight="31.0" prefWidth="129.0" stylesheets="@GreenBtn.css" text="Search" />
                   <Button fx:id="AdvancedSearchBTN" layoutX="634.0" layoutY="43.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="110.0" stylesheets="@PurpleBtn.css" text="Advance" />
-                  <TextField fx:id="SearchTF" layoutX="14.0" layoutY="43.0" prefHeight="31.0" prefWidth="427.0" />
+                  <TextField fx:id="searchBox" layoutX="14.0" layoutY="43.0" onKeyTyped="#searchRecord" prefHeight="31.0" prefWidth="427.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="MyMapsPane" prefHeight="700.0" prefWidth="793.0" stylesheets="@AppStyle.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <TableView fx:id="MyMapsTTV" layoutY="92.0" prefHeight="608.0" prefWidth="793.0">
+                    <columns>
+                      <TableColumn fx:id="IDCOLMap" prefWidth="38.0" text="ID" />
+                      <TableColumn prefWidth="108.0" text="Name" />
+                        <TableColumn prefWidth="364.0" text="Description" />
+                        <TableColumn prefWidth="51.0" text="V." />
+                        <TableColumn prefWidth="61.0" text="Price" />
+                        <TableColumn minWidth="0.0" prefWidth="74.0" text="Till" />
+                        <TableColumn prefWidth="96.0" text="Action" />
+                    </columns>
+                  </TableView>
+                  <Label layoutX="14.0" layoutY="53.0" prefHeight="30.0" prefWidth="129.0" text="Owned Maps:" textFill="#204ee4">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Text fx:id="MapsOwnedT" layoutX="115.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="40.0859375">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane prefHeight="700.0" prefWidth="793.0" stylesheets="@AppStyle.css">
+               <children>
+                  <Label alignment="CENTER" layoutX="234.0" layoutY="35.0" prefHeight="21.0" prefWidth="250.0" text="Customer Details" textFill="#204ee4">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="207.0" layoutY="305.0" prefHeight="21.0" prefWidth="250.0" text="Email:">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="207.0" layoutY="251.0" prefHeight="21.0" prefWidth="250.0" text="Phone:">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="207.0" layoutY="199.0" prefHeight="21.0" prefWidth="250.0" text="Age:">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="199.0" layoutY="152.0" prefHeight="21.0" prefWidth="250.0" text="Full Name:">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="199.0" layoutY="108.0" prefHeight="21.0" prefWidth="250.0" text="CustomerID:">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="199.0" layoutY="357.0" prefHeight="21.0" prefWidth="250.0" text="UserName:">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="199.0" layoutY="409.0" prefHeight="21.0" prefWidth="250.0" text="Password:">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Text fx:id="IDT" layoutX="375.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="110.0">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="PasswordT" layoutX="375.0" layoutY="428.0" strokeType="OUTSIDE" strokeWidth="0.0" text="plonyplnoy123" wrappingWidth="250.0">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="UserNameT" layoutX="375.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" text="300300300" wrappingWidth="87.6708984375">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="EmailT" layoutX="375.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" text="plony@gmail.com" wrappingWidth="250.0">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="PhoneT" layoutX="375.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="052303030" wrappingWidth="250.0">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="AgeT" layoutX="375.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="87.6708984375">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="FullNameT" layoutX="375.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="plony" wrappingWidth="250.0">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="ChangeDetailsBTN" layoutX="304.0" layoutY="472.0" mnemonicParsing="false" onAction="#ChangeAction" prefHeight="31.0" prefWidth="142.0" stylesheets="@GreenBtn.css" text="Change Details" />
+               </children>
+            </Pane>
+            <Pane prefHeight="700.0" prefWidth="793.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="245.0" layoutY="37.0" prefHeight="21.0" prefWidth="250.0" text="Change Details" textFill="#204ee4">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="180.0" layoutY="109.0" prefHeight="21.0" prefWidth="250.0" text="Full Name:">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="180.0" layoutY="156.0" prefHeight="21.0" prefWidth="250.0" text="Age:">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="180.0" layoutY="200.0" prefHeight="21.0" prefWidth="250.0" text="Phone:">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="180.0" layoutY="245.0" prefHeight="21.0" prefWidth="250.0" text="Email:">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="180.0" layoutY="291.0" prefHeight="21.0" prefWidth="250.0" text="UserName:">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="180.0" layoutY="331.0" prefHeight="21.0" prefWidth="250.0" text="Password:">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="FullNameEditTF" layoutX="352.0" layoutY="107.0" />
+                  <TextField fx:id="AgeEditTF" layoutX="352.0" layoutY="153.0" />
+                  <TextField fx:id="PhoneEditTF" layoutX="352.0" layoutY="198.0" />
+                  <TextField fx:id="EmailEditTF" layoutX="352.0" layoutY="243.0" />
+                  <TextField fx:id="UserNameEditTF" layoutX="352.0" layoutY="289.0" />
+                  <TextField fx:id="PasswordEditTF" layoutX="352.0" layoutY="329.0" />
+                  <Button fx:id="ConfirmChangeBTN" layoutX="473.0" layoutY="382.0" mnemonicParsing="false" onAction="#ConfirmChange" stylesheets="@GreenBtn.css" text="Confirm" />
+                  <Button fx:id="BackChangeBTN" layoutX="268.0" layoutY="382.0" mnemonicParsing="false" onAction="#CancelChange" stylesheets="@RedBtn.css" text="Cancel" />
+                  <Label fx:id="ChangeSL" layoutX="329.0" layoutY="433.0" prefHeight="21.0" prefWidth="232.0" />
                </children>
             </Pane>
          </children></AnchorPane>

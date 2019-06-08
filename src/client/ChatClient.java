@@ -6,12 +6,22 @@ package client;
 
 import common.*;
 import java.sql.Date;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.Button;
+import models.City;
 import models.Customer;
 import models.User;
 import models.CustomerCard;
 import ocsf.client.AbstractClient;
+import scences.CustomerHomeController;
+
 import java.io.*;
 import java.sql.ClientInfoStatus;
+import java.util.ArrayList;
+
+
 
 /**
  * xv This class overrides some of the methods defined in the abstract
@@ -43,6 +53,8 @@ public class ChatClient extends AbstractClient {
 	public static CustomerCard customercard = new CustomerCard();
 	public static Customer customer = new Customer();
 	public static int maxCusID = 0;
+	public static ObservableList<City> catalogDataS = FXCollections.observableArrayList();
+	public static ObservableList<City> myMapsDataS = FXCollections.observableArrayList();
 	/**
 	 * Constructs an instance of the chat client.
 	 *
@@ -134,11 +146,20 @@ public class ChatClient extends AbstractClient {
 			ChatClient.maxCusID = Integer.parseInt(msg.toString().substring(1)) + 1;
 		}
 
-		if (msg.toString().charAt(0) == '1') {
-			clientUI.display("Your Purchase Has Been Made Successfully");
+		if(msg instanceof ArrayList){
+			System.out.println("DEBUG:   HERE WE GO 2 2");
+			ObservableList<City> catalogData = FXCollections.observableArrayList();
+			for(int i=0; i<((ArrayList) msg).size(); i+=8){
+				catalogData.add(new City(Integer.parseInt(((ArrayList<String>)msg).get(i)), ((ArrayList<String>)msg).get(i+1),Double.parseDouble(((ArrayList<String>)msg).get(i+2))
+				, Integer.parseInt(((ArrayList<String>)msg).get(i+3)),Integer.parseInt(((ArrayList<String>)msg).get(i+4)), Integer.parseInt(((ArrayList<String>)msg).get(i+5))
+				, Double.parseDouble(((ArrayList<String>)msg).get(i+6)),  ((ArrayList<String>)msg).get(i+7) , new Button("download")));
+			}
+			catalogDataS = catalogData;
+			CustomerHomeController.SearchTTV1.getItems().removeAll();
+			CustomerHomeController.SearchTTV1.getItems().clear();
+			CustomerHomeController.SearchTTV1.setItems(catalogData);
+			CustomerHomeController.SearchTTV1.refresh();
 		}
-		// clientUI.display(msg.toString());
-
 	}
 
 	/**
@@ -152,8 +173,9 @@ public class ChatClient extends AbstractClient {
 
 		// Commands Detection
 
-		if (message.charAt(0) == '-' || message.charAt(0) == '+' || message.charAt(0) == '(' || message.charAt(0) == ')') {
+		if (message.charAt(0) == '-' || message.charAt(0) == '+' || message.charAt(0) == '(' || message.charAt(0) == ')' || message.charAt(0) == '=' ||  message.charAt(0) == '*' ) {
 			try {
+				System.out.println("msg:" +message);
 				sendToServer(message);
 			}
 			catch (IOException e) {
@@ -276,7 +298,8 @@ public class ChatClient extends AbstractClient {
 	 *            the exception raised.
 	 */
 	protected void connectionException(Exception exception) {
-		clientUI.display("The connection to the Server (" + getHost() + ", " + getPort() + ") has been disconnected");
+		System.out.println("The connection to the Server (" + getHost() + ", " + getPort() + ") has been disconnected");
+		//clientUI.display("The connection to the Server (" + getHost() + ", " + getPort() + ") has been disconnected");
 	}
 }
 

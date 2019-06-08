@@ -14,6 +14,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 public class LogInController {
 
@@ -46,6 +47,13 @@ public class LogInController {
         String password = "$" + PasswordPF.getText();
         boolean SignInFlag = false;
         SignInFlag = ConnectionController.client.handleMessageFromClientUI(userName);
+
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         SignInFlag = ConnectionController.client.handleMessageFromClientUI(password);
         if (SignInFlag) {
             LoginStatusL.setText("Login Success");
@@ -60,8 +68,8 @@ public class LogInController {
     }
 
     public void Guest(ActionEvent event) throws IOException {
-        String CustomerHomeScene = "/scences/CustomerHome.fxml"; // main screen
-        ClientConsole.changeScene(CustomerHomeScene);
+        String GuestHomeScene = "/scences/GuestHome.fxml"; // main screen
+        ClientConsole.changeScene(GuestHomeScene);
 
 
     }
