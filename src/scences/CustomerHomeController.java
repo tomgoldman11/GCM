@@ -65,11 +65,37 @@ public class CustomerHomeController implements Initializable {
     @FXML
     private TableColumn<City, Button> ActionCOL;
 
+    // mymaps cols
+
+    @FXML
+    private TableColumn<Map, Integer> IDCOLMap;
+
+    @FXML
+    private TableColumn<Map, String> descriptionnCOLMap;
+
+    @FXML
+    private TableColumn<Map, String> nameCOLMap;
+
+    @FXML
+    private TableColumn<Map, Double> priceCOLMap;
+
+    @FXML
+    private TableColumn<Map, Double> VCOLMap;
+
+    @FXML
+    private TableColumn<Map, Double> tillCOLMap;
+
+    @FXML
+    private TableColumn<Map, Double> ActionCOLMap;
+
     @FXML
     private TableView<City> SearchTTV;
 
     @FXML
     public static TableView<City> SearchTTV1;
+
+    @FXML
+    public static TableView<Map> MyMapsTTV1;
 
     @FXML
     private Text MapsOwnedT;
@@ -187,6 +213,16 @@ public class CustomerHomeController implements Initializable {
         ChangePanesAP.getChildren().clear();
         ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(1));
         MapsOwnedT.setText(Integer.toString(customer.getPurchases()));
+        MyMapsTTV1.getItems().removeAll();
+        MyMapsTTV1.getItems().clear();
+
+        boolean flag = false;
+        String fillCityTable = "mSELECT * FROM Maps WHERE cityID in (" +
+                "SELECT cityID FROM OT_Subscriptions WHERE cusID = " + customer.getCusID() + ")";
+        flag = ConnectionController.client.handleMessageFromClientUI(fillCityTable);
+
+
+
 }
 
     @FXML
@@ -207,6 +243,7 @@ public class CustomerHomeController implements Initializable {
         ChangePanesAP.getChildren().clear();
         ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(0));
         SearchTTV1 = SearchTTV;
+        MyMapsTTV1 = MyMapsTTV;
         // cols for cities
         IDCOL.setCellValueFactory(new PropertyValueFactory<>("cityID"));
         DescriptionCOL.setCellValueFactory(new PropertyValueFactory<>("description"));
@@ -217,6 +254,16 @@ public class CustomerHomeController implements Initializable {
         PriceCOL.setCellValueFactory(new PropertyValueFactory<>("mapClusterPrice"));
         NameCOL.setCellValueFactory(new PropertyValueFactory<>("cityName"));
         ActionCOL.setCellValueFactory(new PropertyValueFactory<>("download"));
+        // cols for maps
+        IDCOLMap.setCellValueFactory(new PropertyValueFactory<>("mapID"));
+        descriptionnCOLMap.setCellValueFactory(new PropertyValueFactory<>("description"));
+        nameCOLMap.setCellValueFactory(new PropertyValueFactory<>("mapName"));
+        VCOLMap.setCellValueFactory(new PropertyValueFactory<>("version"));
+        ActionCOLMap.setCellValueFactory(new PropertyValueFactory<>("show"));
+        //
+        priceCOLMap.setCellValueFactory(new PropertyValueFactory<>("?"));
+        tillCOLMap.setCellValueFactory(new PropertyValueFactory<>("?"));
+
         boolean flag = false;
         String fillCityTable = "*SELECT * FROM Cities ";
         flag = ConnectionController.client.handleMessageFromClientUI(fillCityTable);

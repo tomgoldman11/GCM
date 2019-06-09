@@ -2,6 +2,8 @@ package models;
 
 import javafx.scene.control.Button;
 
+import static client.ChatClient.catalogDataS;
+
 public class City {
 	private int cityID;
 	private Map[] maps;
@@ -41,9 +43,13 @@ public class City {
 		this.cityName = cityName;
 		this.download = download;
 
-//		download.setOnAction(e -> {
-//			for(City city : )
-//		});
+		download.setOnAction(e -> {
+			for(City city : catalogDataS ){
+				if(city.getDownload() == download){
+
+			}
+			}
+		});
 	}
 
 	public int getCityID() {

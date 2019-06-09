@@ -115,6 +115,8 @@ public class GuestHomeController implements Initializable {
         LocationsCOL2.setCellValueFactory(new PropertyValueFactory<>("numberLocations"));
         PriceCOL2.setCellValueFactory(new PropertyValueFactory<>("mapClusterPrice"));
         NameCOL2.setCellValueFactory(new PropertyValueFactory<>("cityName"));
+
+
     }
 
     @FXML
