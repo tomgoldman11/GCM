@@ -2,28 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dec23064-3d01-48f5-8bd4-485ed47fc2fe" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/icons/login.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/icons/register.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scences/GuestHome.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scences/GuestHomeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GCM-FE/client/ClientConsole.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GCM-FE/client/ClientConsole.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GCM-FE/scences/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GCM-FE/scences/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GCM-FE/scences/ConnectionScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GCM-FE/scences/ConnectionScene.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GCM-FE/scences/CustomerHome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GCM-FE/scences/CustomerHome.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GCM-FE/models/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GCM-FE/models/Customer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GCM-FE/scences/CustomerHomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GCM-FE/scences/CustomerHomeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GCM-FE/scences/LogInScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GCM-FE/scences/LogInScene.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/ChatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/ChatClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/ClientConsole.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/ClientConsole.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/ClientConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/ClientConsole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/City.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scences/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/scences/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scences/ConnectionScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/scences/ConnectionScene.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scences/CustomerHome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/scences/CustomerHome.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scences/CustomerHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scences/CustomerHomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scences/LogInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scences/LogInController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scences/LogInScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/scences/LogInScene.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -57,83 +40,23 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/client/ChatClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="156" column="39" lean-forward="true" selection-start-line="156" selection-start-column="39" selection-end-line="156" selection-end-column="39" />
+            <state relative-caret-position="322">
+              <caret line="159" column="29" lean-forward="true" selection-start-line="159" selection-start-column="29" selection-end-line="159" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/scences/CustomerHomeController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="200" selection-start-line="200" selection-end-line="200" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/javafx.fxml/javafx/fxml/FXMLLoader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="1670" selection-start-line="1670" selection-end-line="1670" />
-              <folding>
-                <element signature="e#67760#67761#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/javafx.base/javafx/event/Event.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="198" selection-start-line="198" selection-end-line="198" />
-              <folding>
-                <element signature="e#3304#3305#0" expanded="true" />
-                <element signature="e#3336#3337#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/javafx.graphics/javafx/scene/Scene.java">
+        <entry file="file://$PROJECT_DIR$/src/scences/CustomerHomeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="2613" selection-start-line="2613" selection-end-line="2613" />
+            <state relative-caret-position="705">
+              <caret line="219" column="29" selection-start-line="219" selection-start-column="29" selection-end-line="219" selection-end-column="29" />
               <folding>
-                <element signature="e#59034#59035#0" expanded="true" />
-                <element signature="e#59093#59094#0" expanded="true" />
-                <element signature="e#70522#70523#0" expanded="true" />
-                <element signature="e#70568#70569#0" expanded="true" />
-                <element signature="e#96762#96763#0" expanded="true" />
-                <element signature="e#96811#96812#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/javafx.graphics/javafx/scene/Node.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="8865" selection-start-line="8865" selection-end-line="8865" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/javafx.controls/javafx/scene/control/Button.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="201" selection-start-line="201" selection-end-line="201" />
             </state>
           </provider>
         </entry>
@@ -141,8 +64,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/scences/GuestHomeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="572">
-              <caret line="135" column="32" lean-forward="true" selection-start-line="135" selection-start-column="32" selection-end-line="135" selection-end-column="32" />
+            <state relative-caret-position="521">
+              <caret line="135" column="32" selection-start-line="135" selection-start-column="32" selection-end-line="135" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -153,13 +76,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/City.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="43" column="35" lean-forward="true" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
+            <state relative-caret-position="731">
+              <caret line="43" column="35" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
               <folding>
                 <element signature="e#2459#2460#0" expanded="true" />
                 <element signature="e#2484#2485#0" expanded="true" />
                 <element signature="e#2532#2533#0" expanded="true" />
                 <element signature="e#2569#2570#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/models/Customer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#549#550#0" expanded="true" />
+                <element signature="e#576#577#0" expanded="true" />
+                <element signature="e#602#603#0" expanded="true" />
+                <element signature="e#621#622#0" expanded="true" />
+                <element signature="e#657#658#0" expanded="true" />
+                <element signature="e#682#683#0" expanded="true" />
+                <element signature="e#712#713#0" expanded="true" />
+                <element signature="e#735#736#0" expanded="true" />
+                <element signature="e#779#780#0" expanded="true" />
+                <element signature="e#812#813#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -185,6 +130,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -194,7 +144,6 @@
         <option value="$PROJECT_DIR$/src/scences/LogInScene.fxml" />
         <option value="$PROJECT_DIR$/src/scences/RegisterScene.java" />
         <option value="$PROJECT_DIR$/src/models/User.java" />
-        <option value="$PROJECT_DIR$/src/models/Customer.java" />
         <option value="$PROJECT_DIR$/src/models/CustomerCard.java" />
         <option value="$PROJECT_DIR$/src/scences/RegisterScene.fxml" />
         <option value="$PROJECT_DIR$/src/scences/AppStyle.css" />
@@ -215,13 +164,14 @@
         <option value="$PROJECT_DIR$/src/scences/GuestHome.fxml" />
         <option value="$PROJECT_DIR$/src/scences/LogInController.java" />
         <option value="$PROJECT_DIR$/src/client/ClientConsole.java" />
-        <option value="$PROJECT_DIR$/src/scences/CustomerHomeController.java" />
         <option value="$PROJECT_DIR$/src/scences/GuestHomeController.java" />
         <option value="$PROJECT_DIR$/src/client/ChatClient.java" />
+        <option value="$PROJECT_DIR$/src/models/Customer.java" />
+        <option value="$PROJECT_DIR$/src/scences/CustomerHomeController.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-9" />
     <option name="width" value="980" />
     <option name="height" value="735" />
@@ -293,7 +243,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/models" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
@@ -359,12 +309,12 @@
       <workItem from="1559138209619" duration="14478000" />
       <workItem from="1559157305581" duration="362000" />
       <workItem from="1559228316757" duration="34919000" />
-      <workItem from="1559563940103" duration="66954000" />
+      <workItem from="1559563940103" duration="72877000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="175128000" />
+    <option name="totallyTimeSpent" value="181051000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -376,7 +326,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22348994" />
@@ -388,8 +338,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.16997167" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3555241" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.16997167" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3555241" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
@@ -425,15 +375,9 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/scences/CustomerHomeController.java</url>
-          <line>300</line>
+          <line>302</line>
           <properties />
           <option name="timeStamp" value="57" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/scences/CustomerHomeController.java</url>
-          <line>193</line>
-          <properties />
-          <option name="timeStamp" value="68" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/client/ChatClient.java</url>
@@ -733,26 +677,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/Customer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-68">
-          <caret line="11" column="38" lean-forward="true" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#549#550#0" expanded="true" />
-            <element signature="e#576#577#0" expanded="true" />
-            <element signature="e#602#603#0" expanded="true" />
-            <element signature="e#621#622#0" expanded="true" />
-            <element signature="e#657#658#0" expanded="true" />
-            <element signature="e#682#683#0" expanded="true" />
-            <element signature="e#712#713#0" expanded="true" />
-            <element signature="e#735#736#0" expanded="true" />
-            <element signature="e#779#780#0" expanded="true" />
-            <element signature="e#812#813#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/scences/CustomerHome.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
@@ -769,63 +693,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scences/GuestHomeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="135" column="32" lean-forward="true" selection-start-line="135" selection-start-column="32" selection-end-line="135" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/City.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="43" column="35" lean-forward="true" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
-          <folding>
-            <element signature="e#2459#2460#0" expanded="true" />
-            <element signature="e#2484#2485#0" expanded="true" />
-            <element signature="e#2532#2533#0" expanded="true" />
-            <element signature="e#2569#2570#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ocsf/client/AbstractClient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="143">
           <caret line="138" column="22" selection-start-line="138" selection-start-column="22" selection-end-line="138" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/ChatClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="156" column="39" lean-forward="true" selection-start-line="156" selection-start-column="39" selection-end-line="156" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/scences/CustomerHomeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="200" selection-start-line="200" selection-end-line="200" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/javafx.fxml/javafx/fxml/FXMLLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="1670" selection-start-line="1670" selection-end-line="1670" />
-          <folding>
-            <element signature="e#67760#67761#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -843,9 +714,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/javafx.graphics/javafx/scene/Scene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="2623" column="26" selection-start-line="2623" selection-start-column="26" selection-end-line="2623" selection-end-column="26" />
+          <folding>
+            <element signature="e#59034#59035#0" expanded="true" />
+            <element signature="e#59093#59094#0" expanded="true" />
+            <element signature="e#70522#70523#0" expanded="true" />
+            <element signature="e#70568#70569#0" expanded="true" />
+            <element signature="e#96762#96763#0" expanded="true" />
+            <element signature="e#96811#96812#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/javafx.fxml/javafx/fxml/FXMLLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="1670" selection-start-line="1670" selection-end-line="1670" />
+          <folding>
+            <element signature="e#67760#67761#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/javafx.base/javafx/event/Event.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
+        <state relative-caret-position="402">
           <caret line="198" selection-start-line="198" selection-end-line="198" />
           <folding>
             <element signature="e#3304#3305#0" expanded="true" />
@@ -854,17 +750,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/javafx.graphics/javafx/scene/Scene.java">
+    <entry file="file://$PROJECT_DIR$/src/client/ChatClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="2613" selection-start-line="2613" selection-end-line="2613" />
+        <state relative-caret-position="322">
+          <caret line="159" column="29" lean-forward="true" selection-start-line="159" selection-start-column="29" selection-end-line="159" selection-end-column="29" />
           <folding>
-            <element signature="e#59034#59035#0" expanded="true" />
-            <element signature="e#59093#59094#0" expanded="true" />
-            <element signature="e#70522#70523#0" expanded="true" />
-            <element signature="e#70568#70569#0" expanded="true" />
-            <element signature="e#96762#96763#0" expanded="true" />
-            <element signature="e#96811#96812#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/City.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="43" column="35" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
+          <folding>
+            <element signature="e#2459#2460#0" expanded="true" />
+            <element signature="e#2484#2485#0" expanded="true" />
+            <element signature="e#2532#2533#0" expanded="true" />
+            <element signature="e#2569#2570#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/Customer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#549#550#0" expanded="true" />
+            <element signature="e#576#577#0" expanded="true" />
+            <element signature="e#602#603#0" expanded="true" />
+            <element signature="e#621#622#0" expanded="true" />
+            <element signature="e#657#658#0" expanded="true" />
+            <element signature="e#682#683#0" expanded="true" />
+            <element signature="e#712#713#0" expanded="true" />
+            <element signature="e#735#736#0" expanded="true" />
+            <element signature="e#779#780#0" expanded="true" />
+            <element signature="e#812#813#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scences/GuestHomeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="521">
+          <caret line="135" column="32" selection-start-line="135" selection-start-column="32" selection-end-line="135" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scences/CustomerHomeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="705">
+          <caret line="219" column="29" selection-start-line="219" selection-start-column="29" selection-end-line="219" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

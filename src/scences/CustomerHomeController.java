@@ -217,6 +217,9 @@ public class CustomerHomeController implements Initializable {
         PriceCOL.setCellValueFactory(new PropertyValueFactory<>("mapClusterPrice"));
         NameCOL.setCellValueFactory(new PropertyValueFactory<>("cityName"));
         ActionCOL.setCellValueFactory(new PropertyValueFactory<>("download"));
+        boolean flag = false;
+        String fillCityTable = "*SELECT * FROM Cities ";
+        flag = ConnectionController.client.handleMessageFromClientUI(fillCityTable);
         // cols for maps
     }
 
@@ -244,7 +247,6 @@ public class CustomerHomeController implements Initializable {
             sortedList.comparatorProperty().bind(SearchTTV1.comparatorProperty());
             SearchTTV1.setItems(sortedList);
         });
-
     }
 
 

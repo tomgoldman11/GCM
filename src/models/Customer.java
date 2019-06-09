@@ -3,6 +3,7 @@ package models;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Customer extends User {
 
@@ -10,6 +11,7 @@ public class Customer extends User {
 	private int cusID;
 	private int purchases;
 	private CustomerCard customerCard;
+
 
 	public Customer () {
 	}
