@@ -51,8 +51,10 @@ public class ChatClient extends AbstractClient {
 	public static CustomerCard customercard = new CustomerCard();
 	public static Customer customer = new Customer();
 	public static int maxCusID = 0;
+	public static int maxOTSubID = 0;
+	public static int maxFSubID = 0;
 	public static ObservableList<City> catalogDataS = FXCollections.observableArrayList();
-	public static ObservableList<City> myMapsDataS = FXCollections.observableArrayList();
+	public static ObservableList<Map> myMapsDataS = FXCollections.observableArrayList();
 	/**
 	 * Constructs an instance of the chat client.
 	 *
@@ -144,6 +146,14 @@ public class ChatClient extends AbstractClient {
 			ChatClient.maxCusID = Integer.parseInt(msg.toString().substring(1)) + 1;
 		}
 
+		if (msg.toString().charAt(0) == 'v'){
+            ChatClient.maxOTSubID = Integer.parseInt(msg.toString().substring(1)) + 1;
+        }
+        if (msg.toString().charAt(0) == 'c'){
+            ChatClient.maxFSubID = Integer.parseInt(msg.toString().substring(1)) + 1;
+        }
+
+
 		if(msg instanceof ArrayList){
 			if(((ArrayList<String>)msg).get(0).equals("OTMaps")){
 				System.out.println("DEBUG: getting mapssssOT");
@@ -153,11 +163,24 @@ public class ChatClient extends AbstractClient {
 					catalogDataMap.add(new Map(Integer.parseInt(((ArrayList<String>)msg).get(i)), ((ArrayList<String>)msg).get(i+1), ((ArrayList<String>)msg).get(i+2)
 					, Double.parseDouble(((ArrayList<String>)msg).get(i+3)), ((ArrayList<String>)msg).get(i+4) , new Button ("show")  ));
 				}
+				myMapsDataS = catalogDataMap;
 				CustomerHomeController.MyMapsTTV1.getItems().removeAll();
 				CustomerHomeController.MyMapsTTV1.getItems().clear();
 				CustomerHomeController.MyMapsTTV1.setItems(catalogDataMap);
 				CustomerHomeController.MyMapsTTV1.refresh();
 			}
+            else if(((ArrayList<String>)msg).get(0).equals("FMaps")){
+                System.out.println("DEBUG: getting mapssssF");
+                ((ArrayList<String>)msg).remove(0);
+                ObservableList<Map> catalogDataMap = FXCollections.observableArrayList();
+                for(int i=0; i<((ArrayList) msg).size(); i+=5){
+                    catalogDataMap.add(new Map(Integer.parseInt(((ArrayList<String>)msg).get(i)), ((ArrayList<String>)msg).get(i+1), ((ArrayList<String>)msg).get(i+2)
+                            , Double.parseDouble(((ArrayList<String>)msg).get(i+3)), ((ArrayList<String>)msg).get(i+4) , new Button ("show")  ));
+                }
+                myMapsDataS.addAll(catalogDataMap);
+                CustomerHomeController.MyMapsTTV1.setItems(myMapsDataS);
+                CustomerHomeController.MyMapsTTV1.refresh();
+            }
 
 			else if(((ArrayList<String>)msg).get(0).equals("getcities")) {
 				System.out.println("DEBUG: getting citiesss");
@@ -189,7 +212,10 @@ public class ChatClient extends AbstractClient {
 
 		// Commands Detection
 
-		if (message.charAt(0) == '-' || message.charAt(0) == '+' || message.charAt(0) == '(' || message.charAt(0) == ')' || message.charAt(0) == '=' ||  message.charAt(0) == '*' || message.charAt(0) == 'm' ) {
+		if (message.charAt(0) == '-' || message.charAt(0) == '+' || message.charAt(0) == '(' || message.charAt(0) == ')' ||
+				message.charAt(0) == '=' ||  message.charAt(0) == '*' || message.charAt(0) == 'm' || message.charAt(0) == 'n' ||
+				message.charAt(0) == 'b' || message.charAt(0) == 'v' || message.charAt(0) == 'c' || message.charAt(0) == 'x' || message.charAt(0) == 'a'
+				|| message.charAt(0) == 'q')  {
 			try {
 				System.out.println("msg:" +message);
 				sendToServer(message);

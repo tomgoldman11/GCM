@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -184,6 +185,10 @@ public class CustomerHomeController implements Initializable {
     @FXML
     private Label ChangeSL;
 
+    @FXML
+    private ImageView MapIV;
+
+
 
     @FXML
     void LogOut(ActionEvent event) {
@@ -217,11 +222,13 @@ public class CustomerHomeController implements Initializable {
         MyMapsTTV1.getItems().clear();
 
         boolean flag = false;
-        String fillCityTable = "mSELECT * FROM Maps WHERE cityID in (" +
-                "SELECT cityID FROM OT_Subscriptions WHERE cusID = " + customer.getCusID() + ")";
-        flag = ConnectionController.client.handleMessageFromClientUI(fillCityTable);
+        String fillCityTableOT = "mSELECT * FROM Maps WHERE cityID in (" +
+                "SELECT DISTINCT cityID FROM OT_Subscriptions WHERE cusID = " + customer.getCusID() + ")";
+        flag = ConnectionController.client.handleMessageFromClientUI(fillCityTableOT);
 
-
+        String fillCityTableF = "nSELECT * FROM Maps WHERE cityID in (" +
+                "SELECT DISTINCT cityID FROM F_Subscriptions WHERE cusID = " + customer.getCusID() + ")";
+        flag = ConnectionController.client.handleMessageFromClientUI(fillCityTableF);
 
 }
 
@@ -261,8 +268,8 @@ public class CustomerHomeController implements Initializable {
         VCOLMap.setCellValueFactory(new PropertyValueFactory<>("version"));
         ActionCOLMap.setCellValueFactory(new PropertyValueFactory<>("show"));
         //
-        priceCOLMap.setCellValueFactory(new PropertyValueFactory<>("?"));
-        tillCOLMap.setCellValueFactory(new PropertyValueFactory<>("?"));
+                //  priceCOLMap.setCellValueFactory(new PropertyValueFactory<>("?"));
+                //  tillCOLMap.setCellValueFactory(new PropertyValueFactory<>("?"));
 
         boolean flag = false;
         String fillCityTable = "*SELECT * FROM Cities ";

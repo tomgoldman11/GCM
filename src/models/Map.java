@@ -1,6 +1,11 @@
 package models;
 
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import scences.AlertBoxMap;
+
+import static client.ChatClient.myMapsDataS;
+
 
 public class Map {
 	private int mapID;
@@ -11,6 +16,8 @@ public class Map {
 	private Location[] locations;
 	private String mapPath;
 	private Button show;
+
+
 
 
 	public Map(int mapID, String mapName, String description, double version, Tour[] tours, Location[] locations, String mapPath, Button show) {
@@ -33,6 +40,14 @@ public class Map {
 		this.locations = locations;
 		this.mapPath = mapPath;
 		this.show = show;
+
+		show.setOnAction(e -> {
+			for(Map map : myMapsDataS ){
+				if(map.getShow() == show){
+                    AlertBoxMap.display(map.getMapName(), map.getMapPath());
+				}
+			}
+		});
 	}
 
 
