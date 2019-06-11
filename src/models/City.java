@@ -1,6 +1,9 @@
 package models;
 
 import javafx.scene.control.Button;
+import scences.AlertBoxCity;
+
+import static client.ChatClient.catalogDataS;
 
 public class City {
 	private int cityID;
@@ -41,9 +44,13 @@ public class City {
 		this.cityName = cityName;
 		this.download = download;
 
-//		download.setOnAction(e -> {
-//			for(City city : )
-//		});
+		download.setOnAction(e -> {
+			for(City city : catalogDataS ){
+				if(city.getDownload() == download){
+					AlertBoxCity.display(city.getCityName(), city.getMapClusterPrice(), city.getCityID());
+				}
+			}
+		});
 	}
 
 	public int getCityID() {

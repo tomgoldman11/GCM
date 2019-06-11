@@ -62,9 +62,7 @@
                         <TableColumn fx:id="ActionCOL" prefWidth="97.0" text="Action" />
                     </columns>
                   </TableView>
-                  <Button fx:id="SearchCatalogBTN" layoutX="467.0" layoutY="43.0" mnemonicParsing="false" onAction="#Search" prefHeight="31.0" prefWidth="129.0" stylesheets="@GreenBtn.css" text="Search" />
-                  <Button fx:id="AdvancedSearchBTN" layoutX="634.0" layoutY="43.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="110.0" stylesheets="@PurpleBtn.css" text="Advance" />
-                  <TextField fx:id="searchBox" layoutX="14.0" layoutY="43.0" onKeyTyped="#searchRecord" prefHeight="31.0" prefWidth="427.0" />
+                  <TextField fx:id="searchBox" layoutX="33.0" layoutY="43.0" onKeyTyped="#searchRecord" prefHeight="31.0" prefWidth="711.0" promptText="Search For Cities HERE" />
                </children>
             </Pane>
             <Pane fx:id="MyMapsPane" prefHeight="700.0" prefWidth="793.0" stylesheets="@AppStyle.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="0.0">
@@ -72,15 +70,15 @@
                   <TableView fx:id="MyMapsTTV" layoutY="92.0" prefHeight="608.0" prefWidth="793.0">
                     <columns>
                       <TableColumn fx:id="IDCOLMap" prefWidth="38.0" text="ID" />
-                      <TableColumn prefWidth="108.0" text="Name" />
-                        <TableColumn prefWidth="364.0" text="Description" />
-                        <TableColumn prefWidth="51.0" text="V." />
-                        <TableColumn prefWidth="61.0" text="Price" />
-                        <TableColumn minWidth="0.0" prefWidth="74.0" text="Till" />
-                        <TableColumn prefWidth="96.0" text="Action" />
+                      <TableColumn fx:id="nameCOLMap" prefWidth="108.0" text="Name" />
+                        <TableColumn fx:id="descriptionnCOLMap" prefWidth="364.0" text="Description" />
+                        <TableColumn fx:id="VCOLMap" prefWidth="51.0" text="V." />
+                        <TableColumn fx:id="priceCOLMap" prefWidth="61.0" text="Price" />
+                        <TableColumn fx:id="tillCOLMap" minWidth="0.0" prefWidth="74.0" text="Till" />
+                        <TableColumn fx:id="ActionCOLMap" prefWidth="96.0" text="Action" />
                     </columns>
                   </TableView>
-                  <Label layoutX="14.0" layoutY="53.0" prefHeight="30.0" prefWidth="129.0" text="Owned Maps:" textFill="#204ee4">
+                  <Label layoutX="14.0" layoutY="53.0" prefHeight="30.0" prefWidth="129.0" text="Owned Cities:" textFill="#204ee4">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
