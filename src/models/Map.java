@@ -17,9 +17,6 @@ public class Map {
 	private String mapPath;
 	private Button show;
 
-
-
-
 	public Map(int mapID, String mapName, String description, double version, Tour[] tours, Location[] locations, String mapPath, Button show) {
 		this.mapID = mapID;
 		this.mapName = mapName;

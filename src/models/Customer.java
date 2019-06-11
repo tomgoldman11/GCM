@@ -68,5 +68,8 @@ public class Customer extends User {
 
 		mapQuery = "qSelect * FROM OT_Subscriptions WHERE cusID =  " + this.getCusID();
 		f1 = ConnectionController.client.handleMessageFromClientUI(mapQuery);
+
+		Map[] mapArr = new Map[5];
+		return mapArr;
 	}
 }

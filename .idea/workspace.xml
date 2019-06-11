@@ -2,25 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dec23064-3d01-48f5-8bd4-485ed47fc2fe" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/icons/statistics.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scences/AlertBoxCity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scences/AlertBoxMap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scences/EmployeeHome.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scences/ManagerHome.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GCM-FE/models/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GCM-FE/models/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GCM-FE/scences/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GCM-FE/scences/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GCM-FE/scences/CustomerHome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GCM-FE/scences/CustomerHome.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GCM-FE/scences/CustomerHomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GCM-FE/scences/CustomerHomeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/ChatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/ChatClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/City.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Map.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scences/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/scences/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scences/CustomerHome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/scences/CustomerHome.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scences/CustomerHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scences/CustomerHomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scences/GuestHome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/scences/GuestHome.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,8 +37,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/client/ChatClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="165" column="45" lean-forward="true" selection-start-line="165" selection-start-column="45" selection-end-line="165" selection-end-column="45" />
+            <state relative-caret-position="302">
+              <caret line="55" column="90" lean-forward="true" selection-start-line="55" selection-start-column="90" selection-end-line="55" selection-end-column="90" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -63,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/scences/CustomerHomeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
-              <caret line="226" column="63" lean-forward="true" selection-start-line="226" selection-start-column="63" selection-end-line="226" selection-end-column="63" />
+            <state relative-caret-position="257">
+              <caret line="234" column="9" lean-forward="true" selection-start-line="234" selection-start-column="9" selection-end-line="234" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -111,11 +94,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/Map.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+            <state relative-caret-position="102">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -126,8 +109,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/Customer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="65" column="36" lean-forward="true" selection-start-line="65" selection-start-column="36" selection-end-line="65" selection-end-column="36" />
+            <state relative-caret-position="408">
+              <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -191,12 +174,12 @@
         <option value="$PROJECT_DIR$/src/scences/GuestHomeController.java" />
         <option value="$PROJECT_DIR$/src/scences/EmployeeHome.fxml" />
         <option value="$PROJECT_DIR$/src/scences/ManagerHome.fxml" />
-        <option value="$PROJECT_DIR$/src/models/Map.java" />
         <option value="$PROJECT_DIR$/src/scences/AlertBoxMap.java" />
         <option value="$PROJECT_DIR$/src/models/City.java" />
         <option value="$PROJECT_DIR$/src/scences/AlertBoxCity.java" />
         <option value="$PROJECT_DIR$/src/scences/CustomerHomeController.java" />
         <option value="$PROJECT_DIR$/src/client/ChatClient.java" />
+        <option value="$PROJECT_DIR$/src/models/Map.java" />
         <option value="$PROJECT_DIR$/src/models/Customer.java" />
       </list>
     </option>
@@ -342,12 +325,12 @@
       <workItem from="1559157305581" duration="362000" />
       <workItem from="1559228316757" duration="34919000" />
       <workItem from="1559563940103" duration="87052000" />
-      <workItem from="1560167455860" duration="24760000" />
+      <workItem from="1560167455860" duration="25491000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="219986000" />
+    <option name="totallyTimeSpent" value="220717000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -408,7 +391,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/models/Map.java</url>
-          <line>43</line>
+          <line>40</line>
           <properties />
           <option name="timeStamp" value="73" />
         </line-breakpoint>
@@ -876,16 +859,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/Customer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="65" column="36" lean-forward="true" selection-start-line="65" selection-start-column="36" selection-end-line="65" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/scences/AlertBoxCity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -896,10 +869,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scences/CustomerHomeController.java">
+    <entry file="file://$PROJECT_DIR$/src/models/Map.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="226" column="63" lean-forward="true" selection-start-line="226" selection-start-column="63" selection-end-line="226" selection-end-column="63" />
+        <state relative-caret-position="102">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/Customer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -908,18 +891,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/client/ChatClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="165" column="45" lean-forward="true" selection-start-line="165" selection-start-column="45" selection-end-line="165" selection-end-column="45" />
+        <state relative-caret-position="302">
+          <caret line="55" column="90" lean-forward="true" selection-start-line="55" selection-start-column="90" selection-end-line="55" selection-end-column="90" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/Map.java">
+    <entry file="file://$PROJECT_DIR$/src/scences/CustomerHomeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+        <state relative-caret-position="257">
+          <caret line="234" column="9" lean-forward="true" selection-start-line="234" selection-start-column="9" selection-end-line="234" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
