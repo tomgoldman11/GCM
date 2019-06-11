@@ -47,12 +47,12 @@
                         <Image url="@../icons/LogOut.png" />
                     </image>
                 </ImageView>
-            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="14.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../icons/maps.png" />
-               </image>
-            </ImageView>
-            <Button fx:id="mapsBTN" layoutX="55.0" layoutY="88.0" mnemonicParsing="false" onAction="#showmaps" prefHeight="31.0" prefWidth="129.0" text="Search Maps" />
+                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="14.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../icons/maps.png" />
+                    </image>
+                </ImageView>
+                <Button fx:id="mapsBTN" layoutX="55.0" layoutY="88.0" mnemonicParsing="false" onAction="#showmaps" prefHeight="31.0" prefWidth="129.0" text="Search Maps" />
             </children>
         </AnchorPane>
         <AnchorPane fx:id="ChangePanesAP" layoutX="206.0" prefHeight="700.0" prefWidth="794.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="206.0" AnchorPane.rightAnchor="-8.0" AnchorPane.topAnchor="0.0">

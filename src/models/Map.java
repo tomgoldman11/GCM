@@ -17,7 +17,7 @@ public class Map {
 	private String mapPath;
 	private Button show;
 	private String till = "-";
-	private double price;
+	private double price = 0;
 
 
 	public Map(int mapID, String mapName, String description, double version, Tour[] tours, Location[] locations, String mapPath, Button show) {
@@ -51,6 +51,7 @@ public class Map {
 	}
 
 	public Map(int mapID, String mapName, String description, double version, String mapPath, String till , double price, Button show) {
+		System.out.println("==== my price brings all the boys to thge uard --- " + price);
 		this.mapID = mapID;
 		this.mapName = mapName;
 		this.description = description;
@@ -116,14 +117,14 @@ public class Map {
 	public void setLocations(Location[] locations) {
 		this.locations = locations;
 	}
-
 	public String getMapPath() {
 		return mapPath;
 	}
-
 	public void setMapPath(String mapPath) {
 		this.mapPath = mapPath;
 	}
+	public double getPrice(){return this.price;}
+	public String getTill(){return this.till;}
 	
 	
 	

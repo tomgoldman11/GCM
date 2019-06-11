@@ -7,6 +7,7 @@ package client;
 import common.*;
 import java.sql.Date;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
@@ -184,27 +185,48 @@ public class ChatClient extends AbstractClient {
 				if (((ArrayList<String>) msg).get(0).equals("OTMaps")) {
 					System.out.println("DEBUG: getting mapssssOT");
 
-				//	String getOTdetails = "qSELECT purchasePrice FROM OT_Subscriptions WHERE cusID = " + ChatClient.customer.getCusID() +
-
 
 					((ArrayList<String>) msg).remove(0);
 					ObservableList<Map> catalogDataMap = FXCollections.observableArrayList();
-					for (int i = 0; i < ((ArrayList) msg).size(); i += 5) {
-						catalogDataMap.add(new Map(Integer.parseInt(((ArrayList<String>) msg).get(i)), ((ArrayList<String>) msg).get(i + 1), ((ArrayList<String>) msg).get(i + 2)
-								, Double.parseDouble(((ArrayList<String>) msg).get(i + 3)), ((ArrayList<String>) msg).get(i + 4), new Button("show")));
+					for (int i = 0; i < ((ArrayList) msg).size(); i += 6) {
+
+							catalogDataMap.add(new Map(
+								Integer.parseInt(((ArrayList<String>) msg).get(i)), //4
+								((ArrayList<String>) msg).get(i + 1), //HAIFAMPL;
+								((ArrayList<String>) msg).get(i + 2) //hafia map
+								, Double.parseDouble(((ArrayList<String>) msg).get(i + 3)), //1.1
+								((ArrayList<String>) msg).get(i + 4), //file
+								"-",
+								Double.parseDouble(((ArrayList<String>) msg).get(i + 5)), //5
+								new Button("show")));
 					}
-					myMapsDataS = catalogDataMap;
-					CustomerHomeController.MyMapsTTV1.getItems().removeAll();
-					CustomerHomeController.MyMapsTTV1.getItems().clear();
-					CustomerHomeController.MyMapsTTV1.setItems(catalogDataMap);
-					CustomerHomeController.MyMapsTTV1.refresh();
+
+					Platform.runLater(new Runnable() {
+						@Override
+						public void run() {
+
+								myMapsDataS = catalogDataMap;
+								CustomerHomeController.MyMapsTTV1.getItems().removeAll();
+								CustomerHomeController.MyMapsTTV1.getItems().clear();
+								CustomerHomeController.MyMapsTTV1.setItems(catalogDataMap);
+								CustomerHomeController.MyMapsTTV1.refresh();
+
+
+						}});
 				} else if (((ArrayList<String>) msg).get(0).equals("FMaps")) {
 					System.out.println("DEBUG: getting mapssssF");
 					((ArrayList<String>) msg).remove(0);
 					ObservableList<Map> catalogDataMap = FXCollections.observableArrayList();
-					for (int i = 0; i < ((ArrayList) msg).size(); i += 5) {
-						catalogDataMap.add(new Map(Integer.parseInt(((ArrayList<String>) msg).get(i)), ((ArrayList<String>) msg).get(i + 1), ((ArrayList<String>) msg).get(i + 2)
-								, Double.parseDouble(((ArrayList<String>) msg).get(i + 3)), ((ArrayList<String>) msg).get(i + 4), new Button("show")));
+					for (int i = 0; i < ((ArrayList) msg).size(); i += 7) {
+						catalogDataMap.add(new Map(
+								Integer.parseInt(((ArrayList<String>) msg).get(i)), //4
+								((ArrayList<String>) msg).get(i + 1), //HAIFAMPL;
+								((ArrayList<String>) msg).get(i + 2) //hafia map
+								, Double.parseDouble(((ArrayList<String>) msg).get(i + 3)), //1.1
+								((ArrayList<String>) msg).get(i + 4), //file
+								((ArrayList<String>) msg).get(i + 5), //file,
+								Double.parseDouble(((ArrayList<String>) msg).get(i + 6)), //5
+								new Button("show")));
 					}
 					myMapsDataS.addAll(catalogDataMap);
 					CustomerHomeController.MyMapsTTV1.setItems(myMapsDataS);
@@ -219,10 +241,16 @@ public class ChatClient extends AbstractClient {
 								, Double.parseDouble(((ArrayList<String>) msg).get(i + 6)), ((ArrayList<String>) msg).get(i + 7), new Button("download")));
 					}
 					catalogDataS = catalogData;
-					CustomerHomeController.SearchTTV1.getItems().removeAll();
-					CustomerHomeController.SearchTTV1.getItems().clear();
-					CustomerHomeController.SearchTTV1.setItems(catalogData);
-					CustomerHomeController.SearchTTV1.refresh();
+					Platform.runLater(new Runnable() {
+						@Override
+						public void run() {
+							CustomerHomeController.SearchTTV1.getItems().removeAll();
+							CustomerHomeController.SearchTTV1.getItems().clear();
+							CustomerHomeController.SearchTTV1.setItems(catalogData);
+							CustomerHomeController.SearchTTV1.refresh();
+						}
+					});
+
 				}
 			}
 			else {
@@ -420,6 +448,7 @@ public class ChatClient extends AbstractClient {
 	 */
 
 	protected void connectionException(Exception exception) {
+		exception.printStackTrace();
 		System.out.println("The connection to the Server (" + getHost() + ", " + getPort() + ") has been disconnected");
 		//clientUI.display("The connection to the Server (" + getHost() + ", " + getPort() + ") has been disconnected");
 	}

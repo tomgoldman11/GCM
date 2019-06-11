@@ -264,6 +264,25 @@ public class EmployeeHomeController implements Initializable {
         ChangePanesAP.getChildren().clear();
         ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(3));
     }
+    @FXML
+    void MyMaps(ActionEvent event) {
+        ChangePanesAP.getChildren().clear();
+        ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(1));
+        searchBox.setText(Integer.toString(customer.getPurchases()));
+        SearchTTV.getItems().removeAll();
+        SearchTTV.getItems().clear();
+
+        boolean flag = false;
+        String fillCityTableOT = "zSELECT";
+
+        flag = ConnectionController.client.handleMessageFromClientUI(fillCityTableOT);
+
+
+        String fillCityTableF = "nSELECT m.* ,f.purchasePrice, f.expireDate FROM Maps m \n" +
+                "LEFT JOIN F_Subscriptions f ON f.cityID = m.cityID\n" +
+                "WHERE m.cityID in (SELECT DISTINCT cityID FROM F_Subscriptions WHERE cusID = "  + customer.getCusID() + ")";
+        flag = ConnectionController.client.handleMessageFromClientUI(fillCityTableF);
+
+    }
 
 }
-
