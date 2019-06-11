@@ -55,9 +55,7 @@
                         <TableColumn fx:id="ActionCOL2" prefWidth="97.0" text="Action" />
                      </columns>
                   </TableView>
-                  <Button fx:id="SearchCatalogBTN2" layoutX="467.0" layoutY="43.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="129.0" stylesheets="@GreenBtn.css" text="Search" />
-                  <Button fx:id="AdvancedSearchBTN2" layoutX="634.0" layoutY="43.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="110.0" stylesheets="@PurpleBtn.css" text="Advance" />
-                  <TextField fx:id="searchBox2" layoutX="14.0" layoutY="43.0" onKeyTyped="#searchRecord2" prefHeight="31.0" prefWidth="427.0" />
+                  <TextField fx:id="searchBox2" layoutX="28.0" layoutY="46.0" onKeyTyped="#searchRecord2" prefHeight="31.0" prefWidth="734.0" promptText="Search For Cities HERE" />
                </children>
             </Pane>
          </children>
