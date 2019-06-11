@@ -63,8 +63,11 @@ public class Customer extends User {
 	public void setMyMaps (Map[] myMaps){ this.myMaps = myMaps; }
 
 	public Map[] getCustomerMaps(){
+
 		String mapQuery = "aSelect * FROM F_Subscriptions WHERE cusID =  " + this.getCusID();
 		boolean f1 = ConnectionController.client.handleMessageFromClientUI(mapQuery);
+
+
 
 		mapQuery = "qSelect * FROM OT_Subscriptions WHERE cusID =  " + this.getCusID();
 		f1 = ConnectionController.client.handleMessageFromClientUI(mapQuery);

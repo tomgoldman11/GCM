@@ -170,6 +170,12 @@ public class ClientConsole extends Application {
             primaryStage.setWidth(1040);
 			primaryStage.setTitle("GCM - CustomerHome");
 		}
+		if( fxml == "/scences/EmployeeHome.fxml")
+		{
+			primaryStage.setHeight(760);
+			primaryStage.setWidth(1040);
+			primaryStage.setTitle("GCM - EmployeeHome");
+		}
 		if( fxml == "/scences/GuestHome.fxml")
 		{
 			primaryStage.setHeight(760);

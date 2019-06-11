@@ -1,5 +1,6 @@
 package scences;
 
+
 import client.ChatClient;
 import client.ClientConsole;
 import javafx.beans.binding.Bindings;
@@ -13,14 +14,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import models.City;
-import models.CustomerCard;
+import models.Employee;
 import models.Map;
 
 
@@ -33,11 +33,32 @@ import java.util.ResourceBundle;
 
 import static client.ChatClient.*;
 
-public class CustomerHomeController implements Initializable {
 
+public class EmployeeHomeController implements Initializable {
 
     private List<Node> AnchorPaneChildrens = new ArrayList<>();
 
+    @FXML
+    private Button SearchBTN;
+
+    @FXML
+    private Button PersonalInfoBTN;
+
+    @FXML
+    private Button LogOutBTN;
+
+    @FXML
+    private AnchorPane ChangePanesAP;
+
+    @FXML
+    private Pane SerachCatalogPane;
+
+
+    @FXML
+    private TableView<City> SearchTTV;
+
+    @FXML
+    public static TableView<City> SearchTTV2;
 
     @FXML
     private TableColumn<City, Integer> IDCOL;
@@ -66,7 +87,7 @@ public class CustomerHomeController implements Initializable {
     @FXML
     private TableColumn<City, Button> ActionCOL;
 
-    // mymaps cols
+
 
     @FXML
     private TableColumn<Map, Integer> IDCOLMap;
@@ -89,109 +110,34 @@ public class CustomerHomeController implements Initializable {
     @FXML
     private TableColumn<Map, Double> ActionCOLMap;
 
-    @FXML
-    private TableView<City> SearchTTV;
 
-    @FXML
-    public static TableView<City> SearchTTV1;
-
-    @FXML
-    public static TableView<Map> MyMapsTTV1;
-
-    @FXML
-    private Text MapsOwnedT;
-
-    @FXML
-    private Text PasswordT;
-
-    @FXML
-    private Button PersonalInfoBTN;
-
-    @FXML
-    private Text UserNameT;
-
-    @FXML
-    private Text AgeT;
-
-    @FXML
-    private AnchorPane ChangePanesAP;
-
-    @FXML
-    private Pane SerachCatalogPane;
-
-    @FXML
-    private TextField searchBox;
-
-    @FXML
-    private Button MyMapsBTN;
 
     @FXML
     private Button AdvancedSearchBTN;
 
     @FXML
-    private Pane MyMapsPane;
-
-    @FXML
-    private Text EmailT;
-
-    @FXML
-    private Button SearchCatalogBTN;
-
-    @FXML
-    private Text PhoneT;
-
-    @FXML
-    private Button LogOutBTN;
-
-    @FXML
-    private Text IDT;
-
-    @FXML
-    private Button SearchBTN;
-
-    @FXML
-    private TableView<Map> MyMapsTTV;
+    private TextField searchBox;
 
     @FXML
     private Text FullNameT;
 
     @FXML
-    private Button ChangeDetailsBTN;
+    private Text JobTitleT;
 
     @FXML
-    private TextField FullNameEditTF;
+    private Text EmailT;
 
     @FXML
-    private TextField AgeEditTF;
+    private Text PhoneT;
 
     @FXML
-    private TextField PhoneEditTF;
+    private Text EmployeeIDT;
 
     @FXML
-    private TextField EmailEditTF;
+    private Text PasswordT;
 
     @FXML
-    private TextField UserNameEditTF;
-
-    @FXML
-    private TextField PasswordEditTF;
-
-    @FXML
-    private Button ConfirmChangeBTN;
-
-    @FXML
-    private Button BackChangeBTN;
-
-    @FXML
-    private Label ChangeSL;
-
-    @FXML
-    private ImageView MapIV;
-
-
-
-    @FXML
-    void LogOut(ActionEvent event) {
+    void LogOutEmployee(ActionEvent event) {
         ChatClient.EraseDetails();
         String LogInScene = "/scences/LogInScene.fxml";
         try {
@@ -202,56 +148,34 @@ public class CustomerHomeController implements Initializable {
     }
 
     @FXML
-    void PersonalInfo(ActionEvent event) {
+    void PersonalInfoEmployee(ActionEvent event) {
+
         ChangePanesAP.getChildren().clear();
-        ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(2));
-        IDT.setText(Integer.toString(customer.getCusID()));
-        FullNameT.setText(customercard.getCustomerName());
-        AgeT.setText(Integer.toString(customercard.getAge()));
-        PhoneT.setText(customercard.getPhone());
-        EmailT.setText(customercard.getEmail());
-        UserNameT.setText(customer.getUserID());
-        PasswordT.setText(customer.getPassword());
+        ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(1));
+        FullNameT.setText(employee.getFullName());
+        JobTitleT.setText(employee.getJobTitle());
+        EmailT.setText(employee.getEmail());
+        PhoneT.setText(employee.getPhone());
+        EmployeeIDT.setText(Integer.toString(employee.getEmployeeID()));
+        PasswordT.setText(usr.getPassword());
     }
 
     @FXML
-    void MyMaps(ActionEvent event) {
-        ChangePanesAP.getChildren().clear();
-        ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(1));
-        MapsOwnedT.setText(Integer.toString(customer.getPurchases()));
-        MyMapsTTV1.getItems().removeAll();
-        MyMapsTTV1.getItems().clear();
-
-        boolean flag = false;
-        String fillCityTableOT = "mSELECT * FROM Maps WHERE cityID in (" +
-                "SELECT DISTINCT cityID FROM OT_Subscriptions WHERE cusID = " + customer.getCusID() + ")";
-        flag = ConnectionController.client.handleMessageFromClientUI(fillCityTableOT);
-
-        String fillCityTableF = "nSELECT * FROM Maps WHERE cityID in (" +
-                "SELECT DISTINCT cityID FROM F_Subscriptions WHERE cusID = " + customer.getCusID() + ")";
-        flag = ConnectionController.client.handleMessageFromClientUI(fillCityTableF);
-
-}
-
-    @FXML
-    void SearchCatalog(ActionEvent event) {
+    void SearchCatalogEmployee(ActionEvent event) {
         boolean flag = false;
         ChangePanesAP.getChildren().clear();
         ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(0));
-        SearchTTV1.getItems().removeAll();
-        SearchTTV1.getItems().clear();
+        SearchTTV2.getItems().removeAll();
+        SearchTTV2.getItems().clear();
         String fillCityTable = "*SELECT * FROM Cities ";
         flag = ConnectionController.client.handleMessageFromClientUI(fillCityTable);
     }
 
-
-    @Override
     public void initialize(URL location, ResourceBundle resources) {
         AnchorPaneChildrens.addAll(ChangePanesAP.getChildren());
         ChangePanesAP.getChildren().clear();
         ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(0));
-        SearchTTV1 = SearchTTV;
-        MyMapsTTV1 = MyMapsTTV;
+        SearchTTV2 = SearchTTV;
         // cols for cities
         IDCOL.setCellValueFactory(new PropertyValueFactory<>("cityID"));
         DescriptionCOL.setCellValueFactory(new PropertyValueFactory<>("description"));
@@ -262,24 +186,21 @@ public class CustomerHomeController implements Initializable {
         PriceCOL.setCellValueFactory(new PropertyValueFactory<>("mapClusterPrice"));
         NameCOL.setCellValueFactory(new PropertyValueFactory<>("cityName"));
         ActionCOL.setCellValueFactory(new PropertyValueFactory<>("download"));
+
+        boolean flag = false;
+        String fillCityTable = "*SELECT * FROM Cities ";
+        flag = ConnectionController.client.handleMessageFromClientUI(fillCityTable);
+
         // cols for maps
         IDCOLMap.setCellValueFactory(new PropertyValueFactory<>("mapID"));
         descriptionnCOLMap.setCellValueFactory(new PropertyValueFactory<>("description"));
         nameCOLMap.setCellValueFactory(new PropertyValueFactory<>("mapName"));
         VCOLMap.setCellValueFactory(new PropertyValueFactory<>("version"));
         ActionCOLMap.setCellValueFactory(new PropertyValueFactory<>("show"));
-
-        priceCOLMap.setCellValueFactory(new PropertyValueFactory<>("price"));
-        tillCOLMap.setCellValueFactory(new PropertyValueFactory<>("till"));
-
-        boolean flag = false;
-        String fillCityTable = "*SELECT * FROM Cities ";
-        flag = ConnectionController.client.handleMessageFromClientUI(fillCityTable);
-        // cols for maps
     }
 
     @FXML
-    private void searchRecord(KeyEvent ke) {
+    void searchRecord(KeyEvent event) {
         FilteredList<City> filterData = new FilteredList<>(catalogDataS, p -> true);
         searchBox.textProperty().addListener((obsevable, oldvalue, newvalue) -> {
             filterData.setPredicate(city -> {
@@ -299,11 +220,10 @@ public class CustomerHomeController implements Initializable {
                 return false;
             });
             SortedList<City> sortedList = new SortedList<>(filterData);
-            sortedList.comparatorProperty().bind(SearchTTV1.comparatorProperty());
-            SearchTTV1.setItems(sortedList);
+            sortedList.comparatorProperty().bind(SearchTTV2.comparatorProperty());
+            SearchTTV2.setItems(sortedList);
         });
     }
-
 
     public static void addTextFilter(ObservableList<City> allData,
                                      TextField filterField, TableView<City> table) {
@@ -336,7 +256,7 @@ public class CustomerHomeController implements Initializable {
 
     @FXML
     void Search(ActionEvent event) {
-      // addTextFilter(catalogDataS, searchBox, SearchTTV1);
+        // addTextFilter(catalogDataS, searchBox, SearchTTV1);
     }
 
     @FXML
@@ -344,44 +264,6 @@ public class CustomerHomeController implements Initializable {
         ChangePanesAP.getChildren().clear();
         ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(3));
     }
-    @FXML
-    void ConfirmChange(ActionEvent event) {
-        boolean flag = false;
-        String FullName = FullNameEditTF.getText();
-        String Age = AgeEditTF.getText();
-        String Phone = PhoneEditTF.getText();
-        String Email = EmailEditTF.getText();
-        String UserName = UserNameEditTF.getText();
-        String Password = PasswordEditTF.getText();
-
-
-        String customerCardDetailsChange = "=UPDATE CustomersCard SET customerName = '" + FullName +"',age = '" + Age + "',phone = '" + Phone + "', Email = '" + Email
-                +"'"+"WHERE cusID = " + Integer.toString(ChatClient.customer.getCusID());
-        flag = ConnectionController.client.handleMessageFromClientUI(customerCardDetailsChange);
-
-
-
-        String userDetailsChange = "=UPDATE Users SET userID = '" + UserName +"',password = '" + Password + "'"
-                +"WHERE userID = '" + ChatClient.usr.getUserID() + "'";
-        flag = ConnectionController.client.handleMessageFromClientUI(userDetailsChange);
-
-        ChangeSL.setText("Update Completed");
-        ChangeSL.setTextFill(Color.BLUE);
-
-        ChatClient.usr.setUserID(UserName);
-        ChatClient.usr.setPassword(Password);
-        ChatClient.customer.setUserID(UserName);
-        ChatClient.customer.setPassword(Password);
-        ChatClient.customercard.setAge(Integer.parseInt(Age));
-        ChatClient.customercard.setCustomerName(FullName);
-        ChatClient.customercard.setEmail(Email);
-        ChatClient.customercard.setPhone(Phone);
-
-    }
-    @FXML
-    void CancelChange(ActionEvent event) {
-        ChangePanesAP.getChildren().clear();
-        ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(2));
-    }
 
 }
+

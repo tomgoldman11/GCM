@@ -55,11 +55,24 @@ public class LogInController {
         }
 
         SignInFlag = ConnectionController.client.handleMessageFromClientUI(password);
+
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         if (SignInFlag) {
             LoginStatusL.setText("Login Success");
             LoginStatusL.setTextFill(Color.BLUE);
-            String CustomerHomeScene = "/scences/CustomerHome.fxml"; // main screen
-            ClientConsole.changeScene(CustomerHomeScene);
+            if (!ChatClient.CustomerFlag) {
+                String EmployeeHomeScene = "/scences/EmployeeHome.fxml";
+                ClientConsole.changeScene(EmployeeHomeScene);
+            }
+            else {
+                String CustomerHomeScene = "/scences/CustomerHome.fxml"; // main screen
+                ClientConsole.changeScene(CustomerHomeScene);
+            }
         }
         else {
             LoginStatusL.setText("Login Failed");

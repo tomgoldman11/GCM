@@ -16,6 +16,9 @@ public class Map {
 	private Location[] locations;
 	private String mapPath;
 	private Button show;
+	private String till = "-";
+	private double price;
+
 
 	public Map(int mapID, String mapName, String description, double version, Tour[] tours, Location[] locations, String mapPath, Button show) {
 		this.mapID = mapID;
@@ -42,6 +45,27 @@ public class Map {
 			for(Map map : myMapsDataS ){
 				if(map.getShow() == show){
                     AlertBoxMap.display(map.getMapName(), map.getMapPath());
+				}
+			}
+		});
+	}
+
+	public Map(int mapID, String mapName, String description, double version, String mapPath, String till , double price, Button show) {
+		this.mapID = mapID;
+		this.mapName = mapName;
+		this.description = description;
+		this.version = version;
+		this.tours = tours;
+		this.locations = locations;
+		this.mapPath = mapPath;
+		this.till = till;
+		this.price = price;
+		this.show = show;
+
+		show.setOnAction(e -> {
+			for(Map map : myMapsDataS ){
+				if(map.getShow() == show){
+					AlertBoxMap.display(map.getMapName(), map.getMapPath());
 				}
 			}
 		});
