@@ -87,7 +87,11 @@ public class EmployeeHomeController implements Initializable {
     @FXML
     private TableColumn<City, Button> ActionCOL;
 
+    @FXML
+    private TableView<Map> MyMapsTTV;
 
+    @FXML
+    public static TableView<Map> MyMapsTTV1;
 
     @FXML
     private TableColumn<Map, Integer> IDCOLMap;
@@ -176,6 +180,7 @@ public class EmployeeHomeController implements Initializable {
         ChangePanesAP.getChildren().clear();
         ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(0));
         SearchTTV2 = SearchTTV;
+        MyMapsTTV1 = MyMapsTTV;
         // cols for cities
         IDCOL.setCellValueFactory(new PropertyValueFactory<>("cityID"));
         DescriptionCOL.setCellValueFactory(new PropertyValueFactory<>("description"));
@@ -197,6 +202,8 @@ public class EmployeeHomeController implements Initializable {
         nameCOLMap.setCellValueFactory(new PropertyValueFactory<>("mapName"));
         VCOLMap.setCellValueFactory(new PropertyValueFactory<>("version"));
         ActionCOLMap.setCellValueFactory(new PropertyValueFactory<>("show"));
+
+
     }
 
     @FXML
@@ -224,6 +231,14 @@ public class EmployeeHomeController implements Initializable {
             SearchTTV2.setItems(sortedList);
         });
     }
+
+
+
+
+
+
+
+
 
     public static void addTextFilter(ObservableList<City> allData,
                                      TextField filterField, TableView<City> table) {
@@ -255,33 +270,17 @@ public class EmployeeHomeController implements Initializable {
     }
 
     @FXML
-    void Search(ActionEvent event) {
-        // addTextFilter(catalogDataS, searchBox, SearchTTV1);
-    }
-
-    @FXML
-    void ChangeAction(ActionEvent event) {
+    void showmaps(ActionEvent event) {
         ChangePanesAP.getChildren().clear();
-        ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(3));
-    }
-    @FXML
-    void MyMaps(ActionEvent event) {
-        ChangePanesAP.getChildren().clear();
-        ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(1));
-        searchBox.setText(Integer.toString(customer.getPurchases()));
-        SearchTTV.getItems().removeAll();
-        SearchTTV.getItems().clear();
+        ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(2));
+        MyMapsTTV.getItems().removeAll();
+        MyMapsTTV.getItems().clear();
 
         boolean flag = false;
-        String fillCityTableOT = "zSELECT";
+        String fillAllMaps = "]SELECT mapID,mapName,description,version FROM Maps"; // mapID mapName description version
+        flag = ConnectionController.client.handleMessageFromClientUI(fillAllMaps);
 
-        flag = ConnectionController.client.handleMessageFromClientUI(fillCityTableOT);
 
-
-        String fillCityTableF = "nSELECT m.* ,f.purchasePrice, f.expireDate FROM Maps m \n" +
-                "LEFT JOIN F_Subscriptions f ON f.cityID = m.cityID\n" +
-                "WHERE m.cityID in (SELECT DISTINCT cityID FROM F_Subscriptions WHERE cusID = "  + customer.getCusID() + ")";
-        flag = ConnectionController.client.handleMessageFromClientUI(fillCityTableF);
 
     }
 

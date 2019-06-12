@@ -213,7 +213,8 @@ public class ChatClient extends AbstractClient {
 
 
 						}});
-				} else if (((ArrayList<String>) msg).get(0).equals("FMaps")) {
+				}
+				else if (((ArrayList<String>) msg).get(0).equals("FMaps")) {
 					System.out.println("DEBUG: getting mapssssF");
 					((ArrayList<String>) msg).remove(0);
 					ObservableList<Map> catalogDataMap = FXCollections.observableArrayList();
@@ -252,7 +253,7 @@ public class ChatClient extends AbstractClient {
 					});
 
 				}
-			}
+			} // end if customer
 			else {
 				if (((ArrayList<String>) msg).get(0).equals("getcities")) {
 					((ArrayList<String>) msg).remove(0);
@@ -269,6 +270,22 @@ public class ChatClient extends AbstractClient {
 					EmployeeHomeController.SearchTTV2.setItems(catalogData);
 					EmployeeHomeController.SearchTTV2.refresh();
 
+				}
+				else if (((ArrayList<String>) msg).get(0).equals("Maps")) {
+					System.out.println("DEBUG: getting allmaps");
+					((ArrayList<String>) msg).remove(0);
+					ObservableList<Map> catalogDataMap = FXCollections.observableArrayList();
+					for (int i = 0; i < ((ArrayList) msg).size(); i += 4) {
+
+						catalogDataMap.add(new Map(
+								Integer.parseInt(((ArrayList<String>) msg).get(i)), //4
+								((ArrayList<String>) msg).get(i + 1), //HAIFAMPL;
+								((ArrayList<String>) msg).get(i + 2) //hafia map
+								, Double.parseDouble(((ArrayList<String>) msg).get(i + 3)), new Button("update")));
+
+					}
+					EmployeeHomeController.MyMapsTTV1.setItems(catalogDataMap);
+					EmployeeHomeController.MyMapsTTV1.refresh();
 				}
 			}
 
@@ -289,7 +306,7 @@ public class ChatClient extends AbstractClient {
 		if (message.charAt(0) == '-' || message.charAt(0) == '+' || message.charAt(0) == '(' || message.charAt(0) == ')' ||
 				message.charAt(0) == '=' ||  message.charAt(0) == '*' || message.charAt(0) == 'm' || message.charAt(0) == 'n' ||
 				message.charAt(0) == 'b' || message.charAt(0) == 'v' || message.charAt(0) == 'c' || message.charAt(0) == 'x' || message.charAt(0) == 'a'
-				|| message.charAt(0) == 'q')  {
+				|| message.charAt(0) == 'q' || message.charAt(0) == ']')  {
 			try {
 				System.out.println("msg:" +message);
 				sendToServer(message);

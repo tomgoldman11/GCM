@@ -72,7 +72,7 @@
                                 <TableColumn fx:id="ActionCOL" prefWidth="97.0" text="Action" />
                             </columns>
                         </TableView>
-                        <Button fx:id="AdvancedSearchBTN" layoutX="634.0" layoutY="43.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="110.0" stylesheets="@PurpleBtn.css" text="Create City" />
+                        <Button fx:id="CreateCityBTN" layoutX="634.0" layoutY="43.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="110.0" stylesheets="@PurpleBtn.css" text="Create City" />
                         <TextField fx:id="searchBox" layoutX="14.0" layoutY="43.0" onKeyTyped="#searchRecord" prefHeight="31.0" prefWidth="598.0" promptText="Search For Cities HERE" />
                     </children>
                 </Pane>
@@ -145,6 +145,21 @@
                         </Text>
                     </children>
                 </Pane>
+            <Pane prefHeight="700.0" prefWidth="793.0">
+               <children>
+                  <TableView fx:id="MyMapsTTV" layoutY="84.0" prefHeight="608.0" prefWidth="793.0">
+                     <columns>
+                        <TableColumn fx:id="IDCOLMap" prefWidth="45.0" text="ID" />
+                        <TableColumn fx:id="nameCOLMap" prefWidth="110.0" text="Name" />
+                        <TableColumn fx:id="descriptionnCOLMap" prefWidth="460.0" text="Description" />
+                        <TableColumn fx:id="VCOLMap" minWidth="0.0" prefWidth="71.0" text="V." />
+                        <TableColumn fx:id="ActionCOLMap" prefWidth="106.0" text="Action" />
+                     </columns>
+                  </TableView>
+                  <TextField fx:id="searchBox1" layoutX="14.0" layoutY="37.0" onKeyTyped="#searchRecordMap" prefHeight="31.0" prefWidth="598.0" promptText="Search For Maps HERE" />
+                  <Button fx:id="CreateMapBTN" layoutX="634.0" layoutY="37.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="110.0" stylesheets="@PurpleBtn.css" text="Create Map" />
+               </children>
+            </Pane>
             </children>
         </AnchorPane>
     </children>

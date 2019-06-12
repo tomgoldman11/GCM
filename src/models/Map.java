@@ -44,7 +44,26 @@ public class Map {
 		show.setOnAction(e -> {
 			for(Map map : myMapsDataS ){
 				if(map.getShow() == show){
-                    AlertBoxMap.display(map.getMapName(), map.getMapPath());
+					AlertBoxMap.display(map.getMapName(), map.getMapPath());
+				}
+			}
+		});
+	}
+
+	public Map(int mapID, String mapName, String description, double version, Button show) {
+		this.mapID = mapID;
+		this.mapName = mapName;
+		this.description = description;
+		this.version = version;
+		this.tours = tours;
+		this.locations = locations;
+		this.mapPath = mapPath;
+		this.show = show;
+
+		show.setOnAction(e -> {
+			for(Map map : myMapsDataS ){
+				if(map.getShow() == show){
+					AlertBoxMap.display(map.getMapName(), map.getMapPath());
 				}
 			}
 		});

@@ -145,6 +145,19 @@
                         </Text>
                     </children>
                 </Pane>
+            <Pane prefHeight="700.0" prefWidth="793.0">
+               <children>
+                  <TableView fx:id="MyMapsTTV" layoutY="84.0" prefHeight="608.0" prefWidth="793.0">
+                     <columns>
+                        <TableColumn fx:id="IDCOLMap" prefWidth="45.0" text="ID" />
+                        <TableColumn fx:id="nameCOLMap" prefWidth="110.0" text="Name" />
+                        <TableColumn fx:id="descriptionnCOLMap" prefWidth="460.0" text="Description" />
+                        <TableColumn fx:id="VCOLMap" minWidth="0.0" prefWidth="71.0" text="V." />
+                        <TableColumn fx:id="ActionCOLMap" prefWidth="106.0" text="Action" />
+                     </columns>
+                  </TableView>
+               </children>
+            </Pane>
             </children>
         </AnchorPane>
     </children>
