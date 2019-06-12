@@ -114,13 +114,20 @@ public class EmployeeHomeController implements Initializable {
     @FXML
     private TableColumn<Map, Double> ActionCOLMap;
 
+    @FXML
+    private Button CreateMapBTN;
 
+    @FXML
+    private Button CreateCityBTN;
 
     @FXML
     private Button AdvancedSearchBTN;
 
     @FXML
     private TextField searchBox;
+
+    @FXML
+    private TextField searchBox1;
 
     @FXML
     private Text FullNameT;
@@ -231,15 +238,33 @@ public class EmployeeHomeController implements Initializable {
             SearchTTV2.setItems(sortedList);
         });
     }
+    @FXML
+    void searchRecordMap(KeyEvent event) {
+        FilteredList<Map> filterData = new FilteredList<>(myMapsDataS, p -> true);
+        searchBox1.textProperty().addListener((obsevable, oldvalue, newvalue) -> {
+            filterData.setPredicate(map -> {
 
+                if (newvalue == null || newvalue.isEmpty()) {
+                    return true;
+                }
+                String typedText = newvalue.toLowerCase();
+                if (map.getMapName().toLowerCase().indexOf(typedText) != -1) {
 
+                    return true;
+                }
+                if (map.getDescription().toLowerCase().indexOf(typedText) != -1) {
 
+                    return true;
+                }
+                return false;
+            });
+            SortedList<Map> sortedList = new SortedList<>(filterData);
+            sortedList.comparatorProperty().bind(MyMapsTTV1.comparatorProperty());
+            MyMapsTTV1.setItems(sortedList);
+        });
+    }
 
-
-
-
-
-
+    @FXML
     public static void addTextFilter(ObservableList<City> allData,
                                      TextField filterField, TableView<City> table) {
 
@@ -274,13 +299,10 @@ public class EmployeeHomeController implements Initializable {
         ChangePanesAP.getChildren().clear();
         ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(2));
         MyMapsTTV.getItems().removeAll();
-        MyMapsTTV.getItems().clear();
 
         boolean flag = false;
         String fillAllMaps = "]SELECT mapID,mapName,description,version FROM Maps"; // mapID mapName description version
         flag = ConnectionController.client.handleMessageFromClientUI(fillAllMaps);
-
-
 
     }
 

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scences.LocationsToursDetailsController">
+   <children>
+      <TableView fx:id="LocationTV" layoutX="14.0" layoutY="92.0" prefHeight="704.0" prefWidth="681.0">
+        <columns>
+          <TableColumn prefWidth="91.0" text="Name" />
+          <TableColumn prefWidth="114.0" text="Classification" />
+            <TableColumn prefWidth="377.0" text="Description" />
+            <TableColumn prefWidth="93.0" text="Accessibility" />
+        </columns>
+      </TableView>
+      <TableView fx:id="ToursTV" layoutX="731.0" layoutY="92.0" prefHeight="704.0" prefWidth="355.0">
+        <columns>
+          <TableColumn prefWidth="161.0" text="description" />
+          <TableColumn minWidth="0.0" prefWidth="184.0" text="visitDuration" />
+        </columns>
+      </TableView>
+      <Separator layoutX="707.0" layoutY="92.0" orientation="VERTICAL" prefHeight="704.0" prefWidth="4.0" />
+      <Text layoutX="293.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Locations" wrappingWidth="123.6708984375" />
+      <Text layoutX="882.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tours" />
+      <Text layoutX="505.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name of map" />
+   </children>
+</AnchorPane>

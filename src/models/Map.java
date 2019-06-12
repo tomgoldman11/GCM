@@ -18,6 +18,7 @@ public class Map {
 	private Button show;
 	private String till = "-";
 	private double price = 0;
+	public static int MapIDtoGetLocsTours = 1;
 
 
 	public Map(int mapID, String mapName, String description, double version, Tour[] tours, Location[] locations, String mapPath, Button show) {
@@ -45,6 +46,7 @@ public class Map {
 			for(Map map : myMapsDataS ){
 				if(map.getShow() == show){
 					AlertBoxMap.display(map.getMapName(), map.getMapPath());
+					MapIDtoGetLocsTours = map.getMapID();
 				}
 			}
 		});

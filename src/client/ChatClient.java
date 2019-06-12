@@ -284,6 +284,7 @@ public class ChatClient extends AbstractClient {
 								, Double.parseDouble(((ArrayList<String>) msg).get(i + 3)), new Button("update")));
 
 					}
+					myMapsDataS = catalogDataMap;
 					EmployeeHomeController.MyMapsTTV1.setItems(catalogDataMap);
 					EmployeeHomeController.MyMapsTTV1.refresh();
 				}
