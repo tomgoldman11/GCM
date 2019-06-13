@@ -182,6 +182,12 @@ public class ClientConsole extends Application {
 			primaryStage.setWidth(1040);
 			primaryStage.setTitle("GCM - GuestHome");
 		}
+		if( fxml == "/scences/LocationsToursDetails.fxml")
+		{
+			primaryStage.setHeight(820);
+			primaryStage.setWidth(1500);
+			primaryStage.setTitle("GCM - LocationToursDetails");
+		}
 		primaryStage.getScene().setRoot(pane);
 	}
 

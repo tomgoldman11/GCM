@@ -4,14 +4,31 @@ public class Tour {
 	private int tourID;
 	private String description;
 	private Location[] locations;
-	private Double[] visitDuration;
+	private String visitDuration;
+	private String LocationsID;
 	
-	public Tour(int tourID, String description, Location[] locations, Double[] visitDuration) {
+	public Tour(int tourID, String description, Location[] locations, String visitDuration, String LocationsID) {
 		this.tourID = tourID;
 		this.description = description;
 		this.locations = locations;
 		this.visitDuration = visitDuration;
+		this.LocationsID = LocationsID;
 	}
+    public Tour(int tourID, String description, String visitDuration, String LocationnsID) {
+		this.tourID = tourID;
+		this.description = description;
+		this.visitDuration = visitDuration;
+		this.LocationsID = LocationnsID;
+	}
+
+	public String getLocationsID() {
+		return LocationsID;
+	}
+
+	public void setLocationsID(String locationsID) {
+		LocationsID = locationsID;
+	}
+
 	public int getTourID() {
 		return tourID;
 	}
@@ -30,10 +47,10 @@ public class Tour {
 	public void setLocations(Location[] locations) {
 		this.locations = locations;
 	}
-	public Double[] getVisitDuration() {
+	public String getVisitDuration() {
 		return visitDuration;
 	}
-	public void setVisitDuration(Double[] visitDuration) {
+	public void setVisitDuration(String visitDuration) {
 		this.visitDuration = visitDuration;
 	}
 	

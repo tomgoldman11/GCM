@@ -17,6 +17,15 @@ public class Location {
 		this.description = description;
 		this.accessibility = accessibility;
 	}
+	public Location(int locationID, String locationName, String locationClassification,
+					String description, boolean accessibility) {
+		this.locationID = locationID;
+		this.locationName = locationName;
+		this.locationClassification = locationClassification;
+		this.description = description;
+		this.accessibility = accessibility;
+	}
+
 	public int getLocationID() {
 		return locationID;
 	}

@@ -3,23 +3,21 @@
   <component name="ChangeListManager">
     <list default="true" id="dec23064-3d01-48f5-8bd4-485ed47fc2fe" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GCM-FE/client/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GCM-FE/client/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GCM-FE/client/ChatClient$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GCM-FE/client/ChatClient$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GCM-FE/client/ChatClient$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GCM-FE/client/ChatClient$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GCM-FE/icons/statistics.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GCM-FE/icons/statistics.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GCM-FE/scences/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GCM-FE/scences/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GCM-FE/client/ClientConsole.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GCM-FE/client/ClientConsole.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GCM-FE/scences/EmployeeHome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GCM-FE/scences/EmployeeHome.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GCM-FE/scences/ManagerHome.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GCM-FE/scences/LocationsToursDetails.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GCM-FE/scences/LocationsToursDetails.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GCM-FE/scences/LocationsToursDetailsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GCM-FE/scences/LocationsToursDetailsController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/ChatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/ChatClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/icons/statistics.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/src/icons/statistics.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Customer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scences/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/scences/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scences/AlertBoxMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/scences/AlertBoxMap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scences/EmployeeHome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/scences/EmployeeHome.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scences/EmployeeHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scences/EmployeeHomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scences/ManagerHome.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/ClientConsole.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/ClientConsole.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/ClientConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/ClientConsole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Map.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Tour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Tour.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scences/LocationsToursDetails.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/scences/LocationsToursDetails.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scences/LocationsToursDetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scences/LocationsToursDetailsController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -50,11 +48,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/client/ChatClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1134">
-              <caret line="307" column="13" selection-start-line="307" selection-start-column="13" selection-end-line="307" selection-end-column="13" />
+            <state relative-caret-position="329">
+              <caret line="283" column="48" lean-forward="true" selection-start-line="283" selection-start-column="48" selection-end-line="283" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -63,34 +61,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/Map.java">
+        <entry file="file://$PROJECT_DIR$/src/client/ClientConsole.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
-              <caret line="48" column="57" selection-start-line="48" selection-start-column="57" selection-end-line="48" selection-end-column="57" />
+            <state relative-caret-position="228">
+              <caret line="191" selection-start-line="191" selection-end-line="191" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/scences/EmployeeHomeController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="220" column="51" lean-forward="true" selection-start-line="220" selection-start-column="51" selection-end-line="220" selection-end-column="51" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/Employee.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="28" column="33" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -98,63 +75,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/scences/AlertBoxMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="41" column="39" selection-start-line="41" selection-start-column="39" selection-end-line="41" selection-end-column="39" />
+            <state relative-caret-position="157">
+              <caret line="38" selection-start-line="38" selection-end-line="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/scences/LocationsToursDetails.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="56" selection-start-line="14" selection-start-column="56" selection-end-line="14" selection-end-column="56" />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/scences/LocationsToursDetailsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/scences/AlertBoxCity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="38" column="68" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="68" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/scences/CustomerHomeController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3400">
-              <caret line="231" selection-start-line="231" selection-end-line="231" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/scences/LogInController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="986">
-              <caret line="72" column="16" selection-start-line="72" selection-start-column="16" selection-end-line="73" selection-end-column="61" />
+            <state relative-caret-position="89">
+              <caret line="88" column="80" lean-forward="true" selection-start-line="88" selection-start-column="80" selection-end-line="88" selection-end-column="80" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -219,18 +153,20 @@
         <option value="$PROJECT_DIR$/src/scences/ManagerHome.fxml" />
         <option value="$PROJECT_DIR$/src/models/City.java" />
         <option value="$PROJECT_DIR$/src/models/EmployeeHomeController.java" />
-        <option value="$PROJECT_DIR$/src/client/ClientConsole.java" />
         <option value="$PROJECT_DIR$/src/scences/AlertBoxCity.java" />
         <option value="$PROJECT_DIR$/src/models/Customer.java" />
-        <option value="$PROJECT_DIR$/src/scences/CustomerHomeController.java" />
         <option value="$PROJECT_DIR$/src/scences/EmployeeHome.fxml" />
-        <option value="$PROJECT_DIR$/src/models/Map.java" />
         <option value="$PROJECT_DIR$/src/scences/LogInController.java" />
         <option value="$PROJECT_DIR$/src/scences/LocationsToursDetails.fxml" />
         <option value="$PROJECT_DIR$/src/scences/AlertBoxMap.java" />
-        <option value="$PROJECT_DIR$/src/scences/LocationsToursDetailsController.java" />
         <option value="$PROJECT_DIR$/src/models/Employee.java" />
         <option value="$PROJECT_DIR$/src/scences/EmployeeHomeController.java" />
+        <option value="$PROJECT_DIR$/src/scences/CustomerHomeController.java" />
+        <option value="$PROJECT_DIR$/src/models/Map.java" />
+        <option value="$PROJECT_DIR$/src/models/Location.java" />
+        <option value="$PROJECT_DIR$/src/client/ClientConsole.java" />
+        <option value="$PROJECT_DIR$/src/models/Tour.java" />
+        <option value="$PROJECT_DIR$/src/scences/LocationsToursDetailsController.java" />
         <option value="$PROJECT_DIR$/src/client/ChatClient.java" />
       </list>
     </option>
@@ -242,10 +178,9 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="146" />
-    <option name="y" value="51" />
-    <option name="width" value="975" />
-    <option name="height" value="1040" />
+    <option name="x" value="-9" />
+    <option name="width" value="978" />
+    <option name="height" value="1039" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -292,8 +227,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -303,7 +238,7 @@
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560269085200" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Maps" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
@@ -375,12 +310,13 @@
       <workItem from="1560246598479" duration="8973000" />
       <workItem from="1560363516096" duration="2486000" />
       <workItem from="1560371775434" duration="35000" />
-      <workItem from="1560412628595" duration="50000" />
+      <workItem from="1560412628595" duration="15363000" />
+      <workItem from="1560445039985" duration="1516000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="243353000" />
+    <option name="totallyTimeSpent" value="260182000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -395,7 +331,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17986578" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22147651" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -404,7 +340,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32577905" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.4036827" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.18413597" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.36827195" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -414,7 +350,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.329718" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.3275488" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32719547" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" visible="true" weight="0.04477612" />
@@ -447,40 +383,16 @@
           <option name="timeStamp" value="95" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/scences/CustomerHomeController.java</url>
-          <line>224</line>
+          <url>file://$PROJECT_DIR$/src/scences/LocationsToursDetailsController.java</url>
+          <line>81</line>
           <properties />
-          <option name="timeStamp" value="96" />
+          <option name="timeStamp" value="107" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/client/ChatClient.java</url>
-          <line>260</line>
+          <line>279</line>
           <properties />
-          <option name="timeStamp" value="97" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/client/ChatClient.java</url>
-          <line>364</line>
-          <properties />
-          <option name="timeStamp" value="98" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/client/ChatClient.java</url>
-          <line>353</line>
-          <properties />
-          <option name="timeStamp" value="99" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/scences/LogInController.java</url>
-          <line>65</line>
-          <properties />
-          <option name="timeStamp" value="104" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/client/ChatClient.java</url>
-          <line>155</line>
-          <properties />
-          <option name="timeStamp" value="106" />
+          <option name="timeStamp" value="108" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -513,44 +425,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/javafx.graphics/javafx/scene/Parent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="1424" selection-start-line="1424" selection-end-line="1424" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/javafx.graphics/javafx/scene/layout/Region.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="587" selection-start-line="587" selection-end-line="587" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/javafx.controls/javafx/scene/control/Labeled.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="118" selection-start-line="118" selection-end-line="118" />
-          <folding>
-            <element signature="e#3355#3356#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/javafx.controls/javafx/scene/control/ButtonBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="68" selection-start-line="68" selection-end-line="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/javafx.base/javafx/collections/ListChangeBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="193" selection-start-line="193" selection-end-line="193" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/javafx.base/javafx/collections/ObservableListBase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
@@ -650,49 +524,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="23" column="40" lean-forward="true" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/javafx.graphics/javafx/scene/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="8865" selection-start-line="8865" selection-end-line="8865" />
-          <folding>
-            <element signature="e#41660#41667#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/javafx.controls/javafx/scene/control/Button.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="201" selection-start-line="201" selection-end-line="201" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/javafx.base/javafx/event/Event.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="198" selection-start-line="198" selection-end-line="198" />
-          <folding>
-            <element signature="e#3304#3305#0" expanded="true" />
-            <element signature="e#3336#3337#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/javafx.graphics/javafx/scene/Scene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="2611" column="95" selection-start-line="2611" selection-start-column="95" selection-end-line="2611" selection-end-column="95" />
-          <folding>
-            <element signature="e#59034#59035#0" expanded="true" />
-            <element signature="e#59093#59094#0" expanded="true" />
-            <element signature="e#70522#70523#0" expanded="true" />
-            <element signature="e#70568#70569#0" expanded="true" />
-            <element signature="e#96762#96763#0" expanded="true" />
-            <element signature="e#96811#96812#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -813,17 +644,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/javafx.fxml/javafx/fxml/FXMLLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="1785" column="42" selection-start-line="1785" selection-start-column="42" selection-end-line="1785" selection-end-column="42" />
-          <folding>
-            <element signature="e#67760#67761#0" expanded="true" />
-            <element signature="e#67805#67806#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.base/java/lang/reflect/InvocationTargetException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="401">
@@ -842,27 +662,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scences/EmployeeHome.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1561">
           <caret line="50" column="27" lean-forward="true" selection-start-line="50" selection-start-column="27" selection-end-line="50" selection-end-column="27" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/ClientConsole.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="153" column="33" selection-start-line="153" selection-start-column="33" selection-end-line="153" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ocsf/client/AbstractClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="240" column="16" selection-start-line="240" selection-start-column="16" selection-end-line="240" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -870,16 +673,6 @@
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scences/ManagerHome.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/models/Map.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="48" column="57" selection-start-line="48" selection-start-column="57" selection-end-line="48" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/Employee.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
@@ -887,30 +680,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scences/AlertBoxMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="41" column="39" selection-start-line="41" selection-start-column="39" selection-end-line="41" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/scences/LocationsToursDetails.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="56" selection-start-line="14" selection-start-column="56" selection-end-line="14" selection-end-column="56" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/scences/LocationsToursDetailsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/scences/LocationsToursDetailsController.class">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scences/AlertBoxCity.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -922,20 +693,166 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scences/CustomerHomeController.java">
+    <entry file="file://$PROJECT_DIR$/src/scences/LogInScene.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3400">
-          <caret line="231" selection-start-line="231" selection-end-line="231" />
+        <state relative-caret-position="-299" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scences/EmployeeHomeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2481">
+          <caret line="220" column="51" selection-start-line="220" selection-start-column="51" selection-end-line="220" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/Location.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="43" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/Map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1445">
+          <caret line="89" column="57" selection-start-line="89" selection-start-column="57" selection-end-line="89" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scences/LocationsToursDetails.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/Tour.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="32" lean-forward="true" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/javafx.controls/javafx/scene/control/Labeled.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="146" column="45" selection-start-line="146" selection-start-column="45" selection-end-line="146" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/scences/LogInController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="986">
-          <caret line="72" column="16" selection-start-line="72" selection-start-column="16" selection-end-line="73" selection-end-column="61" />
+        <state relative-caret-position="364">
+          <caret line="80" selection-start-line="80" selection-end-line="80" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scences/CustomerHomeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="237" selection-start-line="237" selection-end-line="237" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/javafx.fxml/javafx/fxml/FXMLLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="3121" selection-start-line="3121" selection-end-line="3121" />
+          <folding>
+            <element signature="e#67760#67761#0" expanded="true" />
+            <element signature="e#67805#67806#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/ClientConsole.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="191" selection-start-line="191" selection-end-line="191" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/javafx.graphics/javafx/scene/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="8865" selection-start-line="8865" selection-end-line="8865" />
+          <folding>
+            <element signature="e#41660#41667#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/javafx.controls/javafx/scene/control/Button.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="201" selection-start-line="201" selection-end-line="201" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/javafx.graphics/javafx/scene/Scene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="2616" column="17" lean-forward="true" selection-start-line="2616" selection-start-column="17" selection-end-line="2616" selection-end-column="17" />
+          <folding>
+            <element signature="e#59034#59035#0" expanded="true" />
+            <element signature="e#59093#59094#0" expanded="true" />
+            <element signature="e#70522#70523#0" expanded="true" />
+            <element signature="e#70568#70569#0" expanded="true" />
+            <element signature="e#96762#96763#0" expanded="true" />
+            <element signature="e#96811#96812#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ocsf/client/AbstractClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="143" selection-start-line="143" selection-end-line="143" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scences/AlertBoxMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/javafx.base/javafx/event/Event.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="198" selection-start-line="198" selection-end-line="198" />
+          <folding>
+            <element signature="e#3304#3305#0" expanded="true" />
+            <element signature="e#3336#3337#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scences/LocationsToursDetailsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="88" column="80" lean-forward="true" selection-start-line="88" selection-start-column="80" selection-end-line="88" selection-end-column="80" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -944,18 +861,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/client/ChatClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1134">
-          <caret line="307" column="13" selection-start-line="307" selection-start-column="13" selection-end-line="307" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/scences/EmployeeHomeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="220" column="51" lean-forward="true" selection-start-line="220" selection-start-column="51" selection-end-line="220" selection-end-column="51" />
+        <state relative-caret-position="329">
+          <caret line="283" column="48" lean-forward="true" selection-start-line="283" selection-start-column="48" selection-end-line="283" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

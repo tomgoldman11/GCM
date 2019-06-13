@@ -16,6 +16,7 @@ import ocsf.client.AbstractClient;
 import scences.ConnectionController;
 import scences.CustomerHomeController;
 import scences.EmployeeHomeController;
+import scences.LocationsToursDetailsController;
 
 import java.io.*;
 import java.sql.ClientInfoStatus;
@@ -60,6 +61,8 @@ public class ChatClient extends AbstractClient {
 	public static ObservableList<City> catalogDataS = FXCollections.observableArrayList();
 	public static ObservableList<Map> myMapsDataS = FXCollections.observableArrayList();
     public static ObservableList<Employee> employeesDataS = FXCollections.observableArrayList();
+    public static ObservableList<Location> locationsDataS = FXCollections.observableArrayList();
+	public static ObservableList<Tour> tourDataS = FXCollections.observableArrayList();
 	/**
 	 * Constructs an instance of the chat client.
 	 *
@@ -254,6 +257,44 @@ public class ChatClient extends AbstractClient {
 					});
 
 				}
+                else if (((ArrayList<String>) msg).get(0).equals("getLocationsForMap")) {
+                    System.out.println("DEBUG: getting locationsForMap");
+                    ((ArrayList<String>) msg).remove(0);
+                    ObservableList<Location> catalogData = FXCollections.observableArrayList();
+                    for (int i = 0; i < ((ArrayList) msg).size(); i += 5) {
+                        catalogData.add(new Location(Integer.parseInt(((ArrayList<String>) msg).get(i)), ((ArrayList<String>) msg).get(i + 1), ((ArrayList<String>) msg).get(i + 2)
+                                , (((ArrayList<String>) msg).get(i + 3)), Boolean.parseBoolean(((ArrayList<String>) msg).get(i + 4))));
+                    }
+                    locationsDataS = catalogData;
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            LocationsToursDetailsController.LocationTV1.getItems().removeAll();
+                            LocationsToursDetailsController.LocationTV1.getItems().clear();
+                            LocationsToursDetailsController.LocationTV1.setItems(catalogData);
+                            LocationsToursDetailsController.LocationTV1.refresh();
+                        }
+                    });
+                } // getToursForMap
+				else if (((ArrayList<String>) msg).get(0).equals("getToursForMap")) {
+					System.out.println("DEBUG: getting ToursForMap");
+					((ArrayList<String>) msg).remove(0);
+					ObservableList<Tour> catalogData = FXCollections.observableArrayList();
+					for (int i = 0; i < ((ArrayList) msg).size(); i += 4) {
+						catalogData.add(new Tour(Integer.parseInt(((ArrayList<String>) msg).get(i)), ((ArrayList<String>) msg).get(i + 1), ((ArrayList<String>) msg).get(i + 2),((ArrayList<String>) msg).get(i + 3) ));
+					}
+					tourDataS = catalogData;
+					Platform.runLater(new Runnable() {
+						@Override
+						public void run() {
+							LocationsToursDetailsController.ToursTV1.getItems().removeAll();
+							LocationsToursDetailsController.ToursTV1.getItems().clear();
+							LocationsToursDetailsController.ToursTV1.setItems(catalogData);
+							LocationsToursDetailsController.ToursTV1.refresh();
+						}
+					});
+				}
+
 			} // end if customer
 			else {
 				if (((ArrayList<String>) msg).get(0).equals("getcities")) {
@@ -324,7 +365,7 @@ public class ChatClient extends AbstractClient {
 		if (message.charAt(0) == '-' || message.charAt(0) == '+' || message.charAt(0) == '(' || message.charAt(0) == ')' ||
 				message.charAt(0) == '=' ||  message.charAt(0) == '*' || message.charAt(0) == 'm' || message.charAt(0) == 'n' ||
 				message.charAt(0) == 'b' || message.charAt(0) == 'v' || message.charAt(0) == 'c' || message.charAt(0) == 'x' || message.charAt(0) == 'a'
-				|| message.charAt(0) == 'q' || message.charAt(0) == ']' || message.charAt(0) == 'A')  {
+				|| message.charAt(0) == 'q' || message.charAt(0) == ']' || message.charAt(0) == 'A' || message.charAt(0) == '5'  || message.charAt(0) == '6')  {
 			try {
 				System.out.println("msg:" +message);
 				sendToServer(message);
@@ -485,7 +526,6 @@ public class ChatClient extends AbstractClient {
 	protected void connectionException(Exception exception) {
 		exception.printStackTrace();
 		System.out.println("The connection to the Server (" + getHost() + ", " + getPort() + ") has been disconnected");
-		//clientUI.display("The connection to the Server (" + getHost() + ", " + getPort() + ") has been disconnected");
 	}
 }
 

@@ -207,13 +207,22 @@
                   </Label>
                </children>
             </Pane>
-            <Pane prefHeight="700.0" prefWidth="793.0">
+            <Pane prefHeight="710.0" prefWidth="795.0">
                <children>
-                  <Label alignment="CENTER" layoutX="227.0" layoutY="34.0" prefHeight="31.0" prefWidth="317.0" text="Statistics" textFill="#204ee4">
+                  <Label alignment="CENTER" layoutX="226.0" layoutY="33.0" prefHeight="31.0" prefWidth="317.0" text="Requests" textFill="#204ee4">
                      <font>
                         <Font name="System Bold" size="26.0" />
                      </font>
                   </Label>
+                  <TableView fx:id="RequestTV" layoutY="91.0" prefHeight="615.0" prefWidth="795.0">
+                     <columns>
+                        <TableColumn prefWidth="109.0" text="Request Number" />
+                        <TableColumn prefWidth="251.0" text="Request Description" />
+                        <TableColumn prefWidth="146.0" text="Employee's Name" />
+                        <TableColumn prefWidth="171.0" text="Request Date" />
+                        <TableColumn prefWidth="117.0" text="Action" />
+                     </columns>
+                  </TableView>
                </children>
             </Pane>
             </children>
