@@ -20,11 +20,11 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="700.0" stylesheets="@AppStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scences.EmployeeHomeController">
     <children>
-        <AnchorPane prefHeight="700.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="792.0" AnchorPane.topAnchor="0.0">
+        <AnchorPane layoutX="8.0" prefHeight="700.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="784.0" AnchorPane.topAnchor="0.0">
             <children>
-                <Button fx:id="LogOutBTN" layoutX="55.0" layoutY="178.0" mnemonicParsing="false" onAction="#LogOutEmployee" prefHeight="31.0" prefWidth="129.0" text="Log Out" />
+                <Button fx:id="LogOutBTN" layoutX="55.0" layoutY="639.0" mnemonicParsing="false" onAction="#LogOutEmployee" prefHeight="31.0" prefWidth="129.0" text="Log Out" />
                 <Button fx:id="PersonalInfoBTN" layoutX="55.0" layoutY="132.0" mnemonicParsing="false" onAction="#PersonalInfoEmployee" prefHeight="31.0" prefWidth="129.0" text="Personal Info" />
-                <Button fx:id="SearchBTN" layoutX="55.0" layoutY="39.0" mnemonicParsing="false" onAction="#SearchCatalogEmployee" prefHeight="31.0" prefWidth="129.0" text="Search Catalog" />
+                <Button fx:id="SearchBTN" layoutX="55.0" layoutY="45.0" mnemonicParsing="false" onAction="#SearchCatalogEmployee" prefHeight="31.0" prefWidth="129.0" text="Search Catalog" />
                 <Label alignment="CENTER" layoutY="4.0" prefHeight="21.0" prefWidth="207.0" text="Employee Panel" textFill="#204ee4">
                     <font>
                         <Font name="System Bold" size="15.0" />
@@ -32,7 +32,7 @@
                 </Label>
                 <Separator layoutX="205.0" orientation="VERTICAL" prefHeight="700.0" prefWidth="5.0" AnchorPane.rightAnchor="-4.0" />
                 <Separator layoutY="24.0" prefHeight="3.0" prefWidth="207.0" />
-                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="14.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="14.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../icons/search.png" />
                     </image>
@@ -42,7 +42,7 @@
                         <Image url="@../icons/PersonalInfo.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="14.0" layoutY="178.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="14.0" layoutY="640.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../icons/LogOut.png" />
                     </image>
@@ -53,6 +53,24 @@
                     </image>
                 </ImageView>
                 <Button fx:id="mapsBTN" layoutX="55.0" layoutY="88.0" mnemonicParsing="false" onAction="#showmaps" prefHeight="31.0" prefWidth="129.0" text="Search Maps" />
+            <Button fx:id="EmployeesBTN1" layoutX="55.0" layoutY="177.0" mnemonicParsing="false" onAction="#EmployeesDetails" prefHeight="31.0" prefWidth="129.0" text="Employees" />
+            <Button fx:id="StatisticsBTN" layoutX="55.0" layoutY="222.0" mnemonicParsing="false" onAction="#Statistics" prefHeight="31.0" prefWidth="129.0" text="Statistics" />
+            <Button fx:id="WaitingForApprovalBTN" layoutX="55.0" layoutY="266.0" mnemonicParsing="false" onAction="#ApprovalRequests" prefHeight="31.0" prefWidth="129.0" text="Requests" />
+            <ImageView fx:id="EmployeesImage" fitHeight="30.0" fitWidth="30.0" layoutX="14.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/employees.jpeg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="StatisticsImage" fitHeight="30.0" fitWidth="30.0" layoutX="14.0" layoutY="223.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/statistics.jpeg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="ApprovalImage" fitHeight="30.0" fitWidth="30.0" layoutX="14.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/messages.jpeg" />
+               </image>
+            </ImageView>
             </children>
         </AnchorPane>
         <AnchorPane fx:id="ChangePanesAP" layoutX="206.0" prefHeight="700.0" prefWidth="794.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="206.0" AnchorPane.rightAnchor="-8.0" AnchorPane.topAnchor="0.0">
@@ -158,6 +176,53 @@
                   </TableView>
                   <TextField fx:id="searchBox1" layoutX="14.0" layoutY="37.0" onKeyTyped="#searchRecordMap" prefHeight="31.0" prefWidth="598.0" promptText="Search For Maps HERE" />
                   <Button fx:id="CreateMapBTN" layoutX="634.0" layoutY="37.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="110.0" stylesheets="@PurpleBtn.css" text="Create Map" />
+               </children>
+            </Pane>
+            <Pane prefHeight="700.0" prefWidth="793.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="227.0" layoutY="33.0" prefHeight="31.0" prefWidth="317.0" text="Employees Table" textFill="#204ee4">
+                     <font>
+                        <Font name="System Bold" size="26.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="EmployeeTTV" layoutY="92.0" prefHeight="608.0" prefWidth="793.0">
+                     <columns>
+                        <TableColumn fx:id="UserIDCOL" prefWidth="87.0" text="User Id" />
+                        <TableColumn fx:id="EmployeeIDCOL" prefWidth="75.0" text="Employee ID" />
+                        <TableColumn fx:id="RoleIDCOL" prefWidth="53.0" text="Role ID" />
+                        <TableColumn fx:id="JobTitleCOL" prefWidth="165.0" text="Job Title" />
+                        <TableColumn fx:id="FullNameCOL" minWidth="0.0" prefWidth="138.0" text="Full Name" />
+                        <TableColumn fx:id="EmailCOL" minWidth="0.0" prefWidth="174.0" text="Email" />
+                        <TableColumn fx:id="PhoneCOL" minWidth="0.0" prefWidth="99.0" text="Phone" />
+                     </columns>
+                  </TableView>
+               </children>
+            </Pane>
+            <Pane prefHeight="700.0" prefWidth="793.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="227.0" layoutY="34.0" prefHeight="31.0" prefWidth="317.0" text="Statistics" textFill="#204ee4">
+                     <font>
+                        <Font name="System Bold" size="26.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane prefHeight="710.0" prefWidth="795.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="226.0" layoutY="33.0" prefHeight="31.0" prefWidth="317.0" text="Requests" textFill="#204ee4">
+                     <font>
+                        <Font name="System Bold" size="26.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="RequestTV" layoutY="91.0" prefHeight="615.0" prefWidth="795.0">
+                     <columns>
+                        <TableColumn prefWidth="109.0" text="Request Number" />
+                        <TableColumn prefWidth="251.0" text="Request Description" />
+                        <TableColumn prefWidth="146.0" text="Employee's Name" />
+                        <TableColumn prefWidth="171.0" text="Request Date" />
+                        <TableColumn prefWidth="117.0" text="Action" />
+                     </columns>
+                  </TableView>
                </children>
             </Pane>
             </children>

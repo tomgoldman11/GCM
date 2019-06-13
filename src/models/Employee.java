@@ -20,6 +20,17 @@ public class Employee extends User {
         this.email = email;
         this.phone = phone;
     }
+
+    public Employee(String user, int employeeID, int roleID, String jobTitle, String fullName, String email ,String phone ) {
+        this.setUserID(user);
+        this.employeeID = employeeID;
+        this.roleID = roleID;
+        this.jobTitle = jobTitle;
+        this.fullName = fullName;
+        this.email = email;
+        this.phone = phone;
+    }
+
     public String getUserID() {
         return userID;
     }

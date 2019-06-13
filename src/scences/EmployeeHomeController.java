@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -53,6 +54,14 @@ public class EmployeeHomeController implements Initializable {
     @FXML
     private Pane SerachCatalogPane;
 
+    @FXML
+    private Button EmployeesBTN1;
+
+    @FXML
+    private Button StatisticsBTN;
+
+    @FXML
+    private Button WaitingForApprovalBTN;
 
     @FXML
     private TableView<City> SearchTTV;
@@ -130,6 +139,15 @@ public class EmployeeHomeController implements Initializable {
     private TextField searchBox1;
 
     @FXML
+    private ImageView EmployeesImage;
+
+    @FXML
+    private ImageView StatisticsImage;
+
+    @FXML
+    private ImageView ApprovalImage;
+
+    @FXML
     private Text FullNameT;
 
     @FXML
@@ -146,6 +164,34 @@ public class EmployeeHomeController implements Initializable {
 
     @FXML
     private Text PasswordT;
+
+    @FXML
+    private TableView<Employee> EmployeeTTV;
+
+    @FXML
+    public static TableView<Employee> EmployeeTTV1;
+
+    @FXML
+    private TableColumn<Employee, String> UserIDCOL;
+
+    @FXML
+    private TableColumn<Employee, Integer> EmployeeIDCOL;
+
+    @FXML
+    private TableColumn<Employee, Integer> RoleIDCOL;
+
+    @FXML
+    private TableColumn<Employee, String> JobTitleCOL;
+
+    @FXML
+    private TableColumn<Employee, String> FullNameCOL;
+
+    @FXML
+    private TableColumn<Employee, String> EmailCOL;
+
+    @FXML
+    private TableColumn<Employee, String> PhoneCOL;
+
 
     @FXML
     void LogOutEmployee(ActionEvent event) {
@@ -186,8 +232,17 @@ public class EmployeeHomeController implements Initializable {
         AnchorPaneChildrens.addAll(ChangePanesAP.getChildren());
         ChangePanesAP.getChildren().clear();
         ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(0));
+        if (ChatClient.employee.getRoleID() != 0 && ChatClient.employee.getRoleID() != 1){
+            WaitingForApprovalBTN.setVisible(false);
+            StatisticsBTN.setVisible(false);
+            EmployeesBTN1.setVisible(false);
+            EmployeesImage.setVisible(false);
+            StatisticsImage.setVisible(false);
+            ApprovalImage.setVisible(false);
+        }
         SearchTTV2 = SearchTTV;
         MyMapsTTV1 = MyMapsTTV;
+        EmployeeTTV1 = EmployeeTTV;
         // cols for cities
         IDCOL.setCellValueFactory(new PropertyValueFactory<>("cityID"));
         DescriptionCOL.setCellValueFactory(new PropertyValueFactory<>("description"));
@@ -210,7 +265,14 @@ public class EmployeeHomeController implements Initializable {
         VCOLMap.setCellValueFactory(new PropertyValueFactory<>("version"));
         ActionCOLMap.setCellValueFactory(new PropertyValueFactory<>("show"));
 
-
+        // cols for employees  UserIDCOL EmployeeIDCOL RoleIDCOL JobTitleCOL FullNameCOL EmailCOL PhoneCOL
+        UserIDCOL.setCellValueFactory(new PropertyValueFactory<>("userID"));
+        EmployeeIDCOL.setCellValueFactory(new PropertyValueFactory<>("employeeID"));
+        RoleIDCOL.setCellValueFactory(new PropertyValueFactory<>("roleID"));
+        JobTitleCOL.setCellValueFactory(new PropertyValueFactory<>("jobTitle"));
+        FullNameCOL.setCellValueFactory(new PropertyValueFactory<>("fullName"));
+        EmailCOL.setCellValueFactory(new PropertyValueFactory<>("email"));
+        PhoneCOL.setCellValueFactory(new PropertyValueFactory<>("phone"));
     }
 
     @FXML
@@ -305,5 +367,26 @@ public class EmployeeHomeController implements Initializable {
         flag = ConnectionController.client.handleMessageFromClientUI(fillAllMaps);
 
     }
+
+    @FXML
+    void ApprovalRequests(ActionEvent event) {
+        ChangePanesAP.getChildren().clear();
+        ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(5));
+    }
+    @FXML
+    void EmployeesDetails(ActionEvent event) {
+        boolean flag;
+        ChangePanesAP.getChildren().clear();
+        ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(3));
+        EmployeeTTV1.getItems().removeAll();
+        EmployeeTTV1.getItems().clear();
+        String fillEmployeesTable = "ASELECT * FROM Employees ";
+        flag = ConnectionController.client.handleMessageFromClientUI(fillEmployeesTable);
+    }@FXML
+    void Statistics(ActionEvent event) {
+        ChangePanesAP.getChildren().clear();
+        ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(4));
+    }
+
 
 }

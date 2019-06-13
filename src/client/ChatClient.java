@@ -59,6 +59,7 @@ public class ChatClient extends AbstractClient {
 	public static boolean CustomerFlag = true;
 	public static ObservableList<City> catalogDataS = FXCollections.observableArrayList();
 	public static ObservableList<Map> myMapsDataS = FXCollections.observableArrayList();
+    public static ObservableList<Employee> employeesDataS = FXCollections.observableArrayList();
 	/**
 	 * Constructs an instance of the chat client.
 	 *
@@ -288,6 +289,22 @@ public class ChatClient extends AbstractClient {
 					EmployeeHomeController.MyMapsTTV1.setItems(catalogDataMap);
 					EmployeeHomeController.MyMapsTTV1.refresh();
 				}
+                else if (((ArrayList<String>) msg).get(0).equals("getEmployees")) {
+                    ((ArrayList<String>) msg).remove(0);
+                    System.out.println("DEBUG:   HERE WE GO 4 4");
+                    ObservableList<Employee> catalogData = FXCollections.observableArrayList();
+                    for (int i = 0; i < ((ArrayList) msg).size(); i += 7) {
+                        catalogData.add(new Employee(((ArrayList<String>) msg).get(i), Integer.parseInt(((ArrayList<String>) msg).get(i + 1)), Integer.parseInt(((ArrayList<String>) msg).get(i + 2))
+                                , ((ArrayList<String>) msg).get(i + 3),((ArrayList<String>) msg).get(i + 4), ((ArrayList<String>) msg).get(i + 5)
+                                , ((ArrayList<String>) msg).get(i + 6)));
+                    }
+                    employeesDataS = catalogData;
+                    EmployeeHomeController.EmployeeTTV1.getItems().removeAll();
+                    EmployeeHomeController.EmployeeTTV1.getItems().clear();
+                    EmployeeHomeController.EmployeeTTV1.setItems(catalogData);
+                    EmployeeHomeController.EmployeeTTV1.refresh();
+
+                }
 			}
 
 		}// close big instance of IF
@@ -307,7 +324,7 @@ public class ChatClient extends AbstractClient {
 		if (message.charAt(0) == '-' || message.charAt(0) == '+' || message.charAt(0) == '(' || message.charAt(0) == ')' ||
 				message.charAt(0) == '=' ||  message.charAt(0) == '*' || message.charAt(0) == 'm' || message.charAt(0) == 'n' ||
 				message.charAt(0) == 'b' || message.charAt(0) == 'v' || message.charAt(0) == 'c' || message.charAt(0) == 'x' || message.charAt(0) == 'a'
-				|| message.charAt(0) == 'q' || message.charAt(0) == ']')  {
+				|| message.charAt(0) == 'q' || message.charAt(0) == ']' || message.charAt(0) == 'A')  {
 			try {
 				System.out.println("msg:" +message);
 				sendToServer(message);
