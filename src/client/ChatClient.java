@@ -57,7 +57,8 @@ public class ChatClient extends AbstractClient {
 	public static int maxCusID = 0;
 	public static int maxOTSubID = 0;
 	public static int maxFSubID = 0;
-	public static boolean CustomerFlag = true;
+    public static int maxRequestID = 0;
+    public static boolean CustomerFlag = true;
 	public static ObservableList<City> catalogDataS = FXCollections.observableArrayList();
 	public static ObservableList<Map> myMapsDataS = FXCollections.observableArrayList();
     public static ObservableList<Employee> employeesDataS = FXCollections.observableArrayList();
@@ -180,6 +181,9 @@ public class ChatClient extends AbstractClient {
         }
         if (msg.toString().charAt(0) == 'c'){
             ChatClient.maxFSubID = Integer.parseInt(msg.toString().substring(1)) + 1;
+        }
+        if (msg.toString().charAt(0) == '3') {
+            ChatClient.maxRequestID = Integer.parseInt(msg.toString().substring(1)) + 1;
         }
 
 
@@ -365,7 +369,8 @@ public class ChatClient extends AbstractClient {
 		if (message.charAt(0) == '-' || message.charAt(0) == '+' || message.charAt(0) == '(' || message.charAt(0) == ')' ||
 				message.charAt(0) == '=' ||  message.charAt(0) == '*' || message.charAt(0) == 'm' || message.charAt(0) == 'n' ||
 				message.charAt(0) == 'b' || message.charAt(0) == 'v' || message.charAt(0) == 'c' || message.charAt(0) == 'x' || message.charAt(0) == 'a'
-				|| message.charAt(0) == 'q' || message.charAt(0) == ']' || message.charAt(0) == 'A' || message.charAt(0) == '5'  || message.charAt(0) == '6')  {
+				|| message.charAt(0) == 'q' || message.charAt(0) == ']' || message.charAt(0) == 'A' || message.charAt(0) == '5'  || message.charAt(0) == '6'
+                || message.charAt(0) == 'r' || message.charAt(0) == 'i' || message.charAt(0) == 'g'|| message.charAt(0) == '3' )  {
 			try {
 				System.out.println("msg:" +message);
 				sendToServer(message);

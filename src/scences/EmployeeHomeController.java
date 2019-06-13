@@ -23,14 +23,17 @@ import javafx.scene.text.Text;
 import models.City;
 import models.Employee;
 import models.Map;
-
+import models.ChangeRequest;
 
 import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.concurrent.TimeUnit;
 
 import static client.ChatClient.*;
 
@@ -38,6 +41,7 @@ import static client.ChatClient.*;
 public class EmployeeHomeController implements Initializable {
 
     private List<Node> AnchorPaneChildrens = new ArrayList<>();
+    public static int maxReqID = 0;
 
     @FXML
     private Button SearchBTN;
@@ -191,6 +195,117 @@ public class EmployeeHomeController implements Initializable {
 
     @FXML
     private TableColumn<Employee, String> PhoneCOL;
+
+    @FXML
+    private Pane CreateCityPane;
+
+    @FXML
+    private Button CancelBTN;
+
+    @FXML
+    private Button SendRquestBTN1;
+
+    @FXML
+    private Label CityChangeSL1;
+
+    @FXML
+    private TextField CityIDT;
+
+    @FXML
+    private TextField CityDescriptionT;
+
+    @FXML
+    private TextField MapClusterVersionT;
+
+    @FXML
+    private TextField MapClusterPiceT;
+
+    @FXML
+    private TextField CityNameT;
+
+    @FXML
+    private Pane CreateMapPane;
+
+    @FXML
+    private TextField MapIDT;
+
+    @FXML
+    private TextField MapCityIDT;
+
+    @FXML
+    private TextField MapNameT;
+
+    @FXML
+    private TextField MapDescriptionT;
+
+    @FXML
+    private TextField MapVersionT;
+
+    @FXML
+    private TextField MapPathT;
+
+    @FXML
+    private Button CancelMapBTN;
+
+    @FXML
+    private Button SendRquestMapBTN;
+
+    @FXML
+    private Label MapChangeSL;
+
+    @FXML
+    private Pane CreateLocationPane;
+
+    @FXML
+    private Button LocationCancelBTN;
+
+    @FXML
+    private Button LocationSendRquestBTN;
+
+    @FXML
+    private Label LocationChangeSL;
+
+    @FXML
+    private TextField LocationIDT;
+
+    @FXML
+    private TextField LocationNameT;
+
+    @FXML
+    private TextField ClassificationT;
+
+    @FXML
+    private TextField LocationDescriptionT;
+
+    @FXML
+    private TextField LocationAccessabilityT;
+
+    @FXML
+    private Pane CreateLocationPane1;
+
+    @FXML
+    private Button tourCancelBTN;
+
+    @FXML
+    private Button tourSendRquestBTN;
+
+    @FXML
+    private Label TourChangeSL;
+
+    @FXML
+    private TextField TourIDT;
+
+    @FXML
+    private TextField TourDescriptionT;
+
+    @FXML
+    private TextField VisitDurationT;
+
+    @FXML
+    private TextField CityIDTourt;
+
+    @FXML
+    private Label CityChangeSL;
 
 
     @FXML
@@ -373,6 +488,7 @@ public class EmployeeHomeController implements Initializable {
         ChangePanesAP.getChildren().clear();
         ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(5));
     }
+
     @FXML
     void EmployeesDetails(ActionEvent event) {
         boolean flag;
@@ -382,11 +498,133 @@ public class EmployeeHomeController implements Initializable {
         EmployeeTTV1.getItems().clear();
         String fillEmployeesTable = "ASELECT * FROM Employees ";
         flag = ConnectionController.client.handleMessageFromClientUI(fillEmployeesTable);
-    }@FXML
+    }
+
+    @FXML
     void Statistics(ActionEvent event) {
         ChangePanesAP.getChildren().clear();
         ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(4));
     }
+
+    @FXML
+    void CreateCityFunc(ActionEvent event) {
+        ChangePanesAP.getChildren().clear();
+        ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(6));
+    }
+
+    @FXML
+    void CreateMapFunc(ActionEvent event) {
+        ChangePanesAP.getChildren().clear();
+        ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(7));
+    }
+
+
+    @FXML
+    void CancelChange(ActionEvent event) {
+        ChangePanesAP.getChildren().clear();
+        ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(2));
+    }
+
+    @FXML
+    void ChangeAction(ActionEvent event) {
+        ChangePanesAP.getChildren().clear();
+        ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(3));
+    }
+
+    @FXML
+    void sendRequestCityBTN(ActionEvent event) {
+
+        String cityID = CityIDT.getText();
+        String cityDescription = CityDescriptionT.getText();
+        String mapClusterVersion = MapClusterVersionT.getText();
+        int numMaps = 0;
+        int numTours = 0;
+        int numLocation = 0;
+        String mapClusterPrice = MapClusterPiceT.getText();
+        String cityName = CityNameT.getText();
+
+
+        CityChangeSL.setText("Request sent for approval");
+        CityChangeSL.setTextFill(Color.BLUE);
+
+        String requestIDQuery = "3SELECT MAX(requestID) FROM ChangeRequest";
+        boolean flag = ConnectionController.client.handleMessageFromClientUI(requestIDQuery);
+
+        try {
+            TimeUnit.SECONDS.sleep(5);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        maxReqID = ChatClient.maxRequestID;
+
+        Date currentdate = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        ChangeRequest request = new ChangeRequest(maxReqID,"Creating new city: " + cityName,ChatClient.employee.getFullName(),formatter.format(currentdate) );
+
+        String addRequest = "rINSERT INTO ChangeRequest (requestID, requestDescription, employeeName,requestDate ) " +
+                "VALUES (" + request.getRequestID() + ",'" +  request.getRequestDescription() + "','" + request.getEmployeeName() + "','" + request.getRequestDate()+ "')";
+        flag = ConnectionController.client.handleMessageFromClientUI(addRequest);
+
+        String addCityRequest = "iINSERT INTO CitiesRequest (cityID, requestID, description, mapsClusterVersion, numMaps, numTours, numLocations, mapsClusterPrice, cityName) " +
+                "VALUES (" + Integer.parseInt(cityID) + "," +maxReqID+ ",'" +
+                cityDescription + "'," + Double.parseDouble(mapClusterVersion) + "," +
+                numMaps + "," + numTours + "," + numLocation + "," + Double.parseDouble(mapClusterPrice)+ ",'" + cityName + "')";
+
+        flag = ConnectionController.client.handleMessageFromClientUI(addCityRequest);
+
+    }
+
+    @FXML
+    void sendRequestLocationBTN(ActionEvent event) {
+
+    }
+
+    @FXML
+    void sendRequestMapBTN(ActionEvent event) {
+
+        String mapID = MapIDT.getText();
+        String mapCityID = MapCityIDT.getText();
+        String mapName = MapNameT.getText();
+        String mapDescription = MapDescriptionT.getText();
+        double version = Double.parseDouble(MapVersionT.getText());
+        String mapPath = MapPathT.getText();
+
+        MapChangeSL.setText("Request sent for approval");
+        MapChangeSL.setTextFill(Color.BLUE);
+
+
+        String requestIDQuery = "3SELECT MAX(requestID) FROM ChangeRequest";
+        boolean flag = ConnectionController.client.handleMessageFromClientUI(requestIDQuery);
+
+        try {
+            TimeUnit.SECONDS.sleep(5);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        maxReqID = ChatClient.maxRequestID;
+
+        Date currentdate = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        ChangeRequest request = new ChangeRequest(maxReqID,"Creating new Map: " + mapName,ChatClient.employee.getFullName(),formatter.format(currentdate) );
+
+        String addRequest = "rINSERT INTO ChangeRequest (requestID, requestDescription, employeeName,requestDate ) " +
+                "VALUES (" + request.getRequestID() + ",'" +  request.getRequestDescription() + "','" + request.getEmployeeName() + "','" + request.getRequestDate()+ "')";
+        flag = ConnectionController.client.handleMessageFromClientUI(addRequest);
+
+        String addMapRequest = "gINSERT INTO MapsRequest (mapID, requestID, cityID, mapName, description, version, mapPath)" +
+                "VALUES (" + Integer.parseInt(mapID) + "," + maxReqID + "," + Integer.parseInt(mapCityID) + ",'" +
+                mapName + "','" + mapDescription + "'," + version + ",'" + mapPath + "')";
+
+        flag = ConnectionController.client.handleMessageFromClientUI(addMapRequest);
+    }
+
+    @FXML
+    void sendRequestTourBTN(ActionEvent event) {
+
+    }
+
 
 
 }

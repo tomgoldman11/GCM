@@ -53,24 +53,24 @@
                     </image>
                 </ImageView>
                 <Button fx:id="mapsBTN" layoutX="55.0" layoutY="88.0" mnemonicParsing="false" onAction="#showmaps" prefHeight="31.0" prefWidth="129.0" text="Search Maps" />
-            <Button fx:id="EmployeesBTN1" layoutX="55.0" layoutY="177.0" mnemonicParsing="false" onAction="#EmployeesDetails" prefHeight="31.0" prefWidth="129.0" text="Employees" />
-            <Button fx:id="StatisticsBTN" layoutX="55.0" layoutY="222.0" mnemonicParsing="false" onAction="#Statistics" prefHeight="31.0" prefWidth="129.0" text="Statistics" />
-            <Button fx:id="WaitingForApprovalBTN" layoutX="55.0" layoutY="266.0" mnemonicParsing="false" onAction="#ApprovalRequests" prefHeight="31.0" prefWidth="129.0" text="Requests" />
-            <ImageView fx:id="EmployeesImage" fitHeight="30.0" fitWidth="30.0" layoutX="14.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../icons/employees.jpeg" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="StatisticsImage" fitHeight="30.0" fitWidth="30.0" layoutX="14.0" layoutY="223.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../icons/statistics.jpeg" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="ApprovalImage" fitHeight="30.0" fitWidth="30.0" layoutX="14.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../icons/messages.jpeg" />
-               </image>
-            </ImageView>
+                <Button fx:id="EmployeesBTN1" layoutX="55.0" layoutY="177.0" mnemonicParsing="false" onAction="#EmployeesDetails" prefHeight="31.0" prefWidth="129.0" text="Employees" />
+                <Button fx:id="StatisticsBTN" layoutX="55.0" layoutY="222.0" mnemonicParsing="false" onAction="#Statistics" prefHeight="31.0" prefWidth="129.0" text="Statistics" />
+                <Button fx:id="WaitingForApprovalBTN" layoutX="55.0" layoutY="266.0" mnemonicParsing="false" onAction="#ApprovalRequests" prefHeight="31.0" prefWidth="129.0" text="Requests" />
+                <ImageView fx:id="EmployeesImage" fitHeight="30.0" fitWidth="30.0" layoutX="14.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../icons/employees.jpeg" />
+                    </image>
+                </ImageView>
+                <ImageView fx:id="StatisticsImage" fitHeight="30.0" fitWidth="30.0" layoutX="14.0" layoutY="223.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../icons/statistics.jpeg" />
+                    </image>
+                </ImageView>
+                <ImageView fx:id="ApprovalImage" fitHeight="30.0" fitWidth="30.0" layoutX="14.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../icons/messages.jpeg" />
+                    </image>
+                </ImageView>
             </children>
         </AnchorPane>
         <AnchorPane fx:id="ChangePanesAP" layoutX="206.0" prefHeight="700.0" prefWidth="794.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="206.0" AnchorPane.rightAnchor="-8.0" AnchorPane.topAnchor="0.0">
@@ -90,7 +90,7 @@
                                 <TableColumn fx:id="ActionCOL" prefWidth="97.0" text="Action" />
                             </columns>
                         </TableView>
-                        <Button fx:id="CreateCityBTN" layoutX="634.0" layoutY="43.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="110.0" stylesheets="@PurpleBtn.css" text="Create City" />
+                        <Button fx:id="CreateCityBTN" layoutX="634.0" layoutY="43.0" mnemonicParsing="false" onAction="#CreateCityFunc" prefHeight="31.0" prefWidth="110.0" stylesheets="@PurpleBtn.css" text="Create City" />
                         <TextField fx:id="searchBox" layoutX="14.0" layoutY="43.0" onKeyTyped="#searchRecord" prefHeight="31.0" prefWidth="598.0" promptText="Search For Cities HERE" />
                     </children>
                 </Pane>
@@ -163,68 +163,236 @@
                         </Text>
                     </children>
                 </Pane>
-            <Pane prefHeight="700.0" prefWidth="793.0">
-               <children>
-                  <TableView fx:id="MyMapsTTV" layoutY="84.0" prefHeight="608.0" prefWidth="793.0">
-                     <columns>
-                        <TableColumn fx:id="IDCOLMap" prefWidth="45.0" text="ID" />
-                        <TableColumn fx:id="nameCOLMap" prefWidth="110.0" text="Name" />
-                        <TableColumn fx:id="descriptionnCOLMap" prefWidth="460.0" text="Description" />
-                        <TableColumn fx:id="VCOLMap" minWidth="0.0" prefWidth="71.0" text="V." />
-                        <TableColumn fx:id="ActionCOLMap" prefWidth="106.0" text="Action" />
-                     </columns>
-                  </TableView>
-                  <TextField fx:id="searchBox1" layoutX="14.0" layoutY="37.0" onKeyTyped="#searchRecordMap" prefHeight="31.0" prefWidth="598.0" promptText="Search For Maps HERE" />
-                  <Button fx:id="CreateMapBTN" layoutX="634.0" layoutY="37.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="110.0" stylesheets="@PurpleBtn.css" text="Create Map" />
-               </children>
-            </Pane>
-            <Pane prefHeight="700.0" prefWidth="793.0">
-               <children>
-                  <Label alignment="CENTER" layoutX="227.0" layoutY="33.0" prefHeight="31.0" prefWidth="317.0" text="Employees Table" textFill="#204ee4">
-                     <font>
-                        <Font name="System Bold" size="26.0" />
-                     </font>
-                  </Label>
-                  <TableView fx:id="EmployeeTTV" layoutY="92.0" prefHeight="608.0" prefWidth="793.0">
-                     <columns>
-                        <TableColumn fx:id="UserIDCOL" prefWidth="87.0" text="User Id" />
-                        <TableColumn fx:id="EmployeeIDCOL" prefWidth="75.0" text="Employee ID" />
-                        <TableColumn fx:id="RoleIDCOL" prefWidth="53.0" text="Role ID" />
-                        <TableColumn fx:id="JobTitleCOL" prefWidth="165.0" text="Job Title" />
-                        <TableColumn fx:id="FullNameCOL" minWidth="0.0" prefWidth="138.0" text="Full Name" />
-                        <TableColumn fx:id="EmailCOL" minWidth="0.0" prefWidth="174.0" text="Email" />
-                        <TableColumn fx:id="PhoneCOL" minWidth="0.0" prefWidth="99.0" text="Phone" />
-                     </columns>
-                  </TableView>
-               </children>
-            </Pane>
-            <Pane prefHeight="700.0" prefWidth="793.0">
-               <children>
-                  <Label alignment="CENTER" layoutX="227.0" layoutY="34.0" prefHeight="31.0" prefWidth="317.0" text="Statistics" textFill="#204ee4">
-                     <font>
-                        <Font name="System Bold" size="26.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
-            <Pane prefHeight="710.0" prefWidth="795.0">
-               <children>
-                  <Label alignment="CENTER" layoutX="226.0" layoutY="33.0" prefHeight="31.0" prefWidth="317.0" text="Requests" textFill="#204ee4">
-                     <font>
-                        <Font name="System Bold" size="26.0" />
-                     </font>
-                  </Label>
-                  <TableView fx:id="RequestTV" layoutY="91.0" prefHeight="615.0" prefWidth="795.0">
-                     <columns>
-                        <TableColumn prefWidth="109.0" text="Request Number" />
-                        <TableColumn prefWidth="251.0" text="Request Description" />
-                        <TableColumn prefWidth="146.0" text="Employee's Name" />
-                        <TableColumn prefWidth="171.0" text="Request Date" />
-                        <TableColumn prefWidth="117.0" text="Action" />
-                     </columns>
-                  </TableView>
-               </children>
-            </Pane>
+                <Pane prefHeight="700.0" prefWidth="793.0">
+                    <children>
+                        <TableView fx:id="MyMapsTTV" layoutY="84.0" prefHeight="608.0" prefWidth="793.0">
+                            <columns>
+                                <TableColumn fx:id="IDCOLMap" prefWidth="45.0" text="ID" />
+                                <TableColumn fx:id="nameCOLMap" prefWidth="110.0" text="Name" />
+                                <TableColumn fx:id="descriptionnCOLMap" prefWidth="460.0" text="Description" />
+                                <TableColumn fx:id="VCOLMap" minWidth="0.0" prefWidth="71.0" text="V." />
+                                <TableColumn fx:id="ActionCOLMap" prefWidth="106.0" text="Action" />
+                            </columns>
+                        </TableView>
+                        <TextField fx:id="searchBox1" layoutX="14.0" layoutY="37.0" onKeyTyped="#searchRecordMap" prefHeight="31.0" prefWidth="598.0" promptText="Search For Maps HERE" />
+                        <Button fx:id="CreateMapBTN" layoutX="634.0" layoutY="37.0" mnemonicParsing="false" onAction="#CreateMapFunc" prefHeight="31.0" prefWidth="110.0" stylesheets="@PurpleBtn.css" text="Create Map" />
+                    </children>
+                </Pane>
+                <Pane prefHeight="700.0" prefWidth="793.0">
+                    <children>
+                        <Label alignment="CENTER" layoutX="227.0" layoutY="33.0" prefHeight="31.0" prefWidth="317.0" text="Employees Table" textFill="#204ee4">
+                            <font>
+                                <Font name="System Bold" size="26.0" />
+                            </font>
+                        </Label>
+                        <TableView fx:id="EmployeeTTV" layoutY="92.0" prefHeight="608.0" prefWidth="793.0">
+                            <columns>
+                                <TableColumn fx:id="UserIDCOL" prefWidth="87.0" text="User Id" />
+                                <TableColumn fx:id="EmployeeIDCOL" prefWidth="75.0" text="Employee ID" />
+                                <TableColumn fx:id="RoleIDCOL" prefWidth="53.0" text="Role ID" />
+                                <TableColumn fx:id="JobTitleCOL" prefWidth="165.0" text="Job Title" />
+                                <TableColumn fx:id="FullNameCOL" minWidth="0.0" prefWidth="138.0" text="Full Name" />
+                                <TableColumn fx:id="EmailCOL" minWidth="0.0" prefWidth="174.0" text="Email" />
+                                <TableColumn fx:id="PhoneCOL" minWidth="0.0" prefWidth="99.0" text="Phone" />
+                            </columns>
+                        </TableView>
+                    </children>
+                </Pane>
+                <Pane prefHeight="700.0" prefWidth="793.0">
+                    <children>
+                        <Label alignment="CENTER" layoutX="227.0" layoutY="34.0" prefHeight="31.0" prefWidth="317.0" text="Statistics" textFill="#204ee4">
+                            <font>
+                                <Font name="System Bold" size="26.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+                <Pane prefHeight="710.0" prefWidth="795.0">
+                    <children>
+                        <Label alignment="CENTER" layoutX="226.0" layoutY="33.0" prefHeight="31.0" prefWidth="317.0" text="Requests" textFill="#204ee4">
+                            <font>
+                                <Font name="System Bold" size="26.0" />
+                            </font>
+                        </Label>
+                        <TableView fx:id="RequestTV" layoutY="91.0" prefHeight="615.0" prefWidth="795.0">
+                            <columns>
+                                <TableColumn prefWidth="109.0" text="Request Number" />
+                                <TableColumn prefWidth="251.0" text="Request Description" />
+                                <TableColumn prefWidth="146.0" text="Employee's Name" />
+                                <TableColumn prefWidth="171.0" text="Request Date" />
+                                <TableColumn prefWidth="117.0" text="Action" />
+                            </columns>
+                        </TableView>
+                    </children>
+                </Pane>
+                <Pane fx:id="CreateCityPane" prefHeight="710.0" prefWidth="793.0">
+                    <children>
+                        <Label alignment="CENTER" layoutX="192.0" layoutY="36.0" prefHeight="31.0" prefWidth="317.0" text="Create City" textFill="#204ee4">
+                            <font>
+                                <Font name="System Bold" size="26.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="BASELINE_LEFT" layoutX="52.0" layoutY="150.0" prefHeight="31.0" prefWidth="175.0" text="City ID:">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="BASELINE_LEFT" layoutX="52.0" layoutY="192.0" prefHeight="26.0" prefWidth="175.0" text="Description:">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="BASELINE_LEFT" layoutX="52.0" layoutY="231.0" prefHeight="23.0" prefWidth="175.0" text="Maps Cluster Version:">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="BASELINE_LEFT" layoutX="52.0" layoutY="274.0" prefHeight="23.0" prefWidth="175.0" text="Maps Cluster Price:">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="BASELINE_LEFT" layoutX="53.0" layoutY="315.0" prefHeight="23.0" prefWidth="175.0" text="City Name:">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Button fx:id="CancelBTN" layoutX="205.0" layoutY="477.0" mnemonicParsing="false" onAction="#CancelChange" prefHeight="31.0" prefWidth="110.0" stylesheets="@PurpleBtn.css" text="Cancel" />
+                        <Button fx:id="SendRquestBTN1" layoutX="416.0" layoutY="477.0" mnemonicParsing="false" onAction="#sendRequestCityBTN" prefHeight="31.0" prefWidth="110.0" stylesheets="@GreenBtn.css" text="Send Request" />
+                        <Label fx:id="CityChangeSL" alignment="CENTER" layoutX="256.0" layoutY="544.0" prefHeight="21.0" prefWidth="232.0" text="Status" />
+                        <TextField fx:id="CityIDT" layoutX="315.0" layoutY="153.0" prefHeight="25.0" prefWidth="250.0" text="CityID" />
+                        <TextField fx:id="CityDescriptionT" layoutX="315.0" layoutY="193.0" prefHeight="25.0" prefWidth="250.0" text="Description" />
+                        <TextField fx:id="MapClusterVersionT" layoutX="315.0" layoutY="242.0" prefHeight="25.0" prefWidth="250.0" text="1.1" />
+                        <TextField fx:id="MapClusterPiceT" layoutX="315.0" layoutY="275.0" prefHeight="25.0" prefWidth="250.0" text="Price" />
+                        <TextField fx:id="CityNameT" layoutX="315.0" layoutY="316.0" prefHeight="25.0" prefWidth="250.0" text="Name" />
+                    </children>
+                </Pane>
+                <Pane fx:id="CreateMapPane" prefHeight="710.0" prefWidth="795.0">
+                    <children>
+                        <Label alignment="CENTER" layoutX="195.0" layoutY="43.0" prefHeight="31.0" prefWidth="317.0" text="Create Map" textFill="#204ee4">
+                            <font>
+                                <Font name="System Bold" size="26.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="BASELINE_LEFT" layoutX="53.0" layoutY="150.0" prefHeight="31.0" prefWidth="175.0" text="Map ID:">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="BASELINE_LEFT" layoutX="53.0" layoutY="189.0" prefHeight="31.0" prefWidth="175.0" text="City ID:">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="BASELINE_LEFT" layoutX="53.0" layoutY="228.0" prefHeight="31.0" prefWidth="175.0" text="Map Name:">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="BASELINE_LEFT" layoutX="53.0" layoutY="272.0" prefHeight="31.0" prefWidth="175.0" text="Description:">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="BASELINE_LEFT" layoutX="53.0" layoutY="310.0" prefHeight="31.0" prefWidth="175.0" text="Version:">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="BASELINE_LEFT" layoutX="53.0" layoutY="347.0" prefHeight="31.0" prefWidth="175.0" text="Map Path:">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="MapIDT" layoutX="315.0" layoutY="153.0" prefHeight="25.0" prefWidth="250.0" text="Map ID" />
+                        <TextField fx:id="MapCityIDT" layoutX="315.0" layoutY="193.0" prefHeight="25.0" prefWidth="250.0" text="City ID" />
+                        <TextField fx:id="MapNameT" layoutX="315.0" layoutY="231.0" prefHeight="25.0" prefWidth="250.0" text="Name" />
+                        <TextField fx:id="MapDescriptionT" layoutX="315.0" layoutY="274.0" prefHeight="25.0" prefWidth="250.0" text="Description" />
+                        <TextField fx:id="MapVersionT" layoutX="315.0" layoutY="313.0" prefHeight="25.0" prefWidth="250.0" text="1.1" />
+                        <TextField fx:id="MapPathT" layoutX="315.0" layoutY="350.0" prefHeight="25.0" prefWidth="250.0" text="path" />
+                        <Button fx:id="CancelMapBTN" layoutX="205.0" layoutY="477.0" mnemonicParsing="false" onAction="#CancelChange" prefHeight="31.0" prefWidth="110.0" stylesheets="@PurpleBtn.css" text="Cancel" />
+                        <Button fx:id="SendRquestMapBTN" layoutX="416.0" layoutY="477.0" mnemonicParsing="false" onAction="#sendRequestMapBTN" prefHeight="31.0" prefWidth="110.0" stylesheets="@GreenBtn.css" text="Send Request" />
+                        <Label fx:id="MapChangeSL" layoutX="246.0" layoutY="534.0" prefHeight="21.0" prefWidth="232.0" />
+                    </children>
+                </Pane>
+                <Pane fx:id="CreateLocationPane" prefHeight="710.0" prefWidth="795.0">
+                    <children>
+                        <Label alignment="CENTER" layoutX="195.0" layoutY="43.0" prefHeight="31.0" prefWidth="317.0" text="Create Location" textFill="#204ee4">
+                            <font>
+                                <Font name="System Bold" size="26.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="BASELINE_LEFT" layoutX="53.0" layoutY="150.0" prefHeight="31.0" prefWidth="175.0" text="Location ID:">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="BASELINE_LEFT" layoutX="53.0" layoutY="189.0" prefHeight="31.0" prefWidth="175.0" text="Location Name:">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="BASELINE_LEFT" layoutX="53.0" layoutY="228.0" prefHeight="31.0" prefWidth="175.0" text="Classification:">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="BASELINE_LEFT" layoutX="53.0" layoutY="272.0" prefHeight="31.0" prefWidth="175.0" text="Description:">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="BASELINE_LEFT" layoutX="53.0" layoutY="310.0" prefHeight="31.0" prefWidth="175.0" text="Accessibility:">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Button fx:id="LocationCancelBTN" layoutX="195.0" layoutY="467.0" mnemonicParsing="false" onAction="#CancelChange" prefHeight="31.0" prefWidth="110.0" stylesheets="@PurpleBtn.css" text="Cancel" />
+                        <Button fx:id="LocationSendRquestBTN" layoutX="405.0" layoutY="467.0" mnemonicParsing="false" onAction="#sendRequestLocationBTN" prefHeight="31.0" prefWidth="110.0" stylesheets="@GreenBtn.css" text="Send Request" />
+                        <Label fx:id="LocationChangeSL" layoutX="246.0" layoutY="534.0" prefHeight="21.0" prefWidth="232.0" />
+                        <TextField fx:id="LocationIDT" layoutX="316.0" layoutY="153.0" prefHeight="25.0" prefWidth="250.0" text="Location ID" />
+                        <TextField fx:id="LocationNameT" layoutX="316.0" layoutY="192.0" prefHeight="25.0" prefWidth="250.0" text="Name" />
+                        <TextField fx:id="ClassificationT" layoutX="316.0" layoutY="231.0" prefHeight="25.0" prefWidth="250.0" text="Park/ Educational/Culture" />
+                        <TextField fx:id="LocationDescriptionT" layoutX="316.0" layoutY="275.0" prefHeight="25.0" prefWidth="250.0" text="Location ID" />
+                        <TextField fx:id="LocationAccessabilityT" layoutX="316.0" layoutY="313.0" prefHeight="25.0" prefWidth="250.0" text="true / false" />
+                    </children>
+                </Pane>
+                <Pane fx:id="CreateLocationPane1" prefHeight="710.0" prefWidth="795.0">
+                    <children>
+                        <Label alignment="CENTER" layoutX="195.0" layoutY="43.0" prefHeight="31.0" prefWidth="317.0" text="Create Tour" textFill="#204ee4">
+                            <font>
+                                <Font name="System Bold" size="26.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="BASELINE_LEFT" layoutX="53.0" layoutY="150.0" prefHeight="31.0" prefWidth="175.0" text="Tour ID:">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="BASELINE_LEFT" layoutX="53.0" layoutY="189.0" prefHeight="31.0" prefWidth="175.0" text="Description:">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="BASELINE_LEFT" layoutX="53.0" layoutY="228.0" prefHeight="31.0" prefWidth="175.0" text="Visit Duration:">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="BASELINE_LEFT" layoutX="53.0" layoutY="272.0" prefHeight="31.0" prefWidth="175.0" text="City ID:">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Button fx:id="tourCancelBTN" layoutX="205.0" layoutY="478.0" mnemonicParsing="false" onAction="#CancelChange" prefHeight="31.0" prefWidth="110.0" stylesheets="@PurpleBtn.css" text="Cancel" />
+                        <Button fx:id="tourSendRquestBTN" layoutX="414.0" layoutY="476.0" mnemonicParsing="false" onAction="#sendRequestTourBTN" prefHeight="31.0" prefWidth="110.0" stylesheets="@GreenBtn.css" text="Send Request" />
+                        <Label fx:id="TourChangeSL" layoutX="246.0" layoutY="534.0" prefHeight="21.0" prefWidth="232.0" />
+                        <TextField fx:id="TourIDT" layoutX="315.0" layoutY="153.0" prefHeight="25.0" prefWidth="250.0" text="ID" />
+                        <TextField fx:id="TourDescriptionT" layoutX="315.0" layoutY="192.0" prefHeight="25.0" prefWidth="250.0" text="Location ID" />
+                        <TextField fx:id="VisitDurationT" layoutX="315.0" layoutY="231.0" prefHeight="25.0" prefWidth="250.0" text="How long is the tour?" />
+                        <TextField fx:id="CityIDTourt" layoutX="315.0" layoutY="275.0" prefHeight="25.0" prefWidth="250.0" text="City ID" />
+                    </children>
+                </Pane>
             </children>
         </AnchorPane>
     </children>
