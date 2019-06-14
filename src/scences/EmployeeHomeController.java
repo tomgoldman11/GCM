@@ -20,10 +20,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-import models.City;
-import models.Employee;
-import models.Map;
-import models.ChangeRequest;
+import models.*;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -36,13 +33,118 @@ import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
 
 import static client.ChatClient.*;
+import static models.Map.MapIDtoGetLocsTours;
+import static models.Map.mapNameS;
 
 
 public class EmployeeHomeController implements Initializable {
-
     private List<Node> AnchorPaneChildrens = new ArrayList<>();
     public static int maxReqID = 0;
 
+    private String mapName = "";
+    private int mapID = -1;
+
+    @FXML
+    private Button BackBTN;
+
+    @FXML
+    private Button AddTourBTN;
+
+    @FXML
+    private Button AddLocationBTN;
+
+    @FXML
+    private TableColumn<Location, String> LocationDescriptionCOL1;
+
+    @FXML
+    private TableColumn<Tour, String> TourDescriptionCOL;
+
+    @FXML
+    private TableColumn<Tour, String> TourDurationCOL1;
+
+    @FXML
+    private TableView<Tour> ToursTV;
+
+    @FXML
+    public static TableView<Tour> ToursTV1;
+
+    @FXML
+    private TableColumn<Location, String> ClassificationCOL1;
+
+    @FXML
+    private TableColumn<Location, String> LocationsIDCOL1;
+
+    @FXML
+    private TableColumn<Location, Boolean > AccessibilityCOL1;
+
+    @FXML
+    private TableColumn<Location, Integer> LocationIDCOL1;
+
+    @FXML
+    private TableColumn<Tour, Integer> ToursIDCOL1;
+
+    @FXML
+    private TableColumn<Location, String> LocationNameCOL1;
+
+    @FXML
+    private TableView<Location> LocationTV;
+
+    @FXML
+    public static TableView<Location> LocationTV1;
+
+    @FXML
+    private AnchorPane ChangePanesAP;
+
+    @FXML
+    private Pane CreateLocationPane;
+
+    @FXML
+    private Button LocationCancelBTN;
+
+    @FXML
+    private Button LocationSendRquestBTN;
+
+    @FXML
+    private Label LocationChangeSL;
+
+    @FXML
+    private TextField LocationIDT;
+
+    @FXML
+    private TextField LocationNameT;
+
+    @FXML
+    private TextField ClassificationT;
+
+    @FXML
+    private TextField LocationDescriptionT;
+
+    @FXML
+    private TextField LocationAccessabilityT;
+
+    @FXML
+    private Pane CreateLocationPane1;
+
+    @FXML
+    private Button tourCancelBTN;
+
+    @FXML
+    private Button tourSendRquestBTN;
+
+    @FXML
+    private Label TourChangeSL;
+
+    @FXML
+    private TextField TourIDT;
+
+    @FXML
+    private TextField TourDescriptionT;
+
+    @FXML
+    private TextField VisitDurationT;
+
+    @FXML
+    private TextField CityIDTourt;
     @FXML
     private Button SearchBTN;
 
@@ -51,9 +153,6 @@ public class EmployeeHomeController implements Initializable {
 
     @FXML
     private Button LogOutBTN;
-
-    @FXML
-    private AnchorPane ChangePanesAP;
 
     @FXML
     private Pane SerachCatalogPane;
@@ -125,7 +224,7 @@ public class EmployeeHomeController implements Initializable {
     private TableColumn<Map, Double> tillCOLMap;
 
     @FXML
-    private TableColumn<Map, Double> ActionCOLMap;
+    private TableColumn<Map, Button> ActionCOLMap;
 
     @FXML
     private Button CreateMapBTN;
@@ -137,6 +236,9 @@ public class EmployeeHomeController implements Initializable {
     private Button AdvancedSearchBTN;
 
     @FXML
+    private Button TourLocationBTN;
+
+    @FXML
     private TextField searchBox;
 
     @FXML
@@ -144,6 +246,9 @@ public class EmployeeHomeController implements Initializable {
 
     @FXML
     private ImageView EmployeesImage;
+
+    @FXML
+    private ImageView TourLocationIMG;
 
     @FXML
     private ImageView StatisticsImage;
@@ -195,6 +300,9 @@ public class EmployeeHomeController implements Initializable {
 
     @FXML
     private TableColumn<Employee, String> PhoneCOL;
+
+    @FXML
+    private TextField statisticSearchBx;
 
     @FXML
     private Pane CreateCityPane;
@@ -254,58 +362,55 @@ public class EmployeeHomeController implements Initializable {
     private Label MapChangeSL;
 
     @FXML
-    private Pane CreateLocationPane;
-
-    @FXML
-    private Button LocationCancelBTN;
-
-    @FXML
-    private Button LocationSendRquestBTN;
-
-    @FXML
-    private Label LocationChangeSL;
-
-    @FXML
-    private TextField LocationIDT;
-
-    @FXML
-    private TextField LocationNameT;
-
-    @FXML
-    private TextField ClassificationT;
-
-    @FXML
-    private TextField LocationDescriptionT;
-
-    @FXML
-    private TextField LocationAccessabilityT;
-
-    @FXML
-    private Pane CreateLocationPane1;
-
-    @FXML
-    private Button tourCancelBTN;
-
-    @FXML
-    private Button tourSendRquestBTN;
-
-    @FXML
-    private Label TourChangeSL;
-
-    @FXML
-    private TextField TourIDT;
-
-    @FXML
-    private TextField TourDescriptionT;
-
-    @FXML
-    private TextField VisitDurationT;
-
-    @FXML
-    private TextField CityIDTourt;
-
-    @FXML
     private Label CityChangeSL;
+
+    //TODO add class DailyStatistic
+
+    @FXML
+    private TableView<?> DailyStatisticTTV;
+
+    @FXML
+    private TableColumn<?, ?> statisticCityIDCOL;
+
+    @FXML
+    private TableColumn<?, ?> statisticCityNameCOL;
+
+    @FXML
+    private TableColumn<?, ?> statisticNumOfPurchasesCOL;
+
+    @FXML
+    private TableColumn<?, ?> statisticOTPurchaseCOL;
+
+    @FXML
+    private TableColumn<?, ?> statisticFPurchaseCOL;
+
+    @FXML
+    private TableColumn<?, ?> statisticSubscriptionRenewalCOL;
+
+    @FXML
+    private TableColumn<?, ?> statisticDateCOL;
+
+
+    @FXML
+    private TableView<ChangeRequest> RequestTV;
+
+    @FXML
+    public static TableView<ChangeRequest> RequestTTV1;
+
+    @FXML
+    private TableColumn<ChangeRequest, Integer> RequestIDCOL;
+
+    @FXML
+    private TableColumn<ChangeRequest, String> RequestDescriptionCOL;
+
+    @FXML
+    private TableColumn<ChangeRequest, String> EmployeeNameCOL;
+
+    @FXML
+    private TableColumn<ChangeRequest, String> RequestDateCOL;
+
+    @FXML
+    private TableColumn<ChangeRequest, Button> ActionCOLRequest;
 
 
     @FXML
@@ -349,15 +454,18 @@ public class EmployeeHomeController implements Initializable {
         ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(0));
         if (ChatClient.employee.getRoleID() != 0 && ChatClient.employee.getRoleID() != 1){
             WaitingForApprovalBTN.setVisible(false);
+            TourLocationBTN.setVisible(false);
             StatisticsBTN.setVisible(false);
             EmployeesBTN1.setVisible(false);
             EmployeesImage.setVisible(false);
             StatisticsImage.setVisible(false);
             ApprovalImage.setVisible(false);
+            TourLocationIMG.setVisible(false);
         }
         SearchTTV2 = SearchTTV;
         MyMapsTTV1 = MyMapsTTV;
         EmployeeTTV1 = EmployeeTTV;
+        RequestTTV1 = RequestTV;
         // cols for cities
         IDCOL.setCellValueFactory(new PropertyValueFactory<>("cityID"));
         DescriptionCOL.setCellValueFactory(new PropertyValueFactory<>("description"));
@@ -388,6 +496,34 @@ public class EmployeeHomeController implements Initializable {
         FullNameCOL.setCellValueFactory(new PropertyValueFactory<>("fullName"));
         EmailCOL.setCellValueFactory(new PropertyValueFactory<>("email"));
         PhoneCOL.setCellValueFactory(new PropertyValueFactory<>("phone"));
+
+        // cols for request
+        RequestIDCOL.setCellValueFactory(new PropertyValueFactory<>("requestID"));
+        RequestDescriptionCOL.setCellValueFactory(new PropertyValueFactory<>("requestDescription"));
+        EmployeeNameCOL.setCellValueFactory(new PropertyValueFactory<>("employeeName"));
+        RequestDateCOL.setCellValueFactory(new PropertyValueFactory<>("requestDate"));
+        ActionCOLRequest.setCellValueFactory(new PropertyValueFactory<>("show"));
+
+        //for tour-location
+        mapName = mapNameS;
+        MapNameT.setText(mapName);
+        mapID = MapIDtoGetLocsTours;
+        LocationTV1 = LocationTV;
+        ToursTV1 = ToursTV;
+
+        // cols for Locations
+        LocationIDCOL1.setCellValueFactory(new PropertyValueFactory<>("locationID"));
+        LocationNameCOL1.setCellValueFactory(new PropertyValueFactory<>("locationName"));
+        ClassificationCOL1.setCellValueFactory(new PropertyValueFactory<>("locationClassification"));
+        LocationDescriptionCOL1.setCellValueFactory(new PropertyValueFactory<>("description"));
+        AccessibilityCOL1.setCellValueFactory(new PropertyValueFactory<>("accessibility"));
+        // cols for Tours
+        ToursIDCOL1.setCellValueFactory(new PropertyValueFactory<>("tourID"));
+        TourDescriptionCOL.setCellValueFactory(new PropertyValueFactory<>("description"));
+        TourDurationCOL1.setCellValueFactory(new PropertyValueFactory<>("visitDuration"));
+        LocationsIDCOL1.setCellValueFactory(new PropertyValueFactory<>("LocationsID"));
+
+
     }
 
     @FXML
@@ -487,6 +623,13 @@ public class EmployeeHomeController implements Initializable {
     void ApprovalRequests(ActionEvent event) {
         ChangePanesAP.getChildren().clear();
         ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(5));
+        RequestTV.getItems().removeAll();
+
+        boolean flag = false;
+        String fillAllRequest = ">SELECT * FROM ChangeRequest"; // mapID mapName description version
+        flag = ConnectionController.client.handleMessageFromClientUI(fillAllRequest);
+
+
     }
 
     @FXML
@@ -504,6 +647,7 @@ public class EmployeeHomeController implements Initializable {
     void Statistics(ActionEvent event) {
         ChangePanesAP.getChildren().clear();
         ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(4));
+
     }
 
     @FXML
@@ -517,7 +661,6 @@ public class EmployeeHomeController implements Initializable {
         ChangePanesAP.getChildren().clear();
         ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(7));
     }
-
 
     @FXML
     void CancelChange(ActionEvent event) {
@@ -621,8 +764,45 @@ public class EmployeeHomeController implements Initializable {
     }
 
     @FXML
-    void sendRequestTourBTN(ActionEvent event) {
+    void  sendRequestTourBTN(ActionEvent event) {
 
+    }
+
+
+    @FXML
+    void showTourLocation(ActionEvent event) {
+        ChangePanesAP.getChildren().clear();
+        ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(10));
+
+        String fillLocationsTable = "5SELECT * FROM Locations";
+        boolean flag = ConnectionController.client.handleMessageFromClientUI(fillLocationsTable);
+
+        String fillToursTable = "6SELECT * FROM Tours ";
+        flag = ConnectionController.client.handleMessageFromClientUI(fillToursTable);
+
+    }
+
+    @FXML
+    void BackToCustomerHomeScreen(ActionEvent event) throws IOException {
+        if (ChatClient.CustomerFlag) {
+            String CustomerHomeScene = "/scences/CustomerHome.fxml"; // main screen
+            ClientConsole.changeScene(CustomerHomeScene);
+        }
+        else{
+            String EmployeeHomeScene = "/scences/EmployeeHome.fxml"; // main screen
+            ClientConsole.changeScene(EmployeeHomeScene);
+        }
+    }
+    @FXML
+    void AddLocationpane(ActionEvent event) {
+        ChangePanesAP.getChildren().clear();
+        ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(8));
+    }
+
+    @FXML
+    void AddTourpane(ActionEvent event) {
+        ChangePanesAP.getChildren().clear();
+        ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(9));
     }
 
 

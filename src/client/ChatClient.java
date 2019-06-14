@@ -57,12 +57,13 @@ public class ChatClient extends AbstractClient {
 	public static int maxCusID = 0;
 	public static int maxOTSubID = 0;
 	public static int maxFSubID = 0;
-    public static int maxRequestID = 0;
-    public static boolean CustomerFlag = true;
+	public static int maxRequestID = 0;
+	public static boolean CustomerFlag = true;
 	public static ObservableList<City> catalogDataS = FXCollections.observableArrayList();
 	public static ObservableList<Map> myMapsDataS = FXCollections.observableArrayList();
-    public static ObservableList<Employee> employeesDataS = FXCollections.observableArrayList();
-    public static ObservableList<Location> locationsDataS = FXCollections.observableArrayList();
+	public static ObservableList<Employee> employeesDataS = FXCollections.observableArrayList();
+	public static ObservableList<ChangeRequest> requestsDataS = FXCollections.observableArrayList();
+	public static ObservableList<Location> locationsDataS = FXCollections.observableArrayList();
 	public static ObservableList<Tour> tourDataS = FXCollections.observableArrayList();
 	/**
 	 * Constructs an instance of the chat client.
@@ -177,14 +178,14 @@ public class ChatClient extends AbstractClient {
 		}
 
 		if (msg.toString().charAt(0) == 'v'){
-            ChatClient.maxOTSubID = Integer.parseInt(msg.toString().substring(1)) + 1;
-        }
-        if (msg.toString().charAt(0) == 'c'){
-            ChatClient.maxFSubID = Integer.parseInt(msg.toString().substring(1)) + 1;
-        }
-        if (msg.toString().charAt(0) == '3') {
-            ChatClient.maxRequestID = Integer.parseInt(msg.toString().substring(1)) + 1;
-        }
+			ChatClient.maxOTSubID = Integer.parseInt(msg.toString().substring(1)) + 1;
+		}
+		if (msg.toString().charAt(0) == 'c'){
+			ChatClient.maxFSubID = Integer.parseInt(msg.toString().substring(1)) + 1;
+		}
+		if (msg.toString().charAt(0) == '3') {
+			ChatClient.maxRequestID = Integer.parseInt(msg.toString().substring(1)) + 1;
+		}
 
 
 		if(msg instanceof ArrayList){
@@ -198,7 +199,7 @@ public class ChatClient extends AbstractClient {
 					ObservableList<Map> catalogDataMap = FXCollections.observableArrayList();
 					for (int i = 0; i < ((ArrayList) msg).size(); i += 6) {
 
-							catalogDataMap.add(new Map(
+						catalogDataMap.add(new Map(
 								Integer.parseInt(((ArrayList<String>) msg).get(i)), //4
 								((ArrayList<String>) msg).get(i + 1), //HAIFAMPL;
 								((ArrayList<String>) msg).get(i + 2) //hafia map
@@ -213,11 +214,11 @@ public class ChatClient extends AbstractClient {
 						@Override
 						public void run() {
 
-								myMapsDataS = catalogDataMap;
-								CustomerHomeController.MyMapsTTV1.getItems().removeAll();
-								CustomerHomeController.MyMapsTTV1.getItems().clear();
-								CustomerHomeController.MyMapsTTV1.setItems(catalogDataMap);
-								CustomerHomeController.MyMapsTTV1.refresh();
+							myMapsDataS = catalogDataMap;
+							CustomerHomeController.MyMapsTTV1.getItems().removeAll();
+							CustomerHomeController.MyMapsTTV1.getItems().clear();
+							CustomerHomeController.MyMapsTTV1.setItems(catalogDataMap);
+							CustomerHomeController.MyMapsTTV1.refresh();
 
 
 						}});
@@ -261,25 +262,25 @@ public class ChatClient extends AbstractClient {
 					});
 
 				}
-                else if (((ArrayList<String>) msg).get(0).equals("getLocationsForMap")) {
-                    System.out.println("DEBUG: getting locationsForMap");
-                    ((ArrayList<String>) msg).remove(0);
-                    ObservableList<Location> catalogData = FXCollections.observableArrayList();
-                    for (int i = 0; i < ((ArrayList) msg).size(); i += 5) {
-                        catalogData.add(new Location(Integer.parseInt(((ArrayList<String>) msg).get(i)), ((ArrayList<String>) msg).get(i + 1), ((ArrayList<String>) msg).get(i + 2)
-                                , (((ArrayList<String>) msg).get(i + 3)), Boolean.parseBoolean(((ArrayList<String>) msg).get(i + 4))));
-                    }
-                    locationsDataS = catalogData;
-                    Platform.runLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            LocationsToursDetailsController.LocationTV1.getItems().removeAll();
-                            LocationsToursDetailsController.LocationTV1.getItems().clear();
-                            LocationsToursDetailsController.LocationTV1.setItems(catalogData);
-                            LocationsToursDetailsController.LocationTV1.refresh();
-                        }
-                    });
-                } // getToursForMap
+				else if (((ArrayList<String>) msg).get(0).equals("getLocationsForMap")) {
+					System.out.println("DEBUG: getting locationsForMap");
+					((ArrayList<String>) msg).remove(0);
+					ObservableList<Location> catalogData = FXCollections.observableArrayList();
+					for (int i = 0; i < ((ArrayList) msg).size(); i += 5) {
+						catalogData.add(new Location(Integer.parseInt(((ArrayList<String>) msg).get(i)), ((ArrayList<String>) msg).get(i + 1), ((ArrayList<String>) msg).get(i + 2)
+								, (((ArrayList<String>) msg).get(i + 3)), Boolean.parseBoolean(((ArrayList<String>) msg).get(i + 4))));
+					}
+					locationsDataS = catalogData;
+					Platform.runLater(new Runnable() {
+						@Override
+						public void run() {
+							LocationsToursDetailsController.LocationTV1.getItems().removeAll();
+							LocationsToursDetailsController.LocationTV1.getItems().clear();
+							LocationsToursDetailsController.LocationTV1.setItems(catalogData);
+							LocationsToursDetailsController.LocationTV1.refresh();
+						}
+					});
+				} // getToursForMap
 				else if (((ArrayList<String>) msg).get(0).equals("getToursForMap")) {
 					System.out.println("DEBUG: getting ToursForMap");
 					((ArrayList<String>) msg).remove(0);
@@ -334,26 +335,78 @@ public class ChatClient extends AbstractClient {
 					EmployeeHomeController.MyMapsTTV1.setItems(catalogDataMap);
 					EmployeeHomeController.MyMapsTTV1.refresh();
 				}
-                else if (((ArrayList<String>) msg).get(0).equals("getEmployees")) {
-                    ((ArrayList<String>) msg).remove(0);
-                    System.out.println("DEBUG:   HERE WE GO 4 4");
-                    ObservableList<Employee> catalogData = FXCollections.observableArrayList();
-                    for (int i = 0; i < ((ArrayList) msg).size(); i += 7) {
-                        catalogData.add(new Employee(((ArrayList<String>) msg).get(i), Integer.parseInt(((ArrayList<String>) msg).get(i + 1)), Integer.parseInt(((ArrayList<String>) msg).get(i + 2))
-                                , ((ArrayList<String>) msg).get(i + 3),((ArrayList<String>) msg).get(i + 4), ((ArrayList<String>) msg).get(i + 5)
-                                , ((ArrayList<String>) msg).get(i + 6)));
-                    }
-                    employeesDataS = catalogData;
-                    EmployeeHomeController.EmployeeTTV1.getItems().removeAll();
-                    EmployeeHomeController.EmployeeTTV1.getItems().clear();
-                    EmployeeHomeController.EmployeeTTV1.setItems(catalogData);
-                    EmployeeHomeController.EmployeeTTV1.refresh();
+				else if (((ArrayList<String>) msg).get(0).equals("getEmployees")) {
+					((ArrayList<String>) msg).remove(0);
+					ObservableList<Employee> catalogData = FXCollections.observableArrayList();
+					for (int i = 0; i < ((ArrayList) msg).size(); i += 7) {
+						catalogData.add(new Employee(((ArrayList<String>) msg).get(i), Integer.parseInt(((ArrayList<String>) msg).get(i + 1)), Integer.parseInt(((ArrayList<String>) msg).get(i + 2))
+								, ((ArrayList<String>) msg).get(i + 3),((ArrayList<String>) msg).get(i + 4), ((ArrayList<String>) msg).get(i + 5)
+								, ((ArrayList<String>) msg).get(i + 6)));
+					}
+					employeesDataS = catalogData;
+					EmployeeHomeController.EmployeeTTV1.getItems().removeAll();
+					EmployeeHomeController.EmployeeTTV1.getItems().clear();
+					EmployeeHomeController.EmployeeTTV1.setItems(catalogData);
+					EmployeeHomeController.EmployeeTTV1.refresh();
 
-                }
+				}
+				else if (((ArrayList<String>) msg).get(0).equals("Requests")) {
+					((ArrayList<String>) msg).remove(0);
+					System.out.println("DEBUG:   HERE WE GO Requests");
+					ObservableList<ChangeRequest> catalogData = FXCollections.observableArrayList();
+					for (int i = 0; i < ((ArrayList) msg).size(); i += 4) {
+						catalogData.add(new ChangeRequest((Integer.parseInt(((ArrayList<String>) msg).get(i))), ((ArrayList<String>) msg).get(i + 1),((ArrayList<String>) msg).get(i + 2),
+								((ArrayList<String>) msg).get(i + 3) ,new Button("see Details")));
+					}
+					requestsDataS = catalogData;
+					EmployeeHomeController.RequestTTV1.getItems().removeAll();
+					EmployeeHomeController.RequestTTV1.getItems().clear();
+					EmployeeHomeController.RequestTTV1.setItems(catalogData);
+					EmployeeHomeController.RequestTTV1.refresh();
+
+				}
+
+				else if (((ArrayList<String>) msg).get(0).equals("getLocationsForMap")) {
+					System.out.println("DEBUG: getting locationsForMap");
+					((ArrayList<String>) msg).remove(0);
+					ObservableList<Location> catalogData = FXCollections.observableArrayList();
+					for (int i = 0; i < ((ArrayList) msg).size(); i += 5) {
+						catalogData.add(new Location(Integer.parseInt(((ArrayList<String>) msg).get(i)), ((ArrayList<String>) msg).get(i + 1), ((ArrayList<String>) msg).get(i + 2)
+								, (((ArrayList<String>) msg).get(i + 3)), Boolean.parseBoolean(((ArrayList<String>) msg).get(i + 4))));
+					}
+					locationsDataS = catalogData;
+					Platform.runLater(new Runnable() {
+						@Override
+						public void run() {
+							EmployeeHomeController.LocationTV1.getItems().removeAll();
+							EmployeeHomeController.LocationTV1.getItems().clear();
+							EmployeeHomeController.LocationTV1.setItems(catalogData);
+							EmployeeHomeController.LocationTV1.refresh();
+						}
+					});
+				} // getToursForMap
+				else if (((ArrayList<String>) msg).get(0).equals("getToursForMap")) {
+					System.out.println("DEBUG: getting ToursForMap");
+					((ArrayList<String>) msg).remove(0);
+					ObservableList<Tour> catalogData = FXCollections.observableArrayList();
+					for (int i = 0; i < ((ArrayList) msg).size(); i += 4) {
+						catalogData.add(new Tour(Integer.parseInt(((ArrayList<String>) msg).get(i)), ((ArrayList<String>) msg).get(i + 1), ((ArrayList<String>) msg).get(i + 2),((ArrayList<String>) msg).get(i + 3) ));
+					}
+					tourDataS = catalogData;
+					Platform.runLater(new Runnable() {
+						@Override
+						public void run() {
+							EmployeeHomeController.ToursTV1.getItems().removeAll();
+							EmployeeHomeController.ToursTV1.getItems().clear();
+							EmployeeHomeController.ToursTV1.setItems(catalogData);
+							EmployeeHomeController.ToursTV1.refresh();
+						}
+					});
+				}
 			}
 
 		}// close big instance of IF
-		} // close handle msg from server func
+	} // close handle msg from server func
 
 	/**
 	 * This method handles all data coming from the UI
@@ -362,7 +415,7 @@ public class ChatClient extends AbstractClient {
 	 *            The message from the UI.
 	 */
 	public boolean handleMessageFromClientUI(String message) {
-        boolean LogInFlag = false;
+		boolean LogInFlag = false;
 
 		// Commands Detection
 
@@ -370,7 +423,8 @@ public class ChatClient extends AbstractClient {
 				message.charAt(0) == '=' ||  message.charAt(0) == '*' || message.charAt(0) == 'm' || message.charAt(0) == 'n' ||
 				message.charAt(0) == 'b' || message.charAt(0) == 'v' || message.charAt(0) == 'c' || message.charAt(0) == 'x' || message.charAt(0) == 'a'
 				|| message.charAt(0) == 'q' || message.charAt(0) == ']' || message.charAt(0) == 'A' || message.charAt(0) == '5'  || message.charAt(0) == '6'
-                || message.charAt(0) == 'r' || message.charAt(0) == 'i' || message.charAt(0) == 'g'|| message.charAt(0) == '3' )  {
+				|| message.charAt(0) == 'r' || message.charAt(0) == 'i' || message.charAt(0) == 'g' || message.charAt(0) == '>'|| message.charAt(0) == '3'
+				|| message.charAt(0) == 'L' || message.charAt(0) == 'T')  {
 			try {
 				System.out.println("msg:" +message);
 				sendToServer(message);
@@ -431,7 +485,7 @@ public class ChatClient extends AbstractClient {
 				e.printStackTrace();
 			}
 		}
-        return LogInFlag;
+		return LogInFlag;
 	}
 
 	/**
