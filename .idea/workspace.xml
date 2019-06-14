@@ -2,15 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dec23064-3d01-48f5-8bd4-485ed47fc2fe" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/icons/TourLocation.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/City2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scences/AlertBoxUpdate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GCM-FE/client/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GCM-FE/client/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GCM-FE/client/ChatClient$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GCM-FE/client/ChatClient$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GCM-FE/client/ChatClient$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GCM-FE/client/ChatClient$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GCM-FE/client/ChatClient$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GCM-FE/client/ChatClient$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GCM-FE/client/ChatClient$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GCM-FE/client/ChatClient$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GCM-FE/models/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GCM-FE/models/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GCM-FE/scences/EmployeeHome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GCM-FE/scences/EmployeeHome.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GCM-FE/scences/LogInScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GCM-FE/scences/LogInScene.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/ChatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/ChatClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/ChangeRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/ChangeRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/City.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Tour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Tour.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scences/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/scences/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scences/EmployeeHome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/scences/EmployeeHome.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scences/EmployeeHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scences/EmployeeHomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scences/GuestHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scences/GuestHomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scences/LogInScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/scences/LogInScene.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,20 +57,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/client/ChatClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="355" column="100" lean-forward="true" selection-start-line="355" selection-start-column="100" selection-end-line="355" selection-end-column="100" />
-              <folding>
-                <element signature="e#0#20809#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="538">
+              <caret line="478" column="39" lean-forward="true" selection-start-line="478" selection-start-column="39" selection-end-line="478" selection-end-column="39" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/scences/AlertBoxCity.java">
+        <entry file="file://$PROJECT_DIR$/src/scences/EmployeeHomeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="54" selection-start-line="54" selection-end-line="54" />
+            <state relative-caret-position="328">
+              <caret line="868" column="88" lean-forward="true" selection-start-line="868" selection-start-column="88" selection-end-line="868" selection-end-column="88" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -66,10 +76,35 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/scences/EmployeeHomeController.java">
+        <entry file="file://$PROJECT_DIR$/src/scences/GuestHomeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="652" column="9" lean-forward="true" selection-start-line="652" selection-start-column="9" selection-end-line="652" selection-end-column="9" />
+            <state relative-caret-position="374">
+              <caret line="121" column="5" lean-forward="true" selection-start-line="121" selection-start-column="5" selection-end-line="121" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/models/City.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-123">
+              <caret line="35" column="176" selection-start-line="35" selection-start-column="176" selection-end-line="35" selection-end-column="176" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2686#2687#0" expanded="true" />
+                <element signature="e#2711#2712#0" expanded="true" />
+                <element signature="e#2759#2760#0" expanded="true" />
+                <element signature="e#2796#2797#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/scences/CustomerHomeController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="363" column="96" lean-forward="true" selection-start-line="361" selection-start-column="7" selection-end-line="363" selection-end-column="96" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -78,29 +113,50 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/scences/EmployeeHome.fxml">
+        <entry file="file://$PROJECT_DIR$/src/models/City2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="565">
-              <caret line="454" column="15" lean-forward="true" selection-start-line="454" selection-start-column="15" selection-end-line="454" selection-end-column="15" />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/ChangeRequest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="952">
-              <caret line="76" selection-start-line="76" selection-end-line="76" />
+            <state relative-caret-position="152">
+              <caret line="44" column="37" lean-forward="true" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2687#2688#0" expanded="true" />
+                <element signature="e#2712#2713#0" expanded="true" />
+                <element signature="e#2760#2761#0" expanded="true" />
+                <element signature="e#2797#2798#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/ClientConsole.java">
+        <entry file="file://$PROJECT_DIR$/src/scences/AlertBoxUpdate.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="641">
-              <caret line="191" selection-start-line="191" selection-end-line="191" />
+            <state relative-caret-position="204">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/scences/AlertBoxCity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="34" column="3" lean-forward="true" selection-start-line="34" selection-start-column="3" selection-end-line="35" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/scences/AlertBoxMap.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="222">
+              <caret line="19" column="56" lean-forward="true" selection-start-line="19" selection-start-column="56" selection-end-line="19" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -127,6 +183,14 @@
       <find>connection to the Serve</find>
       <find>MyMapsTTV1</find>
       <find>showmaps</find>
+      <find>location</find>
+      <find>tour</find>
+      <find>catalogDataS</find>
+      <find>back</find>
+      <find>search</find>
+      <find>searchBox</find>
+      <find>change</find>
+      <find>sendrequestTo</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -161,9 +225,7 @@
         <option value="$PROJECT_DIR$/src/ocsf/client/AbstractClient.java" />
         <option value="$PROJECT_DIR$/src/scences/CustomerHome.fxml" />
         <option value="$PROJECT_DIR$/src/scences/GuestHome.fxml" />
-        <option value="$PROJECT_DIR$/src/scences/GuestHomeController.java" />
         <option value="$PROJECT_DIR$/src/scences/ManagerHome.fxml" />
-        <option value="$PROJECT_DIR$/src/models/City.java" />
         <option value="$PROJECT_DIR$/src/models/EmployeeHomeController.java" />
         <option value="$PROJECT_DIR$/src/scences/AlertBoxCity.java" />
         <option value="$PROJECT_DIR$/src/models/Customer.java" />
@@ -171,16 +233,20 @@
         <option value="$PROJECT_DIR$/src/scences/LocationsToursDetails.fxml" />
         <option value="$PROJECT_DIR$/src/scences/AlertBoxMap.java" />
         <option value="$PROJECT_DIR$/src/models/Employee.java" />
-        <option value="$PROJECT_DIR$/src/scences/CustomerHomeController.java" />
         <option value="$PROJECT_DIR$/src/models/Map.java" />
-        <option value="$PROJECT_DIR$/src/models/Location.java" />
         <option value="$PROJECT_DIR$/src/client/ClientConsole.java" />
-        <option value="$PROJECT_DIR$/src/models/Tour.java" />
         <option value="$PROJECT_DIR$/src/scences/LocationsToursDetailsController.java" />
         <option value="$PROJECT_DIR$/src/scences/EmployeeHome.fxml" />
-        <option value="$PROJECT_DIR$/src/client/ChatClient.java" />
         <option value="$PROJECT_DIR$/src/models/ChangeRequest.java" />
+        <option value="$PROJECT_DIR$/src/scences/CustomerHomeController.java" />
+        <option value="$PROJECT_DIR$/src/models/Tour.java" />
+        <option value="$PROJECT_DIR$/src/models/Location.java" />
+        <option value="$PROJECT_DIR$/src/models/City.java" />
+        <option value="$PROJECT_DIR$/src/scences/AlertBoxUpdate.java" />
+        <option value="$PROJECT_DIR$/src/client/ChatClient.java" />
+        <option value="$PROJECT_DIR$/src/models/City2.java" />
         <option value="$PROJECT_DIR$/src/scences/EmployeeHomeController.java" />
+        <option value="$PROJECT_DIR$/src/scences/GuestHomeController.java" />
       </list>
     </option>
   </component>
@@ -325,12 +391,12 @@
       <workItem from="1560371775434" duration="35000" />
       <workItem from="1560412628595" duration="15363000" />
       <workItem from="1560445039985" duration="7263000" />
-      <workItem from="1560517006271" duration="2081000" />
+      <workItem from="1560517006271" duration="17668000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="268010000" />
+    <option name="totallyTimeSpent" value="283597000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -345,7 +411,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1738255" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21677852" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -354,7 +420,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32577905" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.24929178" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.16288953" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.36827195" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -362,7 +428,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.329718" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32719547" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -433,77 +499,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/javafx.base/javafx/collections/FXCollections.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="316" selection-start-line="316" selection-end-line="316" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/javafx.graphics/javafx/scene/image/Image.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="1103" column="23" selection-start-line="1103" selection-start-column="23" selection-end-line="1103" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/City.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="49" column="74" selection-start-line="49" selection-start-column="74" selection-end-line="49" selection-end-column="74" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1574#1575#0" expanded="true" />
-            <element signature="e#1594#1595#0" expanded="true" />
-            <element signature="e#1632#1633#0" expanded="true" />
-            <element signature="e#1659#1660#0" expanded="true" />
-            <element signature="e#1686#1687#0" expanded="true" />
-            <element signature="e#1704#1705#0" expanded="true" />
-            <element signature="e#1740#1741#0" expanded="true" />
-            <element signature="e#1763#1764#0" expanded="true" />
-            <element signature="e#1804#1805#0" expanded="true" />
-            <element signature="e#1835#1836#0" expanded="true" />
-            <element signature="e#1898#1899#0" expanded="true" />
-            <element signature="e#1947#1948#0" expanded="true" />
-            <element signature="e#1986#1987#0" expanded="true" />
-            <element signature="e#2015#2016#0" expanded="true" />
-            <element signature="e#2074#2075#0" expanded="true" />
-            <element signature="e#2119#2120#0" expanded="true" />
-            <element signature="e#2151#2152#0" expanded="true" />
-            <element signature="e#2173#2174#0" expanded="true" />
-            <element signature="e#2218#2219#0" expanded="true" />
-            <element signature="e#2249#2250#0" expanded="true" />
-            <element signature="e#2284#2285#0" expanded="true" />
-            <element signature="e#2309#2310#0" expanded="true" />
-            <element signature="e#2360#2361#0" expanded="true" />
-            <element signature="e#2397#2398#0" expanded="true" />
-            <element signature="e#2428#2429#0" expanded="true" />
-            <element signature="e#2452#2453#0" expanded="true" />
-            <element signature="e#2498#2499#0" expanded="true" />
-            <element signature="e#2533#2534#0" expanded="true" />
-            <element signature="e#2565#2566#0" expanded="true" />
-            <element signature="e#2590#2591#0" expanded="true" />
-            <element signature="e#2638#2639#0" expanded="true" />
-            <element signature="e#2675#2676#0" expanded="true" />
-            <element signature="e#2711#2712#0" expanded="true" />
-            <element signature="e#2740#2741#0" expanded="true" />
-            <element signature="e#2796#2797#0" expanded="true" />
-            <element signature="e#2841#2842#0" expanded="true" />
-            <element signature="e#2873#2874#0" expanded="true" />
-            <element signature="e#2895#2896#0" expanded="true" />
-            <element signature="e#2940#2941#0" expanded="true" />
-            <element signature="e#2971#2972#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/javafx.graphics/javafx/stage/Stage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="477" selection-start-line="477" selection-end-line="477" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/scences/RegisterController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1870">
@@ -675,38 +670,6 @@
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/Location.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="43" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/Map.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1445">
-          <caret line="89" column="57" selection-start-line="89" selection-start-column="57" selection-end-line="89" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/scences/LocationsToursDetails.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/Tour.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="32" lean-forward="true" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/javafx.controls/javafx/scene/control/Labeled.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -785,40 +748,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scences/AlertBoxCity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="54" selection-start-line="54" selection-end-line="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/scences/CustomerHomeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-192">
-          <caret line="237" selection-start-line="237" selection-end-line="237" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/scences/LocationsToursDetailsController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="457">
           <caret line="102" column="30" selection-start-line="102" selection-start-column="30" selection-end-line="102" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/scences/AlertBoxMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="38" selection-start-line="38" selection-end-line="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -841,6 +774,57 @@
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/ChangeRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="952">
+          <caret line="76" selection-start-line="76" selection-end-line="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scences/LocationsToursDetails.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/Map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="17" column="24" lean-forward="true" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/Tour.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="32" column="5" lean-forward="true" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+          <folding>
+            <element signature="e#1024#1025#0" expanded="true" />
+            <element signature="e#1042#1043#0" expanded="true" />
+            <element signature="e#1079#1080#0" expanded="true" />
+            <element signature="e#1102#1103#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/Location.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+          <folding>
+            <element signature="e#1437#1438#0" expanded="true" />
+            <element signature="e#1455#1456#0" expanded="true" />
+            <element signature="e#1492#1493#0" expanded="true" />
+            <element signature="e#1515#1516#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/ClientConsole.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="641">
@@ -851,30 +835,95 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/ChangeRequest.java">
+    <entry file="file://$PROJECT_DIR$/src/scences/AlertBoxMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="952">
-          <caret line="76" selection-start-line="76" selection-end-line="76" />
+        <state relative-caret-position="222">
+          <caret line="19" column="56" lean-forward="true" selection-start-line="19" selection-start-column="56" selection-end-line="19" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scences/AlertBoxCity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="34" column="3" lean-forward="true" selection-start-line="34" selection-start-column="3" selection-end-line="35" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scences/AlertBoxUpdate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/City.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-123">
+          <caret line="35" column="176" selection-start-line="35" selection-start-column="176" selection-end-line="35" selection-end-column="176" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2686#2687#0" expanded="true" />
+            <element signature="e#2711#2712#0" expanded="true" />
+            <element signature="e#2759#2760#0" expanded="true" />
+            <element signature="e#2796#2797#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scences/CustomerHomeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="363" column="96" lean-forward="true" selection-start-line="361" selection-start-column="7" selection-end-line="363" selection-end-column="96" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/client/ChatClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="355" column="100" lean-forward="true" selection-start-line="355" selection-start-column="100" selection-end-line="355" selection-end-column="100" />
+        <state relative-caret-position="538">
+          <caret line="478" column="39" lean-forward="true" selection-start-line="478" selection-start-column="39" selection-end-line="478" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/City2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="44" column="37" lean-forward="true" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
           <folding>
-            <element signature="e#0#20809#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#2687#2688#0" expanded="true" />
+            <element signature="e#2712#2713#0" expanded="true" />
+            <element signature="e#2760#2761#0" expanded="true" />
+            <element signature="e#2797#2798#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scences/EmployeeHomeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="652" column="9" lean-forward="true" selection-start-line="652" selection-start-column="9" selection-end-line="652" selection-end-column="9" />
+        <state relative-caret-position="328">
+          <caret line="868" column="88" lean-forward="true" selection-start-line="868" selection-start-column="88" selection-end-line="868" selection-end-column="88" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scences/GuestHomeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="121" column="5" lean-forward="true" selection-start-line="121" selection-start-column="5" selection-end-line="121" selection-end-column="5" />
         </state>
       </provider>
     </entry>

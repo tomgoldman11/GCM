@@ -53,6 +53,7 @@ public class City {
 		});
 	}
 
+
 	public int getCityID() {
 		return cityID;
 	}

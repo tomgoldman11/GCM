@@ -14,12 +14,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import javafx.util.converter.DoubleStringConverter;
+import javafx.util.converter.IntegerStringConverter;
 import models.*;
 
 import javax.swing.*;
@@ -81,10 +84,17 @@ public class EmployeeHomeController implements Initializable {
     private TableColumn<Location, Integer> LocationIDCOL1;
 
     @FXML
-    private TableColumn<Tour, Integer> ToursIDCOL1;
+    private TableColumn<Location, Button> ActionLocationCOL;
 
     @FXML
     private TableColumn<Location, String> LocationNameCOL1;
+
+    @FXML
+    private TableColumn<Tour, Button> ActionTourCOL;
+
+    @FXML
+    private TableColumn<Tour, Integer> ToursIDCOL1;
+
 
     @FXML
     private TableView<Location> LocationTV;
@@ -167,37 +177,37 @@ public class EmployeeHomeController implements Initializable {
     private Button WaitingForApprovalBTN;
 
     @FXML
-    private TableView<City> SearchTTV;
+    private TableView<City2> SearchTTV;
 
     @FXML
-    public static TableView<City> SearchTTV2;
+    public static TableView<City2> SearchTTV2;
 
     @FXML
-    private TableColumn<City, Integer> IDCOL;
+    private TableColumn<City2, Integer> IDCOL;
 
     @FXML
-    private TableColumn<City, String> NameCOL;
+    private TableColumn<City2, String> NameCOL;
 
     @FXML
-    private TableColumn<City, String> DescriptionCOL;
+    private TableColumn<City2, String> DescriptionCOL;
 
     @FXML
-    private TableColumn<City, Double> VersionCOL;
+    private TableColumn<City2, Double> VersionCOL;
 
     @FXML
-    private TableColumn<City, Integer> NoMapsCOL;
+    private TableColumn<City2, Integer> NoMapsCOL;
 
     @FXML
-    private TableColumn<City, Integer> ToursCOL;
+    private TableColumn<City2, Integer> ToursCOL;
 
     @FXML
-    private TableColumn<City, Integer> LocationsCOL;
+    private TableColumn<City2, Integer> LocationsCOL;
 
     @FXML
-    private TableColumn<City, Double> PriceCOL;
+    private TableColumn<City2, Double> PriceCOL;
 
     @FXML
-    private TableColumn<City, Button> ActionCOL;
+    private TableColumn<City2, Button> ActionCOL;
 
     @FXML
     private TableView<Map> MyMapsTTV;
@@ -364,6 +374,10 @@ public class EmployeeHomeController implements Initializable {
     @FXML
     private Label CityChangeSL;
 
+    @FXML
+    private TextField LocationCITYid;
+
+
     //TODO add class DailyStatistic
 
     @FXML
@@ -412,6 +426,12 @@ public class EmployeeHomeController implements Initializable {
     @FXML
     private TableColumn<ChangeRequest, Button> ActionCOLRequest;
 
+    @FXML
+    private TextField searchBoxTour;
+
+    @FXML
+    private TextField searchBoxLocation;
+
 
     @FXML
     void LogOutEmployee(ActionEvent event) {
@@ -444,9 +464,9 @@ public class EmployeeHomeController implements Initializable {
         ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(0));
         SearchTTV2.getItems().removeAll();
         SearchTTV2.getItems().clear();
-        String fillCityTable = "*SELECT * FROM Cities ";
-        flag = ConnectionController.client.handleMessageFromClientUI(fillCityTable);
-    }
+    String fillCityTable = "0SELECT * FROM Cities ";
+    flag = ConnectionController.client.handleMessageFromClientUI(fillCityTable);
+}
 
     public void initialize(URL location, ResourceBundle resources) {
         AnchorPaneChildrens.addAll(ChangePanesAP.getChildren());
@@ -478,7 +498,7 @@ public class EmployeeHomeController implements Initializable {
         ActionCOL.setCellValueFactory(new PropertyValueFactory<>("download"));
 
         boolean flag = false;
-        String fillCityTable = "*SELECT * FROM Cities ";
+        String fillCityTable = "0SELECT * FROM Cities ";
         flag = ConnectionController.client.handleMessageFromClientUI(fillCityTable);
 
         // cols for maps
@@ -517,18 +537,40 @@ public class EmployeeHomeController implements Initializable {
         ClassificationCOL1.setCellValueFactory(new PropertyValueFactory<>("locationClassification"));
         LocationDescriptionCOL1.setCellValueFactory(new PropertyValueFactory<>("description"));
         AccessibilityCOL1.setCellValueFactory(new PropertyValueFactory<>("accessibility"));
+        ActionLocationCOL.setCellValueFactory(new PropertyValueFactory<>("show"));
         // cols for Tours
         ToursIDCOL1.setCellValueFactory(new PropertyValueFactory<>("tourID"));
         TourDescriptionCOL.setCellValueFactory(new PropertyValueFactory<>("description"));
         TourDurationCOL1.setCellValueFactory(new PropertyValueFactory<>("visitDuration"));
         LocationsIDCOL1.setCellValueFactory(new PropertyValueFactory<>("LocationsID"));
+        ActionTourCOL.setCellValueFactory(new PropertyValueFactory<>("show"));
 
 
+        /////////////////
+        // editable COLS
+        // city
+        SearchTTV.setEditable(true);   // SearchTTV2.setEditable(true);
+        IDCOL.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+        IDCOL.setOnEditCommit(e -> e.getTableView().getItems().get(e.getTablePosition().getRow()).setCityID(e.getNewValue()));
+        DescriptionCOL.setCellFactory(TextFieldTableCell.forTableColumn());
+        DescriptionCOL.setOnEditCommit(e -> e.getTableView().getItems().get(e.getTablePosition().getRow()).setDescription(e.getNewValue()));
+        VersionCOL.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        VersionCOL.setOnEditCommit(e -> e.getTableView().getItems().get(e.getTablePosition().getRow()).setMapClusterVersion(e.getNewValue()));
+        NoMapsCOL.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+        NoMapsCOL.setOnEditCommit(e -> e.getTableView().getItems().get(e.getTablePosition().getRow()).setNumberMaps(e.getNewValue()));
+        ToursCOL.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+        ToursCOL.setOnEditCommit(e -> e.getTableView().getItems().get(e.getTablePosition().getRow()).setNumberTours(e.getNewValue()));
+        LocationsCOL.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+        LocationsCOL.setOnEditCommit(e -> e.getTableView().getItems().get(e.getTablePosition().getRow()).setNumberLocations(e.getNewValue()));
+        PriceCOL.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        PriceCOL.setOnEditCommit(e -> e.getTableView().getItems().get(e.getTablePosition().getRow()).setMapClusterPrice(e.getNewValue()));
+        NameCOL.setCellFactory(TextFieldTableCell.forTableColumn());
+        NameCOL.setOnEditCommit(e -> e.getTableView().getItems().get(e.getTablePosition().getRow()).setCityName(e.getNewValue()));
     }
 
     @FXML
     void searchRecord(KeyEvent event) {
-        FilteredList<City> filterData = new FilteredList<>(catalogDataS, p -> true);
+        FilteredList<City2> filterData = new FilteredList<>(catalogDataS2, p -> true);
         searchBox.textProperty().addListener((obsevable, oldvalue, newvalue) -> {
             filterData.setPredicate(city -> {
 
@@ -546,7 +588,7 @@ public class EmployeeHomeController implements Initializable {
                 }
                 return false;
             });
-            SortedList<City> sortedList = new SortedList<>(filterData);
+            SortedList<City2> sortedList = new SortedList<>(filterData);
             sortedList.comparatorProperty().bind(SearchTTV2.comparatorProperty());
             SearchTTV2.setItems(sortedList);
         });
@@ -720,7 +762,41 @@ public class EmployeeHomeController implements Initializable {
 
     @FXML
     void sendRequestLocationBTN(ActionEvent event) {
+        String locationID = LocationIDT.getText();
+        String locationNameT = LocationNameT.getText();
+        String classificationT = ClassificationT.getText();
+        String locationDescriptionT = LocationDescriptionT.getText();
+        String locationAccessabilityT = LocationAccessabilityT.getText();
+        String cityIDLocation = LocationCITYid.getText();
 
+        LocationChangeSL.setText("Request sent for approval");
+        LocationChangeSL.setTextFill(Color.BLUE);
+
+
+        String requestIDQuery = "3SELECT MAX(requestID) FROM ChangeRequest";
+        boolean flag = ConnectionController.client.handleMessageFromClientUI(requestIDQuery);
+
+        try {
+            TimeUnit.SECONDS.sleep(5);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        maxReqID = ChatClient.maxRequestID;
+
+        Date currentdate = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        ChangeRequest request = new ChangeRequest(maxReqID,"Creating new Location: " + mapName,ChatClient.employee.getFullName(),formatter.format(currentdate) );
+
+        String addRequest = "rINSERT INTO ChangeRequest (requestID, requestDescription, employeeName,requestDate ) " +
+                "VALUES (" + request.getRequestID() + ",'" +  request.getRequestDescription() + "','" + request.getEmployeeName() + "','" + request.getRequestDate()+ "')";
+        flag = ConnectionController.client.handleMessageFromClientUI(addRequest);
+
+        String addLocRequest = "iINSERT INTO LocationsRequest (locationID, requestID, locationName, classification, description, accessibility, cityID)" +
+                "VALUES (" + Integer.parseInt(locationID) + "," + maxReqID + ",'" + locationNameT + "','" + classificationT + "','" +
+                locationDescriptionT + "'," + Boolean.parseBoolean(locationAccessabilityT)+ "," + Integer.parseInt(cityIDLocation) + ")";
+
+        flag = ConnectionController.client.handleMessageFromClientUI(addLocRequest);
     }
 
     @FXML
@@ -765,34 +841,105 @@ public class EmployeeHomeController implements Initializable {
 
     @FXML
     void  sendRequestTourBTN(ActionEvent event) {
+        String tourID = TourIDT.getText();
+        String tourDescription = TourDescriptionT.getText();
+        String visitDuration = VisitDurationT.getText();
+        String cityIDtour = CityIDTourt.getText();
 
+        TourChangeSL.setText("Request sent for approval");
+        TourChangeSL.setTextFill(Color.BLUE);
+
+
+        String requestIDQuery = "3SELECT MAX(requestID) FROM ChangeRequest";
+        boolean flag = ConnectionController.client.handleMessageFromClientUI(requestIDQuery);
+
+        try {
+            TimeUnit.SECONDS.sleep(5);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        maxReqID = ChatClient.maxRequestID;
+
+        Date currentdate = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        ChangeRequest request = new ChangeRequest(maxReqID,"Creating new Tour: " + mapName,ChatClient.employee.getFullName(),formatter.format(currentdate) );
+
+        String addRequest = "rINSERT INTO ChangeRequest (requestID, requestDescription, employeeName,requestDate ) " +
+                "VALUES (" + request.getRequestID() + ",'" +  request.getRequestDescription() + "','" + request.getEmployeeName() + "','" + request.getRequestDate()+ "')";
+        flag = ConnectionController.client.handleMessageFromClientUI(addRequest);
+
+        String addLocRequest = "iINSERT INTO ToursRequest (tourID, requestID, description, visitDuration, cityID)" +
+                "VALUES (" + Integer.parseInt(tourID) + "," + maxReqID + ",'" + tourDescription + "','" + visitDuration + "'," +
+                Integer.parseInt(cityIDtour)+ ")";
+
+        flag = ConnectionController.client.handleMessageFromClientUI(addLocRequest);
     }
-
 
     @FXML
     void showTourLocation(ActionEvent event) {
         ChangePanesAP.getChildren().clear();
         ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(10));
 
-        String fillLocationsTable = "5SELECT * FROM Locations";
+        String fillLocationsTable = "7SELECT * FROM Locations";
         boolean flag = ConnectionController.client.handleMessageFromClientUI(fillLocationsTable);
 
-        String fillToursTable = "6SELECT * FROM Tours ";
+        String fillToursTable = "8SELECT * FROM Tours ";
         flag = ConnectionController.client.handleMessageFromClientUI(fillToursTable);
 
     }
 
     @FXML
-    void BackToCustomerHomeScreen(ActionEvent event) throws IOException {
-        if (ChatClient.CustomerFlag) {
-            String CustomerHomeScene = "/scences/CustomerHome.fxml"; // main screen
-            ClientConsole.changeScene(CustomerHomeScene);
-        }
-        else{
-            String EmployeeHomeScene = "/scences/EmployeeHome.fxml"; // main screen
-            ClientConsole.changeScene(EmployeeHomeScene);
-        }
+    private void searchRecordLocation(KeyEvent ke) {
+        FilteredList<Location> filterData = new FilteredList<>(locationsDataS, p -> true);
+        searchBoxLocation.textProperty().addListener((obsevable, oldvalue, newvalue) -> {
+            filterData.setPredicate(location -> {
+
+                if (newvalue == null || newvalue.isEmpty()) {
+                    return true;
+                }
+                String typedText = newvalue.toLowerCase();
+                if (location.getLocationName().toLowerCase().indexOf(typedText) != -1) {
+
+                    return true;
+                }
+                if (location.getDescription().toLowerCase().indexOf(typedText) != -1) {
+
+                    return true;
+                }
+                if (location.getLocationClassification().toLowerCase().indexOf(typedText) != -1)
+                {
+                    return true;
+                }
+                return false;
+            });
+            SortedList<Location> sortedList = new SortedList<>(filterData);
+            sortedList.comparatorProperty().bind(LocationTV1.comparatorProperty());
+            LocationTV1.setItems(sortedList);
+        });
     }
+
+    @FXML
+    private void searchRecordTour(KeyEvent ke) {
+        FilteredList<Tour> filterData = new FilteredList<>(tourDataS, p -> true);
+        searchBoxTour.textProperty().addListener((obsevable, oldvalue, newvalue) -> {
+            filterData.setPredicate(tour -> {
+
+                if (newvalue == null || newvalue.isEmpty()) {
+                    return true;
+                }
+                String typedText = newvalue.toLowerCase();
+                if (tour.getDescription().toLowerCase().indexOf(typedText) != -1) {
+                    return true;
+                }
+                return false;
+            });
+            SortedList<Tour> sortedList = new SortedList<>(filterData);
+            sortedList.comparatorProperty().bind(ToursTV1.comparatorProperty());
+            ToursTV1.setItems(sortedList);
+        });
+    }
+
     @FXML
     void AddLocationpane(ActionEvent event) {
         ChangePanesAP.getChildren().clear();

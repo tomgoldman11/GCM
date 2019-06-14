@@ -1,5 +1,7 @@
 package models;
 
+import javafx.scene.control.Button;
+
 public class Location {
 	private int locationID;
 	private Coordinate locationCoordiante; 
@@ -7,6 +9,7 @@ public class Location {
 	private String locationClassification;
 	private String description;
 	private boolean accessibility;
+	private Button show;
 	
 	public Location(int locationID, Coordinate locationCoordiante, String locationName, String locationClassification,
 			String description, boolean accessibility) {
@@ -24,6 +27,23 @@ public class Location {
 		this.locationClassification = locationClassification;
 		this.description = description;
 		this.accessibility = accessibility;
+	}
+	public Location(int locationID, String locationName, String locationClassification,
+					String description, boolean accessibility, Button show) {
+		this.locationID = locationID;
+		this.locationName = locationName;
+		this.locationClassification = locationClassification;
+		this.description = description;
+		this.accessibility = accessibility;
+		this.show = show;
+	}
+
+	public Button getShow() {
+		return show;
+	}
+
+	public void setShow(Button show) {
+		this.show = show;
 	}
 
 	public int getLocationID() {

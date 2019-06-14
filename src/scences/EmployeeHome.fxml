@@ -373,6 +373,12 @@
                         <TextField fx:id="ClassificationT" layoutX="316.0" layoutY="231.0" prefHeight="25.0" prefWidth="250.0" text="Park/ Educational/Culture" />
                         <TextField fx:id="LocationDescriptionT" layoutX="316.0" layoutY="275.0" prefHeight="25.0" prefWidth="250.0" text="Location ID" />
                         <TextField fx:id="LocationAccessabilityT" layoutX="316.0" layoutY="313.0" prefHeight="25.0" prefWidth="250.0" text="true / false" />
+                  <TextField fx:id="LocationCITYid" layoutX="316.0" layoutY="356.0" prefHeight="25.0" prefWidth="250.0" text="City ID" />
+                  <Label alignment="BASELINE_LEFT" layoutX="53.0" layoutY="353.0" prefHeight="31.0" prefWidth="175.0" text="City ID:">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
                     </children>
                 </Pane>
                 <Pane fx:id="CreateLocationPane1" prefHeight="710.0" prefWidth="795.0">
@@ -413,41 +419,29 @@
                 </Pane>
                 <Pane fx:id="TourLocationPane" prefHeight="787.0" prefWidth="1487.0">
                     <children>
-                        <TableView fx:id="LocationTV" layoutX="10.0" layoutY="70.0" prefHeight="707.0" prefWidth="778.0">
+                        <TableView fx:id="LocationTV" layoutY="70.0" prefHeight="707.0" prefWidth="778.0">
                             <columns>
-                                <TableColumn fx:id="LocationIDCOL1" prefWidth="85.0" text="LocationID" />
-                                <TableColumn fx:id="LocationNameCOL1" prefWidth="97.0" text="Name" />
-                                <TableColumn fx:id="ClassificationCOL1" prefWidth="114.0" text="Classification" />
-                                <TableColumn fx:id="LocationDescriptionCOL1" prefWidth="385.0" text="Description" />
+                                <TableColumn fx:id="LocationIDCOL1" prefWidth="84.0" text="LocationID" />
+                                <TableColumn fx:id="LocationNameCOL1" prefWidth="79.0" text="Name" />
+                                <TableColumn fx:id="ClassificationCOL1" prefWidth="102.0" text="Classification" />
+                                <TableColumn fx:id="LocationDescriptionCOL1" prefWidth="342.0" text="Description" />
                                 <TableColumn fx:id="AccessibilityCOL1" prefWidth="96.0" text="Accessibility" />
+                        <TableColumn fx:id="ActionLocationCOL" prefWidth="74.0" text="Action" />
                             </columns>
                         </TableView>
-                        <TableView fx:id="ToursTV" layoutX="805.0" layoutY="70.0" prefHeight="707.0" prefWidth="672.0">
+                        <TableView fx:id="ToursTV" layoutX="785.0" layoutY="70.0" prefHeight="707.0" prefWidth="672.0">
                             <columns>
-                                <TableColumn fx:id="ToursIDCOL1" prefWidth="76.0" text="TourID" />
-                                <TableColumn fx:id="TourDescriptionCOL" minWidth="0.0" prefWidth="262.0" text="Description" />
-                                <TableColumn fx:id="TourDurationCOL1" prefWidth="168.0" text="Tour Duration" />
-                                <TableColumn fx:id="LocationsIDCOL1" prefWidth="165.0" text="LocationsID" />
+                                <TableColumn fx:id="ToursIDCOL1" prefWidth="58.0" text="TourID" />
+                                <TableColumn fx:id="TourDescriptionCOL" minWidth="0.0" prefWidth="245.0" text="Description" />
+                                <TableColumn fx:id="TourDurationCOL1" prefWidth="152.0" text="Tour Duration" />
+                                <TableColumn fx:id="LocationsIDCOL1" minWidth="0.0" prefWidth="148.0" text="LocationsID" />
+                        <TableColumn fx:id="ActionTourCOL" minWidth="0.0" prefWidth="68.0" text="Action" />
                             </columns>
                         </TableView>
-                        <Text fill="#204ee4" layoutX="315.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Locations" wrappingWidth="123.6708984375">
-                            <font>
-                                <Font name="System Bold" size="15.0" />
-                            </font>
-                        </Text>
-                        <Text fill="#204ee4" layoutX="1121.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tours">
-                            <font>
-                                <Font name="System Bold" size="15.0" />
-                            </font>
-                        </Text>
-                        <Text fx:id="MapNameT1" fill="#204ee4" layoutX="741.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name of map">
-                            <font>
-                                <Font name="System Bold" size="15.0" />
-                            </font>
-                        </Text>
-                        <Button fx:id="BackBTN1" layoutX="27.0" layoutY="14.0" mnemonicParsing="false" onAction="#BackToCustomerHomeScreen" stylesheets="@RedBtn.css" text="Back" />
-                        <Button fx:id="AddTourBTN1" layoutX="1401.0" layoutY="39.0" mnemonicParsing="false" onAction="#AddTourpane" stylesheets="@GreenBtn.css" text="Add Tour" />
-                        <Button fx:id="AddLocationBTN1" layoutX="695.0" layoutY="39.0" mnemonicParsing="false" onAction="#AddLocationpane" stylesheets="@GreenBtn.css" text="Add Location" />
+                        <Button fx:id="AddTourBTN1" layoutX="1375.0" layoutY="34.0" mnemonicParsing="false" onAction="#AddTourpane" stylesheets="@GreenBtn.css" text="Add Tour" />
+                        <Button fx:id="AddLocationBTN1" layoutX="670.0" layoutY="34.0" mnemonicParsing="false" onAction="#AddLocationpane" stylesheets="@GreenBtn.css" text="Add Location" />
+                  <TextField fx:id="searchBoxTour" layoutX="785.0" layoutY="32.0" onKeyTyped="#searchRecordTour" prefHeight="31.0" prefWidth="577.0" promptText="Search For Tours HERE" />
+                  <TextField fx:id="searchBoxLocation" layoutY="32.0" onKeyTyped="#searchRecordLocation" prefHeight="31.0" prefWidth="660.0" promptText="Search For Locations HERE" />
                     </children>
                 </Pane>
             </children>

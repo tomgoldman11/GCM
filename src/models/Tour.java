@@ -1,11 +1,15 @@
 package models;
 
+import javafx.scene.control.Button;
+
 public class Tour {
 	private int tourID;
 	private String description;
 	private Location[] locations;
 	private String visitDuration;
 	private String LocationsID;
+
+	private Button show;
 	
 	public Tour(int tourID, String description, Location[] locations, String visitDuration, String LocationsID) {
 		this.tourID = tourID;
@@ -19,6 +23,21 @@ public class Tour {
 		this.description = description;
 		this.visitDuration = visitDuration;
 		this.LocationsID = LocationnsID;
+	}
+	public Tour(int tourID, String description, String visitDuration, String LocationnsID, Button show) {
+		this.tourID = tourID;
+		this.description = description;
+		this.visitDuration = visitDuration;
+		this.LocationsID = LocationnsID;
+		this.show = show;
+	}
+
+	public Button getShow() {
+		return show;
+	}
+
+	public void setShow(Button show) {
+		this.show = show;
 	}
 
 	public String getLocationsID() {
