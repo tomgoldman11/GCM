@@ -433,6 +433,15 @@ public class EmployeeHomeController implements Initializable {
     @FXML
     private TextField searchBoxLocation;
 
+    @FXML
+    private TableColumn<ChangeRequest, Button> ApproveCOLRequest1;
+
+    @FXML
+    private TextField CreatTourLocationsIDTF;
+
+    @FXML
+    private Label LocationsIDL;
+
 
     @FXML
     void LogOutEmployee(ActionEvent event) {
@@ -523,7 +532,8 @@ public class EmployeeHomeController implements Initializable {
         RequestDescriptionCOL.setCellValueFactory(new PropertyValueFactory<>("requestDescription"));
         EmployeeNameCOL.setCellValueFactory(new PropertyValueFactory<>("employeeName"));
         RequestDateCOL.setCellValueFactory(new PropertyValueFactory<>("requestDate"));
-        ActionCOLRequest.setCellValueFactory(new PropertyValueFactory<>("show"));
+        ActionCOLRequest.setCellValueFactory(new PropertyValueFactory<>("decline"));
+        ApproveCOLRequest1.setCellValueFactory(new PropertyValueFactory<>("approve"));
 
         //for tour-location
         mapName = mapNameS;
@@ -782,7 +792,7 @@ public class EmployeeHomeController implements Initializable {
 
         Date currentdate = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-        ChangeRequest request = new ChangeRequest(maxReqID,"Creating new city: " + cityName,ChatClient.employee.getFullName(),formatter.format(currentdate) );
+        ChangeRequest request = new ChangeRequest(maxReqID,"Creating new city : " + cityName,ChatClient.employee.getFullName(),formatter.format(currentdate) );
 
         String addRequest = "rINSERT INTO ChangeRequest (requestID, requestDescription, employeeName,requestDate ) " +
                 "VALUES (" + request.getRequestID() + ",'" +  request.getRequestDescription() + "','" + request.getEmployeeName() + "','" + request.getRequestDate()+ "')";
@@ -823,7 +833,7 @@ public class EmployeeHomeController implements Initializable {
 
         Date currentdate = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-        ChangeRequest request = new ChangeRequest(maxReqID,"Creating new Location: " + mapName,ChatClient.employee.getFullName(),formatter.format(currentdate) );
+        ChangeRequest request = new ChangeRequest(maxReqID,"Creating new Location : " + mapName,ChatClient.employee.getFullName(),formatter.format(currentdate) );
 
         String addRequest = "rINSERT INTO ChangeRequest (requestID, requestDescription, employeeName,requestDate ) " +
                 "VALUES (" + request.getRequestID() + ",'" +  request.getRequestDescription() + "','" + request.getEmployeeName() + "','" + request.getRequestDate()+ "')";
@@ -863,7 +873,7 @@ public class EmployeeHomeController implements Initializable {
 
         Date currentdate = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-        ChangeRequest request = new ChangeRequest(maxReqID,"Creating new Map: " + mapName,ChatClient.employee.getFullName(),formatter.format(currentdate) );
+        ChangeRequest request = new ChangeRequest(maxReqID,"Creating new Map : " + mapName,ChatClient.employee.getFullName(),formatter.format(currentdate) );
 
         String addRequest = "rINSERT INTO ChangeRequest (requestID, requestDescription, employeeName,requestDate ) " +
                 "VALUES (" + request.getRequestID() + ",'" +  request.getRequestDescription() + "','" + request.getEmployeeName() + "','" + request.getRequestDate()+ "')";
@@ -882,6 +892,7 @@ public class EmployeeHomeController implements Initializable {
         String tourDescription = TourDescriptionT.getText();
         String visitDuration = VisitDurationT.getText();
         String cityIDtour = CityIDTourt.getText();
+        String locationsID = CreatTourLocationsIDTF.getText();
 
         TourChangeSL.setText("Request sent for approval");
         TourChangeSL.setTextFill(Color.BLUE);
@@ -900,17 +911,17 @@ public class EmployeeHomeController implements Initializable {
 
         Date currentdate = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-        ChangeRequest request = new ChangeRequest(maxReqID,"Creating new Tour: " + mapName,ChatClient.employee.getFullName(),formatter.format(currentdate) );
+        ChangeRequest request = new ChangeRequest(maxReqID,"Creating new Tour : " + mapName,ChatClient.employee.getFullName(),formatter.format(currentdate) );
 
         String addRequest = "rINSERT INTO ChangeRequest (requestID, requestDescription, employeeName,requestDate ) " +
                 "VALUES (" + request.getRequestID() + ",'" +  request.getRequestDescription() + "','" + request.getEmployeeName() + "','" + request.getRequestDate()+ "')";
         flag = ConnectionController.client.handleMessageFromClientUI(addRequest);
 
-        String addLocRequest = "iINSERT INTO ToursRequest (tourID, requestID, description, visitDuration, cityID)" +
+        String addTourRequest = "iINSERT INTO ToursRequest (tourID, requestID, description, visitDuration, cityID, locationsID)" +
                 "VALUES (" + Integer.parseInt(tourID) + "," + maxReqID + ",'" + tourDescription + "','" + visitDuration + "'," +
-                Integer.parseInt(cityIDtour)+ ")";
+                Integer.parseInt(cityIDtour)+ ",'" + locationsID + "')";
 
-        flag = ConnectionController.client.handleMessageFromClientUI(addLocRequest);
+        flag = ConnectionController.client.handleMessageFromClientUI(addTourRequest);
     }
 
     @FXML

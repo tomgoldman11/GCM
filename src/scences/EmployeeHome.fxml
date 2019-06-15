@@ -234,11 +234,12 @@
                         </Label>
                         <TableView fx:id="RequestTV" layoutY="91.0" prefHeight="615.0" prefWidth="795.0">
                             <columns>
-                                <TableColumn fx:id="RequestIDCOL" prefWidth="109.0" text="Request ID" />
-                                <TableColumn fx:id="RequestDescriptionCOL" prefWidth="251.0" text="Request Description" />
-                                <TableColumn fx:id="EmployeeNameCOL" prefWidth="146.0" text="Employee's Name" />
-                                <TableColumn fx:id="RequestDateCOL" prefWidth="171.0" text="Request Date" />
-                                <TableColumn fx:id="ActionCOLRequest" prefWidth="117.0" text="Action" />
+                                <TableColumn fx:id="RequestIDCOL" prefWidth="84.0" text="Request ID" />
+                                <TableColumn fx:id="RequestDescriptionCOL" prefWidth="272.0" text="Request Description" />
+                                <TableColumn fx:id="EmployeeNameCOL" prefWidth="138.0" text="Employee's Name" />
+                                <TableColumn fx:id="RequestDateCOL" prefWidth="156.0" text="Request Date" />
+                                <TableColumn fx:id="ActionCOLRequest" prefWidth="74.0" text="Decline" />
+                        <TableColumn fx:id="ApproveCOLRequest1" prefWidth="70.0" text="Approve" />
                             </columns>
                         </TableView>
                     </children>
@@ -371,7 +372,7 @@
                         <TextField fx:id="LocationIDT" layoutX="316.0" layoutY="153.0" prefHeight="25.0" prefWidth="250.0" text="Location ID" />
                         <TextField fx:id="LocationNameT" layoutX="316.0" layoutY="192.0" prefHeight="25.0" prefWidth="250.0" text="Name" />
                         <TextField fx:id="ClassificationT" layoutX="316.0" layoutY="231.0" prefHeight="25.0" prefWidth="250.0" text="Park/ Educational/Culture" />
-                        <TextField fx:id="LocationDescriptionT" layoutX="316.0" layoutY="275.0" prefHeight="25.0" prefWidth="250.0" text="Location ID" />
+                        <TextField fx:id="LocationDescriptionT" layoutX="316.0" layoutY="275.0" prefHeight="25.0" prefWidth="250.0" text="Description" />
                         <TextField fx:id="LocationAccessabilityT" layoutX="316.0" layoutY="313.0" prefHeight="25.0" prefWidth="250.0" text="true / false" />
                   <TextField fx:id="LocationCITYid" layoutX="316.0" layoutY="356.0" prefHeight="25.0" prefWidth="250.0" text="City ID" />
                   <Label alignment="BASELINE_LEFT" layoutX="53.0" layoutY="353.0" prefHeight="31.0" prefWidth="175.0" text="City ID:">
@@ -412,9 +413,15 @@
                         <Button fx:id="tourSendRquestBTN" layoutX="414.0" layoutY="476.0" mnemonicParsing="false" onAction="#sendRequestTourBTN" prefHeight="31.0" prefWidth="110.0" stylesheets="@GreenBtn.css" text="Send Request" />
                         <Label fx:id="TourChangeSL" layoutX="246.0" layoutY="534.0" prefHeight="21.0" prefWidth="232.0" />
                         <TextField fx:id="TourIDT" layoutX="315.0" layoutY="153.0" prefHeight="25.0" prefWidth="250.0" text="ID" />
-                        <TextField fx:id="TourDescriptionT" layoutX="315.0" layoutY="192.0" prefHeight="25.0" prefWidth="250.0" text="Location ID" />
+                        <TextField fx:id="TourDescriptionT" layoutX="315.0" layoutY="192.0" prefHeight="25.0" prefWidth="250.0" text="Description" />
                         <TextField fx:id="VisitDurationT" layoutX="315.0" layoutY="231.0" prefHeight="25.0" prefWidth="250.0" text="How long is the tour?" />
-                        <TextField fx:id="CityIDTourt" layoutX="315.0" layoutY="275.0" prefHeight="25.0" prefWidth="250.0" text="City ID" />
+                        <TextField fx:id="CityIDTourt" layoutX="315.0" layoutY="272.0" prefHeight="25.0" prefWidth="250.0" text="City ID" />
+                  <Label fx:id="LocationsIDL" alignment="BASELINE_LEFT" layoutX="53.0" layoutY="313.0" prefHeight="31.0" prefWidth="175.0" text="LocationsID:">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="CreatTourLocationsIDTF" layoutX="315.0" layoutY="313.0" prefHeight="25.0" prefWidth="250.0" text="LocationsID" />
                     </children>
                 </Pane>
                 <Pane fx:id="TourLocationPane" prefHeight="787.0" prefWidth="1487.0">

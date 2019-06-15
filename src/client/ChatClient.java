@@ -168,7 +168,6 @@ public class ChatClient extends AbstractClient {
 					Integer.parseInt(splited[2]), Integer.parseInt(splited[3]), splited[4], splited[5], splited[6], splited[7]);
 
 		}
-
 		if (msg.toString().charAt(0) == '!') {
 			String[] splited = msg.toString().split("\\s+");
 			updateCustomerCard(Integer.parseInt(splited[1]), splited[2] + " " + splited[3], Integer.parseInt(splited[4]), splited[5], splited[6]);
@@ -187,6 +186,34 @@ public class ChatClient extends AbstractClient {
 		}
 		if (msg.toString().charAt(0) == '3') {
 			ChatClient.maxRequestID = Integer.parseInt(msg.toString().substring(1)) + 1;
+		}
+		if (msg.toString().charAt(0) == 'U') {
+			String[] splited = msg.toString().split("!");
+			String updateCity = "QINSERT INTO Cities(`cityID`, `description`, `mapsClusterVersion`, `numMaps`, `numTours`, `numLocations`, `mapsClusterPrice`, `cityName`)" +
+					" VALUES ( " + Integer.parseInt(splited[1]) + ",'" + splited[2] + "'," + Double.parseDouble(splited[3]) + ","
+					+ 0 + "," + 0 + "," + 0 + "," + Double.parseDouble(splited[7]) + ",'" + splited[8] + "')";
+			boolean flag = ConnectionController.client.handleMessageFromClientUI(updateCity);
+		}
+		if (msg.toString().charAt(0) == 'P') {
+			String[] splited = msg.toString().split("!");
+			String updateMap = "QINSERT INTO `Maps`(`mapID`, `cityID`, `mapName`, `description`, `version`, `mapPath`) VALUES ( "
+					+ Integer.parseInt(splited[1]) + "," + Integer.parseInt(splited[2]) + ",'" + splited[3] + "','"
+					+  splited[4] + "'," + Double.parseDouble(splited[5]) + ",'" + splited[6] + "')";
+			boolean flag = ConnectionController.client.handleMessageFromClientUI(updateMap);
+		}
+		if (msg.toString().charAt(0) == 'S') {
+			String[] splited = msg.toString().split("!");
+			String updateMap = "QINSERT INTO `Locations`(`locationID`, `locationName`, `classification`, `description`, `accessibility`) VALUES ( "
+					+ Integer.parseInt(splited[1]) + ",'" + splited[2] + "','" + splited[3] + "','"
+					+  splited[4] + "'," +Boolean.parseBoolean(splited[5]) + ")";
+			boolean flag = ConnectionController.client.handleMessageFromClientUI(updateMap);
+		}
+		if (msg.toString().charAt(0) == 'V') {
+			String[] splited = msg.toString().split("!");
+			String updateMap = "QINSERT INTO `Tours`(`tourID`, `description`, `visitDuration`, `cityID`, `locationsID`) VALUES ( "
+					+ Integer.parseInt(splited[1]) + ",'" + splited[2] + "','" + splited[3] + "',"
+					+  Integer.parseInt(splited[4]) + ",'" + splited[5] + "')";
+			boolean flag = ConnectionController.client.handleMessageFromClientUI(updateMap);
 		}
 
 
@@ -357,8 +384,9 @@ public class ChatClient extends AbstractClient {
 					System.out.println("DEBUG:   HERE WE GO Requests");
 					ObservableList<ChangeRequest> catalogData = FXCollections.observableArrayList();
 					for (int i = 0; i < ((ArrayList) msg).size(); i += 4) {
+
 						catalogData.add(new ChangeRequest((Integer.parseInt(((ArrayList<String>) msg).get(i))), ((ArrayList<String>) msg).get(i + 1),((ArrayList<String>) msg).get(i + 2),
-								((ArrayList<String>) msg).get(i + 3) ,new Button("see Details")));
+								((ArrayList<String>) msg).get(i + 3) ,new Button("Decline"), new Button("Approve")));
 					}
 					requestsDataS = catalogData;
 					EmployeeHomeController.RequestTTV1.getItems().removeAll();
@@ -464,7 +492,8 @@ public class ChatClient extends AbstractClient {
 				|| message.charAt(0) == 'q' || message.charAt(0) == ']' || message.charAt(0) == 'A' || message.charAt(0) == '5'  || message.charAt(0) == '6'
 				|| message.charAt(0) == 'r' || message.charAt(0) == 'i' || message.charAt(0) == 'g' || message.charAt(0) == '>'|| message.charAt(0) == '3'
 				|| message.charAt(0) == 'L' || message.charAt(0) == 'T' || message.charAt(0) == '7' || message.charAt(0) == '8'
-				|| message.charAt(0) == 'X' || message.charAt(0) == '0')   {
+				|| message.charAt(0) == 'U' || message.charAt(0) == 'P' || message.charAt(0) == 'S' || message.charAt(0) == 'V'
+				|| message.charAt(0) == 'X' || message.charAt(0) == '0' || message.charAt(0) == 'Q')   {
 			try {
 				System.out.println("msg:" +message);
 				sendToServer(message);
