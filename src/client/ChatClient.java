@@ -67,6 +67,7 @@ public class ChatClient extends AbstractClient {
 	public static ObservableList<ChangeRequest> requestsDataS = FXCollections.observableArrayList();
 	public static ObservableList<Location> locationsDataS = FXCollections.observableArrayList();
 	public static ObservableList<Tour> tourDataS = FXCollections.observableArrayList();
+	public static ObservableList<Statistics> statisticsDataS = FXCollections.observableArrayList();
 	/**
 	 * Constructs an instance of the chat client.
 	 *
@@ -470,6 +471,44 @@ public class ChatClient extends AbstractClient {
 						}
 					});
 				}
+				else if (((ArrayList<String>) msg).get(0).equals("getFsubstats")) {
+					System.out.println("DEBUG: getting statsF");
+					((ArrayList<String>) msg).remove(0);
+					ObservableList<Statistics> catalogData = FXCollections.observableArrayList();
+					for (int i = 0; i < ((ArrayList) msg).size(); i += 3) {
+						catalogData.add(new Statistics(Integer.parseInt(((ArrayList<String>) msg).get(i)), ((ArrayList<String>) msg).get(i + 1), Integer.parseInt(((ArrayList<String>) msg).get(i+2))));
+					}
+					statisticsDataS = catalogData;
+					Platform.runLater(new Runnable() {
+						@Override
+						public void run() {
+							EmployeeHomeController.DailyStatisticTTV2.getItems().removeAll();
+							EmployeeHomeController.DailyStatisticTTV2.getItems().clear();
+							EmployeeHomeController.DailyStatisticTTV2.setItems(catalogData);
+							EmployeeHomeController.DailyStatisticTTV2.refresh();
+						}
+					});
+				}
+
+				else if (((ArrayList<String>) msg).get(0).equals("getOTsubstats")) {
+					System.out.println("DEBUG: getting statsOT");
+					((ArrayList<String>) msg).remove(0);
+					ObservableList<Statistics> catalogData = FXCollections.observableArrayList();
+					for (int i = 0; i < ((ArrayList) msg).size(); i += 3) {
+						catalogData.add(new Statistics(Integer.parseInt(((ArrayList<String>) msg).get(i)), ((ArrayList<String>) msg).get(i + 1), Integer.parseInt(((ArrayList<String>) msg).get(i+2))));
+					}
+					statisticsDataS = catalogData;
+					Platform.runLater(new Runnable() {
+						@Override
+						public void run() {
+							EmployeeHomeController.DailyStatisticTTV3.getItems().removeAll();
+							EmployeeHomeController.DailyStatisticTTV3.getItems().clear();
+							EmployeeHomeController.DailyStatisticTTV3.setItems(catalogData);
+							EmployeeHomeController.DailyStatisticTTV3.refresh();
+						}
+					});
+				}
+
 			}
 
 		}// close big instance of IF
@@ -493,7 +532,7 @@ public class ChatClient extends AbstractClient {
 				|| message.charAt(0) == 'r' || message.charAt(0) == 'i' || message.charAt(0) == 'g' || message.charAt(0) == '>'|| message.charAt(0) == '3'
 				|| message.charAt(0) == 'L' || message.charAt(0) == 'T' || message.charAt(0) == '7' || message.charAt(0) == '8'
 				|| message.charAt(0) == 'U' || message.charAt(0) == 'P' || message.charAt(0) == 'S' || message.charAt(0) == 'V'
-				|| message.charAt(0) == 'X' || message.charAt(0) == '0' || message.charAt(0) == 'Q')   {
+				|| message.charAt(0) == 'X' || message.charAt(0) == '0' || message.charAt(0) == 'Q' || message.charAt(0) == 'W' || message.charAt(0) == 'R')    {
 			try {
 				System.out.println("msg:" +message);
 				sendToServer(message);

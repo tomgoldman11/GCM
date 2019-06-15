@@ -382,29 +382,56 @@ public class EmployeeHomeController implements Initializable {
     //TODO add class DailyStatistic
 
     @FXML
-    private TableView<?> DailyStatisticTTV;
+    public static TableView<Statistics> DailyStatisticTTV2;
 
     @FXML
-    private TableColumn<?, ?> statisticCityIDCOL;
+    public static TableView<Statistics> DailyStatisticTTV3;
 
     @FXML
-    private TableColumn<?, ?> statisticCityNameCOL;
+    private TableView<Statistics> DailyStatisticTTV;
 
     @FXML
-    private TableColumn<?, ?> statisticNumOfPurchasesCOL;
+    private TableView<Statistics> DailyStatisticTTV1;
 
     @FXML
-    private TableColumn<?, ?> statisticOTPurchaseCOL;
+    private TableColumn<Statistics, Integer> statisticCityIDCOL;
 
     @FXML
-    private TableColumn<?, ?> statisticFPurchaseCOL;
+    private TableColumn<Statistics, String> statisticCityNameCOL;
 
     @FXML
-    private TableColumn<?, ?> statisticSubscriptionRenewalCOL;
+    private TableColumn<Statistics, Integer> statisticNumOfPurchasesCOL;
 
     @FXML
-    private TableColumn<?, ?> statisticDateCOL;
+    private TableColumn<Statistics, Integer> statisticCityIDCOL1;
 
+    @FXML
+    private TableColumn<Statistics, String> statisticCityNameCOL1;
+
+    @FXML
+    private TableColumn<Statistics, Integer> statisticNumOfPurchasesCOL1;
+
+
+
+
+
+
+
+
+
+
+//    @FXML
+//    private TableColumn<?, ?> statisticOTPurchaseCOL;
+//
+//    @FXML
+//    private TableColumn<?, ?> statisticFPurchaseCOL;
+//
+//    @FXML
+//    private TableColumn<?, ?> statisticSubscriptionRenewalCOL;
+//
+//    @FXML
+//    private TableColumn<?, ?> statisticDateCOL;
+//
 
     @FXML
     private TableView<ChangeRequest> RequestTV;
@@ -496,6 +523,8 @@ public class EmployeeHomeController implements Initializable {
         MyMapsTTV1 = MyMapsTTV;
         EmployeeTTV1 = EmployeeTTV;
         RequestTTV1 = RequestTV;
+        DailyStatisticTTV2 = DailyStatisticTTV;
+        DailyStatisticTTV3 = DailyStatisticTTV1;
         // cols for cities
         IDCOL.setCellValueFactory(new PropertyValueFactory<>("cityID"));
         DescriptionCOL.setCellValueFactory(new PropertyValueFactory<>("description"));
@@ -555,6 +584,16 @@ public class EmployeeHomeController implements Initializable {
         TourDurationCOL1.setCellValueFactory(new PropertyValueFactory<>("visitDuration"));
         LocationsIDCOL12.setCellValueFactory(new PropertyValueFactory<>("LocationsID"));
         ActionTourCOL.setCellValueFactory(new PropertyValueFactory<>("show"));
+
+        // cols for Statistics //statisticCityIDCOL statisticCityNameCOL statisticNumOfPurchasesCOL
+        statisticCityIDCOL.setCellValueFactory(new PropertyValueFactory<>("cityID"));
+        statisticCityNameCOL.setCellValueFactory(new PropertyValueFactory<>("cityName"));
+        statisticNumOfPurchasesCOL.setCellValueFactory(new PropertyValueFactory<>("numOfPurchases"));
+        // cols for Statistics2
+        statisticCityIDCOL1.setCellValueFactory(new PropertyValueFactory<>("cityID"));
+        statisticCityNameCOL1.setCellValueFactory(new PropertyValueFactory<>("cityName"));
+        statisticNumOfPurchasesCOL1.setCellValueFactory(new PropertyValueFactory<>("numOfPurchases"));
+
 
 
         /////////////////
@@ -736,6 +775,12 @@ public class EmployeeHomeController implements Initializable {
     void Statistics(ActionEvent event) {
         ChangePanesAP.getChildren().clear();
         ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(4));
+        String fillStatisticsTable = "WSELECT C.cityID , C.cityName , COUNT(*) AS countF FROM Cities C JOIN F_Subscriptions F ON C.cityID = F.cityID GROUP BY cityID ";
+        boolean flag = ConnectionController.client.handleMessageFromClientUI(fillStatisticsTable);
+
+        String fillStatistics2Table = "RSELECT C.cityID , C.cityName , COUNT(*) AS countF FROM Cities C JOIN OT_Subscriptions T ON C.cityID = T.cityID GROUP BY cityID ";
+        flag = ConnectionController.client.handleMessageFromClientUI(fillStatistics2Table);
+
 
     }
 
