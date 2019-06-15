@@ -21,6 +21,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import javafx.util.converter.BooleanStringConverter;
 import javafx.util.converter.DoubleStringConverter;
 import javafx.util.converter.IntegerStringConverter;
 import models.*;
@@ -75,7 +76,7 @@ public class EmployeeHomeController implements Initializable {
     private TableColumn<Location, String> ClassificationCOL1;
 
     @FXML
-    private TableColumn<Location, String> LocationsIDCOL1;
+    private TableColumn<Tour, String> LocationsIDCOL12;
 
     @FXML
     private TableColumn<Location, Boolean > AccessibilityCOL1;
@@ -210,31 +211,31 @@ public class EmployeeHomeController implements Initializable {
     private TableColumn<City2, Button> ActionCOL;
 
     @FXML
-    private TableView<Map> MyMapsTTV;
+    private TableView<Map2> MyMapsTTV;
 
     @FXML
-    public static TableView<Map> MyMapsTTV1;
+    public static TableView<Map2> MyMapsTTV1;
 
     @FXML
-    private TableColumn<Map, Integer> IDCOLMap;
+    private TableColumn<Map2, Integer> IDCOLMap;
 
     @FXML
-    private TableColumn<Map, String> descriptionnCOLMap;
+    private TableColumn<Map2, String> descriptionnCOLMap;
 
     @FXML
-    private TableColumn<Map, String> nameCOLMap;
+    private TableColumn<Map2, String> nameCOLMap;
 
     @FXML
-    private TableColumn<Map, Double> priceCOLMap;
+    private TableColumn<Map2, Double> priceCOLMap;
 
     @FXML
-    private TableColumn<Map, Double> VCOLMap;
+    private TableColumn<Map2, Double> VCOLMap;
 
     @FXML
-    private TableColumn<Map, Double> tillCOLMap;
+    private TableColumn<Map2, Double> tillCOLMap;
 
     @FXML
-    private TableColumn<Map, Button> ActionCOLMap;
+    private TableColumn<Map2, Button> ActionCOLMap;
 
     @FXML
     private Button CreateMapBTN;
@@ -542,7 +543,7 @@ public class EmployeeHomeController implements Initializable {
         ToursIDCOL1.setCellValueFactory(new PropertyValueFactory<>("tourID"));
         TourDescriptionCOL.setCellValueFactory(new PropertyValueFactory<>("description"));
         TourDurationCOL1.setCellValueFactory(new PropertyValueFactory<>("visitDuration"));
-        LocationsIDCOL1.setCellValueFactory(new PropertyValueFactory<>("LocationsID"));
+        LocationsIDCOL12.setCellValueFactory(new PropertyValueFactory<>("LocationsID"));
         ActionTourCOL.setCellValueFactory(new PropertyValueFactory<>("show"));
 
 
@@ -566,6 +567,42 @@ public class EmployeeHomeController implements Initializable {
         PriceCOL.setOnEditCommit(e -> e.getTableView().getItems().get(e.getTablePosition().getRow()).setMapClusterPrice(e.getNewValue()));
         NameCOL.setCellFactory(TextFieldTableCell.forTableColumn());
         NameCOL.setOnEditCommit(e -> e.getTableView().getItems().get(e.getTablePosition().getRow()).setCityName(e.getNewValue()));
+
+        // map
+        MyMapsTTV.setEditable(true);
+        IDCOLMap.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+        IDCOLMap.setOnEditCommit(e -> e.getTableView().getItems().get(e.getTablePosition().getRow()).setMapID(e.getNewValue()));
+        descriptionnCOLMap.setCellFactory(TextFieldTableCell.forTableColumn());
+        descriptionnCOLMap.setOnEditCommit(e -> e.getTableView().getItems().get(e.getTablePosition().getRow()).setDescription(e.getNewValue()));
+        nameCOLMap.setCellFactory(TextFieldTableCell.forTableColumn());
+        nameCOLMap.setOnEditCommit(e -> e.getTableView().getItems().get(e.getTablePosition().getRow()).setMapName(e.getNewValue()));
+        VCOLMap.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        VCOLMap.setOnEditCommit(e -> e.getTableView().getItems().get(e.getTablePosition().getRow()).setVersion(e.getNewValue()));
+
+        //locations
+        LocationTV.setEditable(true);
+        LocationIDCOL1.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+        LocationIDCOL1.setOnEditCommit(e -> e.getTableView().getItems().get(e.getTablePosition().getRow()).setLocationID(e.getNewValue()));
+        LocationNameCOL1.setCellFactory(TextFieldTableCell.forTableColumn());
+        LocationNameCOL1.setOnEditCommit(e -> e.getTableView().getItems().get(e.getTablePosition().getRow()).setLocationName(e.getNewValue()));
+        ClassificationCOL1.setCellFactory(TextFieldTableCell.forTableColumn());
+        ClassificationCOL1.setOnEditCommit(e -> e.getTableView().getItems().get(e.getTablePosition().getRow()).setLocationClassification(e.getNewValue()));
+        LocationDescriptionCOL1.setCellFactory(TextFieldTableCell.forTableColumn());
+        LocationDescriptionCOL1.setOnEditCommit(e -> e.getTableView().getItems().get(e.getTablePosition().getRow()).setDescription(e.getNewValue()));
+        AccessibilityCOL1.setCellFactory(TextFieldTableCell.forTableColumn(new BooleanStringConverter()));
+        AccessibilityCOL1.setOnEditCommit(e -> e.getTableView().getItems().get(e.getTablePosition().getRow()).setAccessibility(e.getNewValue()));
+
+        //tours
+        ToursTV.setEditable(true);
+        ToursIDCOL1.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+        ToursIDCOL1.setOnEditCommit(e -> e.getTableView().getItems().get(e.getTablePosition().getRow()).setTourID(e.getNewValue()));
+        TourDescriptionCOL.setCellFactory(TextFieldTableCell.forTableColumn());
+        TourDescriptionCOL.setOnEditCommit(e -> e.getTableView().getItems().get(e.getTablePosition().getRow()).setDescription(e.getNewValue()));
+        TourDurationCOL1.setCellFactory(TextFieldTableCell.forTableColumn());
+        TourDurationCOL1.setOnEditCommit(e -> e.getTableView().getItems().get(e.getTablePosition().getRow()).setVisitDuration(e.getNewValue()));
+        LocationsIDCOL12.setCellFactory(TextFieldTableCell.forTableColumn());
+        LocationsIDCOL12.setOnEditCommit(e -> e.getTableView().getItems().get(e.getTablePosition().getRow()).setLocationsID(e.getNewValue()));
+
     }
 
     @FXML
@@ -595,7 +632,7 @@ public class EmployeeHomeController implements Initializable {
     }
     @FXML
     void searchRecordMap(KeyEvent event) {
-        FilteredList<Map> filterData = new FilteredList<>(myMapsDataS, p -> true);
+        FilteredList<Map2> filterData = new FilteredList<>(myMapsDataS2, p -> true);
         searchBox1.textProperty().addListener((obsevable, oldvalue, newvalue) -> {
             filterData.setPredicate(map -> {
 
@@ -613,7 +650,7 @@ public class EmployeeHomeController implements Initializable {
                 }
                 return false;
             });
-            SortedList<Map> sortedList = new SortedList<>(filterData);
+            SortedList<Map2> sortedList = new SortedList<>(filterData);
             sortedList.comparatorProperty().bind(MyMapsTTV1.comparatorProperty());
             MyMapsTTV1.setItems(sortedList);
         });
@@ -656,7 +693,7 @@ public class EmployeeHomeController implements Initializable {
         MyMapsTTV.getItems().removeAll();
 
         boolean flag = false;
-        String fillAllMaps = "]SELECT mapID,mapName,description,version FROM Maps"; // mapID mapName description version
+        String fillAllMaps = "XSELECT mapID,mapName,description,version FROM Maps"; // mapID mapName description version
         flag = ConnectionController.client.handleMessageFromClientUI(fillAllMaps);
 
     }

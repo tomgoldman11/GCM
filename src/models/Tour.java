@@ -1,6 +1,11 @@
 package models;
 
 import javafx.scene.control.Button;
+import scences.AlertBoxUpdate;
+import scences.ConnectionController;
+
+import static client.ChatClient.locationsDataS;
+import static client.ChatClient.tourDataS;
 
 public class Tour {
 	private int tourID;
@@ -30,6 +35,23 @@ public class Tour {
 		this.visitDuration = visitDuration;
 		this.LocationsID = LocationnsID;
 		this.show = show;
+
+		show.setOnAction(e -> {
+			for(Tour tour : tourDataS ){
+				if(tour.getShow() == show){
+					int tourid = tour.getTourID();
+					String desc = tour.getDescription();
+					String tourdur = tour.getVisitDuration();
+					String locationsid = tour.getLocationsID();
+
+					String tourChangeUpdate = "=UPDATE Tours SET tourID = " + tourid +",description = '" + desc + "',visitDuration = '" + tourdur
+							+ "',locationsID = '" + locationsid + "'" + "WHERE tourID = " + tourid ;
+					boolean flag = ConnectionController.client.handleMessageFromClientUI(tourChangeUpdate);
+
+					AlertBoxUpdate.display("Update Status", "Update Completed");
+				}
+			}
+		});
 	}
 
 	public Button getShow() {

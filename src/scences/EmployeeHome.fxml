@@ -434,8 +434,9 @@
                                 <TableColumn fx:id="ToursIDCOL1" prefWidth="58.0" text="TourID" />
                                 <TableColumn fx:id="TourDescriptionCOL" minWidth="0.0" prefWidth="245.0" text="Description" />
                                 <TableColumn fx:id="TourDurationCOL1" prefWidth="152.0" text="Tour Duration" />
-                                <TableColumn fx:id="LocationsIDCOL1" minWidth="0.0" prefWidth="148.0" text="LocationsID" />
+                                <TableColumn fx:id="LocationsIDCOL12" minWidth="0.0" prefWidth="148.0" text="LocationsID" />
                         <TableColumn fx:id="ActionTourCOL" minWidth="0.0" prefWidth="68.0" text="Action" />
+                        <TableColumn fx:id="LocationsIDCOL1" minWidth="0.0" prefWidth="148.0" text="LocationsID" />
                             </columns>
                         </TableView>
                         <Button fx:id="AddTourBTN1" layoutX="1375.0" layoutY="34.0" mnemonicParsing="false" onAction="#AddTourpane" stylesheets="@GreenBtn.css" text="Add Tour" />

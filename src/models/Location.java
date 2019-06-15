@@ -1,6 +1,11 @@
 package models;
 
 import javafx.scene.control.Button;
+import scences.AlertBoxUpdate;
+import scences.ConnectionController;
+
+import static client.ChatClient.locationsDataS;
+import static client.ChatClient.myMapsDataS2;
 
 public class Location {
 	private int locationID;
@@ -36,6 +41,24 @@ public class Location {
 		this.description = description;
 		this.accessibility = accessibility;
 		this.show = show;
+
+		show.setOnAction(e -> {
+			for(Location loc : locationsDataS ){
+				if(loc.getShow() == show){
+					int locationid = loc.getLocationID();
+					String name = loc.getLocationName();
+					String classification = loc.getLocationClassification();
+					String locationdesc = loc.getDescription();
+					boolean access = loc.isAccessibility();
+
+					String locationChangeUpdate = "=UPDATE Locations SET locationID = " + locationid +",description = '" + locationdesc + "',accessibility = " + access
+							+ ",locationName = '" + name + "'" + ",classification = '" + classification + "'WHERE locationID = " + locationid ;
+					boolean flag = ConnectionController.client.handleMessageFromClientUI(locationChangeUpdate);
+
+					AlertBoxUpdate.display("Update Status", "Update Completed");
+				}
+			}
+		});
 	}
 
 	public Button getShow() {

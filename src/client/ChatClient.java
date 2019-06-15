@@ -62,6 +62,7 @@ public class ChatClient extends AbstractClient {
 	public static ObservableList<City> catalogDataS = FXCollections.observableArrayList();
 	public static ObservableList<City2> catalogDataS2 = FXCollections.observableArrayList();
 	public static ObservableList<Map> myMapsDataS = FXCollections.observableArrayList();
+	public static ObservableList<Map2> myMapsDataS2 = FXCollections.observableArrayList();
 	public static ObservableList<Employee> employeesDataS = FXCollections.observableArrayList();
 	public static ObservableList<ChangeRequest> requestsDataS = FXCollections.observableArrayList();
 	public static ObservableList<Location> locationsDataS = FXCollections.observableArrayList();
@@ -319,20 +320,20 @@ public class ChatClient extends AbstractClient {
 					EmployeeHomeController.SearchTTV2.refresh();
 
 				}
-				else if (((ArrayList<String>) msg).get(0).equals("Maps")) {
-					System.out.println("DEBUG: getting allmaps");
+				else if (((ArrayList<String>) msg).get(0).equals("Maps2")) {
+					System.out.println("DEBUG: getting allmaps2");
 					((ArrayList<String>) msg).remove(0);
-					ObservableList<Map> catalogDataMap = FXCollections.observableArrayList();
+					ObservableList<Map2> catalogDataMap = FXCollections.observableArrayList();
 					for (int i = 0; i < ((ArrayList) msg).size(); i += 4) {
 
-						catalogDataMap.add(new Map(
+						catalogDataMap.add(new Map2(
 								Integer.parseInt(((ArrayList<String>) msg).get(i)), //4
 								((ArrayList<String>) msg).get(i + 1), //HAIFAMPL;
 								((ArrayList<String>) msg).get(i + 2) //hafia map
 								, Double.parseDouble(((ArrayList<String>) msg).get(i + 3)), new Button("update")));
 
 					}
-					myMapsDataS = catalogDataMap;
+					myMapsDataS2 = catalogDataMap;
 					EmployeeHomeController.MyMapsTTV1.setItems(catalogDataMap);
 					EmployeeHomeController.MyMapsTTV1.refresh();
 				}
@@ -462,7 +463,8 @@ public class ChatClient extends AbstractClient {
 				message.charAt(0) == 'b' || message.charAt(0) == 'v' || message.charAt(0) == 'c' || message.charAt(0) == 'x' || message.charAt(0) == 'a'
 				|| message.charAt(0) == 'q' || message.charAt(0) == ']' || message.charAt(0) == 'A' || message.charAt(0) == '5'  || message.charAt(0) == '6'
 				|| message.charAt(0) == 'r' || message.charAt(0) == 'i' || message.charAt(0) == 'g' || message.charAt(0) == '>'|| message.charAt(0) == '3'
-				|| message.charAt(0) == 'L' || message.charAt(0) == 'T' || message.charAt(0) == '7' || message.charAt(0) == '8' || message.charAt(0) == '0')   {
+				|| message.charAt(0) == 'L' || message.charAt(0) == 'T' || message.charAt(0) == '7' || message.charAt(0) == '8'
+				|| message.charAt(0) == 'X' || message.charAt(0) == '0')   {
 			try {
 				System.out.println("msg:" +message);
 				sendToServer(message);
