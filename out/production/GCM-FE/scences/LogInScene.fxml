@@ -11,7 +11,7 @@
 <AnchorPane fx:id="LogInAP" prefHeight="500.0" prefWidth="500.0" stylesheets="@AppStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scences.LogInController">
    <children>
       <Button fx:id="LogInBTN" layoutX="174.0" layoutY="281.0" mnemonicParsing="false" onAction="#Login" prefHeight="31.0" prefWidth="151.0" stylesheets="@GreenBtn.css" text="LogIn" AnchorPane.bottomAnchor="189.048828125" AnchorPane.leftAnchor="174.0" AnchorPane.rightAnchor="175.0" AnchorPane.topAnchor="281.0" />
-      <TextField fx:id="UserNameTF" layoutX="134.0" layoutY="110.0" prefHeight="31.0" prefWidth="232.0" promptText="username(ID)" text="311134166" AnchorPane.bottomAnchor="359.0" AnchorPane.leftAnchor="134.0" AnchorPane.rightAnchor="134.0" AnchorPane.topAnchor="110.0" />
+      <TextField fx:id="UserNameTF" layoutX="134.0" layoutY="110.0" prefHeight="31.0" prefWidth="232.0" promptText="username(ID)" text="999999999" AnchorPane.bottomAnchor="359.0" AnchorPane.leftAnchor="134.0" AnchorPane.rightAnchor="134.0" AnchorPane.topAnchor="110.0" />
       <Text fx:id="UserNameT" fill="#0615dd" layoutX="198.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter username" AnchorPane.bottomAnchor="408.2841796875" AnchorPane.leftAnchor="198.0" AnchorPane.rightAnchor="199.01416015625" AnchorPane.topAnchor="74.8134765625">
          <font>
             <Font name="System Bold" size="15.0" />
@@ -20,7 +20,7 @@
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Text>
-      <PasswordField fx:id="PasswordPF" layoutX="135.0" layoutY="212.0" prefHeight="31.0" prefWidth="232.0" promptText="password" text="As?212121" AnchorPane.bottomAnchor="258.048828125" AnchorPane.leftAnchor="135.0" AnchorPane.rightAnchor="133.0" AnchorPane.topAnchor="212.0" />
+      <PasswordField fx:id="PasswordPF" layoutX="135.0" layoutY="212.0" prefHeight="31.0" prefWidth="232.0" promptText="password" text="password" AnchorPane.bottomAnchor="258.048828125" AnchorPane.leftAnchor="135.0" AnchorPane.rightAnchor="133.0" AnchorPane.topAnchor="212.0" />
       <Button fx:id="LogInGuestBTN" layoutX="134.0" layoutY="337.0" mnemonicParsing="false" onAction="#Guest" prefHeight="31.0" prefWidth="232.0" text="LogIn As Guest" AnchorPane.bottomAnchor="133.048828125" AnchorPane.leftAnchor="134.0" AnchorPane.rightAnchor="134.0" AnchorPane.topAnchor="337.0" />
       <Label fx:id="LoginStatusL" alignment="CENTER" contentDisplay="CENTER" layoutX="122.0" layoutY="451.0" prefHeight="21.0" prefWidth="258.0" text="Status" textAlignment="JUSTIFY" AnchorPane.bottomAnchor="29.048828125" AnchorPane.leftAnchor="122.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="451.0" />
       <Text fx:id="SignInT" fill="#0615dd" layoutX="128.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign In" textAlignment="CENTER" wrappingWidth="245.5126953125" AnchorPane.bottomAnchor="459.78515625" AnchorPane.leftAnchor="128.0" AnchorPane.rightAnchor="126.4873046875" AnchorPane.topAnchor="10.326171875">

@@ -470,6 +470,51 @@ public class EmployeeHomeController implements Initializable {
     private Label LocationsIDL;
 
 
+    //
+
+    @FXML
+    private TableView<CustomerDetails> CustomersTTV;
+
+    @FXML
+    public static TableView<CustomerDetails> CustomersTTV1;
+
+    @FXML
+    private TableColumn<CustomerDetails, String> CDuserIDCOL;
+
+    @FXML
+    private TableColumn<CustomerDetails, Integer> CDCusIDCOL;
+
+    @FXML
+    private TableColumn<CustomerDetails, Integer> CDNumOfPurchasesCOL;
+
+    @FXML
+    private TableColumn<CustomerDetails, String> CDNameCOL;
+
+    @FXML
+    private TableColumn<CustomerDetails, Integer> CDAgeCOL;
+
+    @FXML
+    private TableColumn<CustomerDetails, String> CDPhoneCOL;
+
+    @FXML
+    private TableColumn<CustomerDetails, String> CDEmailCOL;
+
+    @FXML
+    private TableColumn<CustomerDetails, Button> CDActionCOL;
+
+    @FXML
+    private Button CustomersBTN;
+
+    @FXML
+    private ImageView CustomerIMG;
+
+    @FXML
+    private TextField searchBoxCD;
+
+
+
+
+
     @FXML
     void LogOutEmployee(ActionEvent event) {
         ChatClient.EraseDetails();
@@ -509,6 +554,7 @@ public class EmployeeHomeController implements Initializable {
         AnchorPaneChildrens.addAll(ChangePanesAP.getChildren());
         ChangePanesAP.getChildren().clear();
         ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(0));
+
         if (ChatClient.employee.getRoleID() != 0 && ChatClient.employee.getRoleID() != 1){
             WaitingForApprovalBTN.setVisible(false);
             TourLocationBTN.setVisible(false);
@@ -519,12 +565,21 @@ public class EmployeeHomeController implements Initializable {
             ApprovalImage.setVisible(false);
             TourLocationIMG.setVisible(false);
         }
+
+        if(ChatClient.employee.getRoleID() != 0){
+            StatisticsBTN.setVisible(false);
+            StatisticsImage.setVisible(false);
+            CustomersBTN.setVisible(false);
+            CustomerIMG.setVisible(false);
+        }
+
         SearchTTV2 = SearchTTV;
         MyMapsTTV1 = MyMapsTTV;
         EmployeeTTV1 = EmployeeTTV;
         RequestTTV1 = RequestTV;
         DailyStatisticTTV2 = DailyStatisticTTV;
         DailyStatisticTTV3 = DailyStatisticTTV1;
+        CustomersTTV1 = CustomersTTV;
         // cols for cities
         IDCOL.setCellValueFactory(new PropertyValueFactory<>("cityID"));
         DescriptionCOL.setCellValueFactory(new PropertyValueFactory<>("description"));
@@ -593,6 +648,16 @@ public class EmployeeHomeController implements Initializable {
         statisticCityIDCOL1.setCellValueFactory(new PropertyValueFactory<>("cityID"));
         statisticCityNameCOL1.setCellValueFactory(new PropertyValueFactory<>("cityName"));
         statisticNumOfPurchasesCOL1.setCellValueFactory(new PropertyValueFactory<>("numOfPurchases"));
+
+        // cols for Customer Details
+        CDuserIDCOL.setCellValueFactory(new PropertyValueFactory<>("userID"));
+        CDCusIDCOL.setCellValueFactory(new PropertyValueFactory<>("customerID"));
+        CDNumOfPurchasesCOL.setCellValueFactory(new PropertyValueFactory<>("numberofPurchases"));
+        CDNameCOL.setCellValueFactory(new PropertyValueFactory<>("customerName"));
+        CDAgeCOL.setCellValueFactory(new PropertyValueFactory<>("customerAge"));
+        CDPhoneCOL.setCellValueFactory(new PropertyValueFactory<>("customerPhone"));
+        CDEmailCOL.setCellValueFactory(new PropertyValueFactory<>("customerEmail"));
+        CDActionCOL.setCellValueFactory(new PropertyValueFactory<>("show"));
 
 
 
@@ -679,6 +744,38 @@ public class EmployeeHomeController implements Initializable {
             SearchTTV2.setItems(sortedList);
         });
     }
+
+    @FXML
+    void searchRecordCustomers(KeyEvent event) {
+        FilteredList<CustomerDetails> filterData = new FilteredList<>(CDforCustomerDetails, p -> true);
+        searchBoxCD.textProperty().addListener((obsevable, oldvalue, newvalue) -> {
+            filterData.setPredicate(customer -> {
+
+                if (newvalue == null || newvalue.isEmpty()) {
+                    return true;
+                }
+                String typedText = newvalue.toLowerCase();
+                if (customer.getCustomerEmail().toLowerCase().indexOf(typedText) != -1) {
+
+                    return true;
+                }
+                if (customer.getCustomerName().toLowerCase().indexOf(typedText) != -1) {
+
+                    return true;
+                }
+                if (customer.getUserID().toLowerCase().indexOf(typedText) != -1) {
+
+                    return true;
+                }
+                return false;
+            });
+            SortedList<CustomerDetails> sortedList = new SortedList<>(filterData);
+            sortedList.comparatorProperty().bind(CustomersTTV1.comparatorProperty());
+            CustomersTTV1.setItems(sortedList);
+        });
+    }
+
+
     @FXML
     void searchRecordMap(KeyEvent event) {
         FilteredList<Map2> filterData = new FilteredList<>(myMapsDataS2, p -> true);
@@ -1045,6 +1142,17 @@ public class EmployeeHomeController implements Initializable {
         ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(9));
     }
 
+    @FXML
+    void CustomerDetailsFunc(ActionEvent event) {
+        ChangePanesAP.getChildren().clear();
+        ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(11));
+        CustomersTTV.getItems().removeAll();
 
+        boolean flag = false;
+        String fillAllCustomerDetails = "_SELECT Customers.userID , Customers.cusID , Customers.purchases , CustomersCard.customerName\n" +
+                ", CustomersCard.age , CustomersCard.phone , CustomersCard.Email\n" +
+                "From Customers JOIN CustomersCard ON Customers.cusID = CustomersCard.cusID"; // mapID mapName description version
+        flag = ConnectionController.client.handleMessageFromClientUI(fillAllCustomerDetails);
+    }
 
 }

@@ -68,6 +68,8 @@ public class ChatClient extends AbstractClient {
 	public static ObservableList<Location> locationsDataS = FXCollections.observableArrayList();
 	public static ObservableList<Tour> tourDataS = FXCollections.observableArrayList();
 	public static ObservableList<Statistics> statisticsDataS = FXCollections.observableArrayList();
+	public static ObservableList<CustomerDetails> CDforCustomerDetails = FXCollections.observableArrayList();
+
 	/**
 	 * Constructs an instance of the chat client.
 	 *
@@ -509,6 +511,27 @@ public class ChatClient extends AbstractClient {
 					});
 				}
 
+				else if (((ArrayList<String>) msg).get(0).equals("CDforCustomerDatils")) {
+					System.out.println("DEBUG: getting CDforCustomerDatils");
+					((ArrayList<String>) msg).remove(0);
+					ObservableList<CustomerDetails> catalogData = FXCollections.observableArrayList();
+
+					for (int i = 0; i < ((ArrayList) msg).size(); i += 7) {
+						catalogData.add(new CustomerDetails(((ArrayList<String>) msg).get(i), Integer.parseInt(((ArrayList<String>) msg).get(i + 1)), Integer.parseInt(((ArrayList<String>) msg).get(i + 2))
+								,((ArrayList<String>) msg).get(i + 3), Integer.parseInt(((ArrayList<String>) msg).get(i + 4)), ((ArrayList<String>) msg).get(i + 5),((ArrayList<String>) msg).get(i + 6), new Button("See Purchases") ));
+					}
+					CDforCustomerDetails = catalogData;
+					Platform.runLater(new Runnable() {
+						@Override
+						public void run() {
+							EmployeeHomeController.CustomersTTV1.getItems().removeAll();
+							EmployeeHomeController.CustomersTTV1.getItems().clear();
+							EmployeeHomeController.CustomersTTV1.setItems(catalogData);
+							EmployeeHomeController.CustomersTTV1.refresh();
+						}
+					});
+				}
+
 			}
 
 		}// close big instance of IF
@@ -531,7 +554,7 @@ public class ChatClient extends AbstractClient {
 				|| message.charAt(0) == 'q' || message.charAt(0) == ']' || message.charAt(0) == 'A' || message.charAt(0) == '5'  || message.charAt(0) == '6'
 				|| message.charAt(0) == 'r' || message.charAt(0) == 'i' || message.charAt(0) == 'g' || message.charAt(0) == '>'|| message.charAt(0) == '3'
 				|| message.charAt(0) == 'L' || message.charAt(0) == 'T' || message.charAt(0) == '7' || message.charAt(0) == '8'
-				|| message.charAt(0) == 'U' || message.charAt(0) == 'P' || message.charAt(0) == 'S' || message.charAt(0) == 'V'
+				|| message.charAt(0) == 'U' || message.charAt(0) == 'P' || message.charAt(0) == 'S' || message.charAt(0) == 'V' || message.charAt(0) == '_'
 				|| message.charAt(0) == 'X' || message.charAt(0) == '0' || message.charAt(0) == 'Q' || message.charAt(0) == 'W' || message.charAt(0) == 'R')    {
 			try {
 				System.out.println("msg:" +message);
