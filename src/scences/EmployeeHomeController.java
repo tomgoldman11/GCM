@@ -48,6 +48,10 @@ public class EmployeeHomeController implements Initializable {
     private String mapName = "";
     private int mapID = -1;
 
+    public static int CusIDS = -1;
+    public static int PurchasesS = -1;
+    public static String CusNameS = "x";
+
     @FXML
     private Button BackBTN;
 

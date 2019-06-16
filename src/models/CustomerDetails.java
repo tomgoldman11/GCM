@@ -1,16 +1,30 @@
 package models;
+import client.ClientConsole;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import scences.ConnectionController;
+
+import java.io.IOException;
+
+import static client.ChatClient.CDforCustomerDetails;
+import static scences.EmployeeHomeController.CusIDS;
+import static scences.EmployeeHomeController.PurchasesS;
+import static scences.EmployeeHomeController.CusNameS;
 
 public class CustomerDetails {
-
-    private String userID;
-    private int customerID;
-    private int numberofPurchases;
-    private String customerName;
-    private int customerAge;
-    private String customerPhone;
-    private String customerEmail;
-    private Button show;
+    public String userID;
+    public int customerID;
+    public int numberofPurchases;
+    public String customerName;
+    public int customerAge;
+    public String customerPhone;
+    public String customerEmail;
+    public Button show;
 
 
     public CustomerDetails(String userID, int customerID, int numberofPurchases, String customerName, int customerAge, String customerPhone, String customerEmail, Button show) {
@@ -22,6 +36,32 @@ public class CustomerDetails {
         this.customerPhone = customerPhone;
         this.customerEmail = customerEmail;
         this.show = show;
+
+        show.setOnAction(e -> {
+            for(CustomerDetails customer : CDforCustomerDetails ){
+                if (customer.getUserID().equals(userID)){
+                    CusIDS = customer.getCustomerID();
+                    CusNameS = customer.getCustomerName();
+                    PurchasesS = customer.getNumberofPurchases();
+                    String CustomerPurchases = "/scences/CustomerPurchases.fxml"; // main screen
+                    try {
+                        ClientConsole.changeScene(CustomerPurchases);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+
+//                VBox layout = new VBox(10);
+//                layout.getChildren().addAll(MapIV,showLocsToursDetails);
+//                layout.setAlignment(Pos.CENTER);
+//
+//                Scene scene = new Scene(layout);
+//                window.setScene(scene);
+//                // window.showAndWait();
+//                window.show();
+
+            }
+        });
     }
 
 
@@ -54,7 +94,7 @@ public class CustomerDetails {
         return customerName;
     }
 
-    public void setCustomerName(String customerName) {
+    public  void setCustomerName(String customerName) {
         this.customerName = customerName;
     }
 

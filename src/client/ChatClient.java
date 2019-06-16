@@ -13,17 +13,18 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
 import models.*;
 import ocsf.client.AbstractClient;
-import scences.ConnectionController;
-import scences.CustomerHomeController;
-import scences.EmployeeHomeController;
-import scences.LocationsToursDetailsController;
+import scences.*;
 
 import java.io.*;
 import java.sql.ClientInfoStatus;
 import java.util.ArrayList;
 
-
-
+import static scences.CreditCardSceneController.cardtype; // cardtype cardnumber expiredate cvv address fullName
+import static scences.CreditCardSceneController.cardnumber;
+import static scences.CreditCardSceneController.expiredate;
+import static scences.CreditCardSceneController.cvv;
+import static scences.CreditCardSceneController.address;
+import static scences.CreditCardSceneController.fullName;
 /**
  * xv This class overrides some of the methods defined in the abstract
  * superclass in order to give more functionality to the client.
@@ -58,6 +59,7 @@ public class ChatClient extends AbstractClient {
 	public static int maxOTSubID = 0;
 	public static int maxFSubID = 0;
 	public static int maxRequestID = 0;
+	public static int maxcreditcardID = 0;
 	public static boolean CustomerFlag = true;
 	public static ObservableList<City> catalogDataS = FXCollections.observableArrayList();
 	public static ObservableList<City2> catalogDataS2 = FXCollections.observableArrayList();
@@ -190,6 +192,10 @@ public class ChatClient extends AbstractClient {
 		if (msg.toString().charAt(0) == '3') {
 			ChatClient.maxRequestID = Integer.parseInt(msg.toString().substring(1)) + 1;
 		}
+		if (msg.toString().charAt(0) == 'M') {
+			ChatClient.maxcreditcardID = Integer.parseInt(msg.toString().substring(1)) + 1;
+		}
+
 		if (msg.toString().charAt(0) == 'U') {
 			String[] splited = msg.toString().split("!");
 			String updateCity = "QINSERT INTO Cities(`cityID`, `description`, `mapsClusterVersion`, `numMaps`, `numTours`, `numLocations`, `mapsClusterPrice`, `cityName`)" +
@@ -197,6 +203,20 @@ public class ChatClient extends AbstractClient {
 					+ 0 + "," + 0 + "," + 0 + "," + Double.parseDouble(splited[7]) + ",'" + splited[8] + "')";
 			boolean flag = ConnectionController.client.handleMessageFromClientUI(updateCity);
 		}
+
+		if (msg.toString().charAt(0) == 'N') {
+			String[] splited = msg.toString().split("!");
+			// cardtype cardnumber expiredate cvv address fullName
+			cardtype = splited[1];
+			if(!cardtype.equals("42")) {
+				cardnumber = splited[2];
+				expiredate = splited[3];
+				cvv = Integer.parseInt(splited[4]);
+				address = splited[5];
+				fullName = splited[6];
+			}
+		}
+
 		if (msg.toString().charAt(0) == 'P') {
 			String[] splited = msg.toString().split("!");
 			String updateMap = "QINSERT INTO `Maps`(`mapID`, `cityID`, `mapName`, `description`, `version`, `mapPath`) VALUES ( "
@@ -532,6 +552,60 @@ public class ChatClient extends AbstractClient {
 					});
 				}
 
+				else if (((ArrayList<String>) msg).get(0).equals("OTMaps")) {
+					System.out.println("DEBUG: getting mapssssOT");
+
+
+					((ArrayList<String>) msg).remove(0);
+					ObservableList<Map> catalogDataMap = FXCollections.observableArrayList();
+					for (int i = 0; i < ((ArrayList) msg).size(); i += 6) {
+
+						catalogDataMap.add(new Map(
+								Integer.parseInt(((ArrayList<String>) msg).get(i)), //4
+								((ArrayList<String>) msg).get(i + 1), //HAIFAMPL;
+								((ArrayList<String>) msg).get(i + 2) //hafia map
+								, Double.parseDouble(((ArrayList<String>) msg).get(i + 3)), //1.1
+								((ArrayList<String>) msg).get(i + 4), //file
+								"-",
+								Double.parseDouble(((ArrayList<String>) msg).get(i + 5))));
+					}
+
+					Platform.runLater(new Runnable() {
+						@Override
+						public void run() {
+
+							myMapsDataS = catalogDataMap;
+							CustomerPurchasesHomeController.MyCustomerMapsTV1.getItems().removeAll();
+							CustomerPurchasesHomeController.MyCustomerMapsTV1.getItems().clear();
+							CustomerPurchasesHomeController.MyCustomerMapsTV1.setItems(catalogDataMap);
+							CustomerPurchasesHomeController.MyCustomerMapsTV1.refresh();
+
+
+						}});
+				}
+				else if (((ArrayList<String>) msg).get(0).equals("FMaps")) {
+					System.out.println("DEBUG: getting mapssssF");
+					((ArrayList<String>) msg).remove(0);
+					ObservableList<Map> catalogDataMap = FXCollections.observableArrayList();
+					for (int i = 0; i < ((ArrayList) msg).size(); i += 7) {
+						catalogDataMap.add(new Map(
+								Integer.parseInt(((ArrayList<String>) msg).get(i)), //4
+								((ArrayList<String>) msg).get(i + 1), //HAIFAMPL;
+								((ArrayList<String>) msg).get(i + 2) //hafia map
+								, Double.parseDouble(((ArrayList<String>) msg).get(i + 3)), //1.1
+								((ArrayList<String>) msg).get(i + 4), //file
+								((ArrayList<String>) msg).get(i + 5), //file,
+								Double.parseDouble(((ArrayList<String>) msg).get(i + 6))));
+					}
+					Platform.runLater(new Runnable() {
+						@Override
+						public void run() {
+							myMapsDataS.addAll(catalogDataMap);
+							CustomerPurchasesHomeController.MyCustomerMapsTV1.setItems(myMapsDataS);
+							CustomerPurchasesHomeController.MyCustomerMapsTV1.refresh();
+						}});
+				}
+
 			}
 
 		}// close big instance of IF
@@ -553,9 +627,9 @@ public class ChatClient extends AbstractClient {
 				message.charAt(0) == 'b' || message.charAt(0) == 'v' || message.charAt(0) == 'c' || message.charAt(0) == 'x' || message.charAt(0) == 'a'
 				|| message.charAt(0) == 'q' || message.charAt(0) == ']' || message.charAt(0) == 'A' || message.charAt(0) == '5'  || message.charAt(0) == '6'
 				|| message.charAt(0) == 'r' || message.charAt(0) == 'i' || message.charAt(0) == 'g' || message.charAt(0) == '>'|| message.charAt(0) == '3'
-				|| message.charAt(0) == 'L' || message.charAt(0) == 'T' || message.charAt(0) == '7' || message.charAt(0) == '8'
-				|| message.charAt(0) == 'U' || message.charAt(0) == 'P' || message.charAt(0) == 'S' || message.charAt(0) == 'V' || message.charAt(0) == '_'
-				|| message.charAt(0) == 'X' || message.charAt(0) == '0' || message.charAt(0) == 'Q' || message.charAt(0) == 'W' || message.charAt(0) == 'R')    {
+				|| message.charAt(0) == 'L' || message.charAt(0) == 'T' || message.charAt(0) == '7' || message.charAt(0) == '8' ||  message.charAt(0) == 'M'
+				|| message.charAt(0) == 'U' || message.charAt(0) == 'P' || message.charAt(0) == 'S' || message.charAt(0) == 'V' || message.charAt(0) == '_' || message.charAt(0) == 'N'
+				|| message.charAt(0) == 'X' || message.charAt(0) == '0' || message.charAt(0) == 'Q' || message.charAt(0) == 'W' || message.charAt(0) == 'R' || message.charAt(0) == 'I')    {
 			try {
 				System.out.println("msg:" +message);
 				sendToServer(message);

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="500.0" prefWidth="700.0" stylesheets="@AppStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scences.CreditCardSceneController">
+   <children>
+      <Label layoutX="293.0" layoutY="20.0" text="Enter Credit Card" textFill="#204ee4">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="179.0" layoutY="79.0" text="Card Type" textFill="#204ee4" />
+      <Label layoutX="180.0" layoutY="291.0" text="Address" textFill="#204ee4" />
+      <Label layoutX="179.0" layoutY="240.0" text="CVV" textFill="#204ee4" />
+      <Label layoutX="179.0" layoutY="183.0" text="Expire date" textFill="#204ee4" />
+      <Label layoutX="179.0" layoutY="130.0" text="Card Number" textFill="#204ee4" />
+      <Label layoutX="174.0" layoutY="339.0" text="Full Name" textFill="#204ee4" />
+      <TextField fx:id="cardtypeTF" layoutX="293.0" layoutY="74.0" prefHeight="31.0" prefWidth="258.0" promptText="visa/master/..." />
+      <TextField fx:id="cardnumberTF" layoutX="293.0" layoutY="125.0" prefHeight="31.0" prefWidth="258.0" />
+      <TextField fx:id="expiredateTF" layoutX="293.0" layoutY="178.0" prefHeight="31.0" prefWidth="258.0" promptText="MM/YY" />
+      <TextField fx:id="cvvTF" layoutX="293.0" layoutY="235.0" prefHeight="31.0" prefWidth="258.0" promptText="3 digit" />
+      <TextField fx:id="adressTF" layoutX="293.0" layoutY="286.0" prefHeight="31.0" prefWidth="258.0" />
+      <TextField fx:id="fullnameTF" layoutX="293.0" layoutY="334.0" prefHeight="31.0" prefWidth="258.0" />
+      <Button fx:id="BuyBTN" layoutX="321.0" layoutY="412.0" mnemonicParsing="false" onAction="#buyFunc" stylesheets="@PurpleBtn.css" text="Buy" />
+      <Button fx:id="SaveBuyBTN" layoutX="486.0" layoutY="412.0" mnemonicParsing="false" onAction="#savebuyFunc" stylesheets="@GreenBtn.css" text="Save&amp;Buy" />
+      <Button fx:id="BackBTN" layoutX="161.0" layoutY="412.0" mnemonicParsing="false" onAction="#backFunc" stylesheets="@RedBtn.css" text="Back" />
+   </children>
+</AnchorPane>

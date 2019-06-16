@@ -52,6 +52,19 @@ public class Map {
 		});
 	}
 
+	public Map(int mapID, String mapName, String description, double version, String mapPath, String till , double price) {
+		System.out.println("==== my price brings all the boys to thge uard --- " + price);
+		this.mapID = mapID;
+		this.mapName = mapName;
+		this.description = description;
+		this.version = version;
+		this.tours = tours;
+		this.locations = locations;
+		this.mapPath = mapPath;
+		this.till = till;
+		this.price = price;
+	}
+
 	public Map(int mapID, String mapName, String description, double version, Button show) {
 		this.mapID = mapID;
 		this.mapName = mapName;

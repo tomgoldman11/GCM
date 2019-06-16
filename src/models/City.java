@@ -1,9 +1,13 @@
 package models;
 
+import client.ClientConsole;
 import javafx.scene.control.Button;
 import scences.AlertBoxCity;
 
+import java.io.IOException;
+
 import static client.ChatClient.catalogDataS;
+import static scences.CreditCardSceneController.*;
 
 public class City {
 	private int cityID;
@@ -15,6 +19,7 @@ public class City {
 	private int numberLocations;
 	private double mapClusterPrice;
 	private String cityName;
+
 
 	private Button download; // button for CustomerHome layout
 
@@ -47,7 +52,16 @@ public class City {
 		download.setOnAction(e -> {
 			for(City city : catalogDataS ){
 				if(city.getDownload() == download){
-					AlertBoxCity.display(city.getCityName(), city.getMapClusterPrice(), city.getCityID());
+					cityNameCredit = city.getCityName();
+					mapClusterPriceCredit = city.getMapClusterPrice();
+					cityIDCredit = city.getCityID();
+					String CreditCardScene = "/scences/CreditCardScene.fxml";
+					try {
+						ClientConsole.changeScene(CreditCardScene);
+					} catch (IOException ex) {
+						ex.printStackTrace();
+					}
+					//AlertBoxCity.display(city.getCityName(), city.getMapClusterPrice(), city.getCityID());
 				}
 			}
 		});

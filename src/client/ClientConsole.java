@@ -188,6 +188,17 @@ public class ClientConsole extends Application {
 			primaryStage.setWidth(1500);
 			primaryStage.setTitle("GCM - LocationToursDetails");
 		}
+		if( fxml == "/scences/CreditCardScene.fxml")
+		{
+			primaryStage.setHeight(550);
+			primaryStage.setWidth(600);
+			primaryStage.setTitle("GCM - Verify Payment");
+		}
+		if( fxml == "/scences/CustomerPurchases.fxml")
+		{
+			primaryStage.setHeight(900);
+			primaryStage.setWidth(1100);
+		}
 		primaryStage.getScene().setRoot(pane);
 	}
 
