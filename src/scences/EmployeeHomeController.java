@@ -876,7 +876,7 @@ public class EmployeeHomeController implements Initializable {
     void Statistics(ActionEvent event) {
         ChangePanesAP.getChildren().clear();
         ChangePanesAP.getChildren().add(AnchorPaneChildrens.get(4));
-        String fillStatisticsTable = "WSELECT C.cityID , C.cityName , COUNT(*) AS countF FROM Cities C JOIN F_Subscriptions F ON C.cityID = F.cityID GROUP BY cityID ";
+        String fillStatisticsTable = "WSELECT C.cityID , C.cityName , COUNT(*) AS countF FROM Cities C JOIN F_Subscriptions F ON C.cityID = F.cityID  GROUP BY cityID ";
         boolean flag = ConnectionController.client.handleMessageFromClientUI(fillStatisticsTable);
 
         String fillStatistics2Table = "RSELECT C.cityID , C.cityName , COUNT(*) AS countF FROM Cities C JOIN OT_Subscriptions T ON C.cityID = T.cityID GROUP BY cityID ";

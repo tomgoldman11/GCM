@@ -11,7 +11,7 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="500.0" stylesheets="@AppStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scences.ConnectionController">
    <children>
-      <TextField fx:id="hostTF" layoutX="78.0" layoutY="194.0" prefHeight="31.0" prefWidth="369.0" promptText="host" text="127.0.0.1" />
+      <TextField fx:id="hostTF" layoutX="78.0" layoutY="194.0" prefHeight="31.0" prefWidth="369.0" promptText="host" text="132.74.211.118" />
       <TextField fx:id="LoginIDTF" layoutX="78.0" layoutY="107.0" prefHeight="31.0" prefWidth="369.0" promptText="loginID" text="204380836" />
       <TextField fx:id="portTF" layoutX="78.0" layoutY="286.0" prefHeight="31.0" prefWidth="369.0" promptText="port" text="5555" />
       <Text fx:id="EnterLoginIDT" fill="#0615dd" layoutX="79.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter loginID">
