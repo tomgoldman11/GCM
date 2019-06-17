@@ -1,4 +1,4 @@
-# GCM-FE
+# GCM-FrontEnd
 Global City Map Project FrontEnd Side as part of Software Engineering Course.
 
 
